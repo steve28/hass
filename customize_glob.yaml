@@ -1,0 +1,20 @@
+"sensor.energy_meter_energy*":
+  hidden: true
+"sensor.energy_meter_exporting*":
+  hidden: true
+"sensor.energy_meter_interval*":
+  hidden: true
+"sensor.energy_meter_power*":
+  hidden: true
+"sensor.energy_meter_power_4":
+  hidden: false
+"sensor.energy_meter_previous_reading*":
+  hidden: true
+"sensor.desk_lamp*":
+  hidden: true
+"sensor.siren*":
+  hidden: true
+"sensor.steves_ipad*":
+  hidden: true
+"sensor.steves_iphone*":
+  hidden: true

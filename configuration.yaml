@@ -1,0 +1,202 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret lat
+  longitude: !secret lon
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 199
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+  # Customization file
+  customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
+  
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  ssl_certificate: !secret cert_path
+  ssl_key: !secret key_path
+  base_url: !secret url
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+  ignore:
+   - apple_tv
+   - samsung_tv
+   - roku
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+sensor:
+  - platform: yr
+    name: "Currently"
+    monitored_conditions:
+      - temperature
+      - symbol
+
+    
+# Text to speech
+tts:
+  - platform: google
+
+#nest
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+# Cloud
+cloud:
+  alexa:
+    filter:
+      include_entities:
+        - switch.desk_lamp_switch
+        - switch.office_light_switch
+        - light.my_room_lights_level
+        - media_player.family_room_tv
+    entity_config:
+      switch.desk_lamp_switch:
+        name: Desk Lamp
+        display_categories: LIGHT
+      switch.office_light_switch:
+        name: Office Light
+        display_categories: LIGHT
+      light.family_room_lights_level:
+        name: Family Room Lights
+        display_categories: LIGHT
+      media_player.family_room_tv:
+        name: Family Room TV
+        display_categories: TV
+
+# track phones 
+device_tracker:
+
+ios:
+
+media_player:
+  - platform: webostv
+    host: 192.168.1.12
+    name: Family Room TV
+    timeout: 5
+    filename: webostv.conf
+
+camera:
+  - platform: foscam
+    ip: 192.168.1.22
+    username: steve
+    password: !secret foscam_password
+    name: Front Door
+
+mqtt:
+  broker: 192.168.1.8
+  
+zwave:
+  usb_path: /dev/ttyUSB0
+
+#zigbee
+zha:
+  usb_path: /dev/ttyUSB1
+  database_path: /config/zigbee.db
+  
+#switch:
+#  - platform: mqtt
+#    name: "Office Light"
+#    state_topic: "smartthings/Office Light/switch"
+#    command_topic: "smartthings/Office Light/switch"
+#    payload_on: "on"
+#    payload_off: "off"
+#    retain: true
+
+#light:
+#  - platform: mqtt
+#    name: "Family Room Lights"
+#    state_topic: "smartthings/Family Room Lights/switch"
+#    command_topic: "smartthings/Family Room Lights/switch"
+#    brightness_state_topic: "smartthings/Family Room Lights/level"
+#    brightness_command_topic: "smartthings/Family Room Lights/level"
+#    brightness_scale: 100
+#    brightness_value_template: '{{ value }}'
+#    qos: 0
+#    payload_on: "on"
+#    payload_off: "off"
+#    optimistic: false
+#    retain: true
+    
+# For the garage doors    
+cover:
+  - platform: mqtt
+    name: "Right Garage Door"
+    state_topic: "smartthings/Right Garage Door/contact"
+    command_topic: "smartthings/Right Garage Door/door"
+    state_open: 'open'
+    state_closed: 'closed'
+    payload_open: 'open'
+    payload_close: 'closed'
+    retain: true
+    optimistic: true
+  - platform: mqtt
+    name: "Left Garage Door"
+    state_topic: "smartthings/Left Garage Door/contact"
+    command_topic: "smartthings/Left Garage Door/door"
+    state_open: 'open'
+    state_closed: 'closed'
+    payload_open: 'open'
+    payload_close: 'closed'
+    retain: true
+    optimistic: true
+
+remote:
+  - platform: harmony
+    name: Family Room
+    activity: AppleTV
+  - platform: harmony
+    name: Bedroom Hub
+    activity: Watch Bedroom TV
+    
+panel_iframe:
+ nodered:
+   title: 'Node-Red'
+   icon: 'mdi:shuffle-variant'
+   url: !secret nodered_url
+
+
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml

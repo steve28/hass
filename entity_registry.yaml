@@ -1,0 +1,120 @@
+climate.family_room:
+  platform: nest
+  unique_id: lqBlnFy-SqzMwTKqWwXBwtWxV87Kud1g
+sensor.steves_iphone_x_battery_level:
+  platform: ios
+  unique_id: level_steves_iphone_x
+sensor.steves_ipad_pro_battery_state:
+  platform: ios
+  unique_id: state_steves_ipad_pro
+sensor.steves_iphone_x_battery_state:
+  platform: ios
+  unique_id: state_steves_iphone_x
+sensor.steves_ipad_pro_battery_level:
+  platform: ios
+  unique_id: level_steves_ipad_pro
+switch.outlet_plug_switch:
+  platform: zwave
+  unique_id: 2-72057594076282880
+light.siren_level:
+  platform: zwave
+  unique_id: 3-72057594093076481
+sensor.siren_alarm_type:
+  platform: zwave
+  unique_id: 3-72057594094305281
+sensor.siren_alarm_level:
+  platform: zwave
+  unique_id: 3-72057594094305297
+sensor.siren_sourcenodeid:
+  platform: zwave
+  unique_id: 3-72057594094305313
+sensor.siren_burglar:
+  platform: zwave
+  unique_id: 3-72057594094305441
+switch.desk_lamp_switch:
+  platform: zwave
+  unique_id: 4-72057594109837312
+sensor.desk_lamp_energy:
+  platform: zwave
+  unique_id: 4-72057594110050306
+sensor.desk_lamp_previous_reading:
+  platform: zwave
+  unique_id: 4-72057594110050322
+sensor.desk_lamp_power:
+  platform: zwave
+  unique_id: 4-72057594110050434
+sensor.desk_lamp_voltage:
+  platform: zwave
+  unique_id: 4-72057594110050562
+sensor.desk_lamp_current:
+  platform: zwave
+  unique_id: 4-72057594110050626
+switch.office_light_switch:
+  platform: zwave
+  unique_id: 5-72057594126614528
+light.family_room_lights_level:
+  platform: zwave
+  unique_id: 6-72057594143408129
+sensor.energy_meter_power:
+  platform: zwave
+  unique_id: 7-72057594160365634
+sensor.energy_meter_power_2:
+  platform: zwave
+  unique_id: 7-144115188198293570
+sensor.energy_meter_power_3:
+  platform: zwave
+  unique_id: 7-216172782236221506
+sensor.energy_meter_energy:
+  platform: zwave
+  unique_id: 7-72057594160381954
+sensor.energy_meter_energy_2:
+  platform: zwave
+  unique_id: 7-144115188198309890
+sensor.energy_meter_energy_3:
+  platform: zwave
+  unique_id: 7-216172782236237826
+sensor.energy_meter_previous_reading:
+  platform: zwave
+  unique_id: 7-72057594160381970
+sensor.energy_meter_interval:
+  platform: zwave
+  unique_id: 7-72057594160381987
+sensor.energy_meter_power_4:
+  platform: zwave
+  unique_id: 7-72057594160382082
+sensor.energy_meter_exporting:
+  platform: zwave
+  unique_id: 7-72057594160382464
+sensor.energy_meter_previous_reading_2:
+  platform: zwave
+  unique_id: 7-144115188198309906
+sensor.energy_meter_interval_2:
+  platform: zwave
+  unique_id: 7-144115188198309923
+sensor.energy_meter_power_5:
+  platform: zwave
+  unique_id: 7-144115188198310018
+sensor.energy_meter_exporting_2:
+  platform: zwave
+  unique_id: 7-144115188198310400
+sensor.energy_meter_previous_reading_3:
+  platform: zwave
+  unique_id: 7-216172782236237842
+sensor.energy_meter_interval_3:
+  platform: zwave
+  unique_id: 7-216172782236237859
+sensor.energy_meter_power_6:
+  platform: zwave
+  unique_id: 7-216172782236237954
+sensor.energy_meter_exporting_3:
+  platform: zwave
+  unique_id: 7-216172782236238336
+sensor.energy_meter_previous_reading_4:
+  platform: zwave
+  unique_id: 7-72057594160382098
+sensor.energy_meter_interval_4:
+  platform: zwave
+  unique_id: 7-72057594160382115
+switch.guest_bathroom_light_switch:
+  platform: zwave
+  unique_id: 8-72057594176946176

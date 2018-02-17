@@ -1,0 +1,8 @@
+climate:
+  name: HVAC
+  entities:
+    - climate.family_room
+    - sensor.family_room_thermostat_humidity
+    - binary_sensor.family_room_thermostat_fan
+    - sensor.family_room_thermostat_hvac_state
+    - binary_sensor.family_room_thermostat_online
