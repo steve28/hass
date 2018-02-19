@@ -5,7 +5,7 @@ homeassistant:
   latitude: !secret lat
   longitude: !secret lon
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 199
+  elevation: !secret ele
   # metric for Metric, imperial for Imperial
   unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -26,7 +26,6 @@ config:
 
 
 http:
-  # Secrets are defined in the file secrets.yaml
   api_password: !secret http_password
   ssl_certificate: !secret cert_path
   ssl_key: !secret key_path
@@ -66,10 +65,16 @@ sun:
 
 sensor:
   - platform: yr
-    name: "Currently"
+    name: "Outside"
     monitored_conditions:
       - temperature
       - symbol
+  - platform: mqtt
+    name: "Kitchen Temperature"
+    state_topic: "smartthings/Kitchen Motion Sensor/temperature"
+  - platform: mqtt
+    name: "Garage Temperature"
+    state_topic: "smartthings/Garage Temperature/temperature"
 
     
 # Text to speech
@@ -88,8 +93,13 @@ cloud:
       include_entities:
         - switch.desk_lamp_switch
         - switch.office_light_switch
-        - light.my_room_lights_level
+        - light.living_room_lights
+        - light.family_room_lights_level
         - media_player.family_room_tv
+        - light.bedroom_lights
+        - switch.kitchen_lights
+        - switch.bathroom_vanity
+        - switch.bathroom_fan
     entity_config:
       switch.desk_lamp_switch:
         name: Desk Lamp
@@ -103,6 +113,21 @@ cloud:
       media_player.family_room_tv:
         name: Family Room TV
         display_categories: TV
+      light.living_room_lights:
+        name: Living Room Lights
+        display_categories: LIGHT
+      light.bedroom_lights:
+        name: Bedroom Lights
+        display_categories: LIGHT
+      switch.kitchen_lights:
+        name: Kitchen Lights
+        display_categories: LIGHT
+      switch.bathroom_vanity:
+        name: Bathroom Light
+        display_categories: LIGHT
+      switch.bathroom_fan:
+        name: Bathroom Fan
+        display_categories: LIGHT
 
 # track phones 
 device_tracker:
@@ -124,8 +149,22 @@ camera:
     name: Front Door
 
 mqtt:
+#  protocol: "3.1"
+#  embedded:
+#    listeners:
+#      default:
+#        max-connections: 5000
+#        bind: 0.0.0.0:1883
+#        type: tcp
+#      ws-1:
+#        bind: 0.0.0.0:8181
+#        type: ws
+#    auth:
+#      plugins: ['auth.anonymous']
+#      allow-anonymous: true
   broker: 192.168.1.8
-  
+   #user "homeassistant"
+   #pass <API PASSWORD>  
 zwave:
   usb_path: /dev/ttyUSB0
 
@@ -134,6 +173,20 @@ zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
   
+# MQTT Sensors
+binary_sensor:
+  - platform: mqtt
+    name: "Kitchen Motion"
+    state_topic: "smartthings/Kitchen Motion Sensor/motion"
+    payload_on: "active"
+    payload_off: "inactive"
+  - platform: mqtt
+    name: "Office Motion"
+    state_topic: "smartthings/Office Motion Sensor/motion"
+    payload_on: "active"
+    payload_off: "inactive"
+
+
 #switch:
 #  - platform: mqtt
 #    name: "Office Light"

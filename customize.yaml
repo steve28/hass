@@ -1,4 +1,3 @@
-# Nest Thermostat Stuff
 binary_sensor.family_room_thermostat_has_leaf:
   hidden: true
 binary_sensor.family_room_thermostat_is_locked:
@@ -18,16 +17,14 @@ sensor.family_room_thermostat_humidity:
   friendly_name: Humidity
   icon: mdi:water-percent
 binary_sensor.family_room_thermostat_fan:
-  friendly_name: Fan
-  icon: mdi:fan
+  hidden: true
 binary_sensor.family_room_thermostat_online:
   friendly_name: Online Status
-
-# Harmony Remotes
 remote.bedroom_hub:
   friendly_name: Bedroom TV
   icon: mdi:television
 remote.family_room:
   friendly_name: Living Room TV
   icon: mdi:television
-
+light.ge_appliances_zll_light_000bdfb3_1:
+  friendly_name: Attic Light

@@ -3,6 +3,30 @@ climate:
   entities:
     - climate.family_room
     - sensor.family_room_thermostat_humidity
-    - binary_sensor.family_room_thermostat_fan
     - sensor.family_room_thermostat_hvac_state
     - binary_sensor.family_room_thermostat_online
+
+family:
+  name: Family
+  entities:
+    - device_tracker.steves_iphone_x
+    
+doors:
+  name: Doors
+  entities:
+    - binary_sensor.apartment_door
+    - binary_sensor.attic_door
+    - binary_sensor.back_door
+    - binary_sensor.garage_side_door
+    - binary_sensor.kitchen_door
+    - binary_sensor.front_door
+    
+motion:
+  name: Motion
+  entities:
+    - binary_sensor.apartment_motion
+    - binary_sensor.bedroom_motion
+    - binary_sensor.family_room_motion
+    - binary_sensor.living_room_motion
+    - binary_sensor.office_motion
+    - binary_sensor.kitchen_motion

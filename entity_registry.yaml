@@ -118,3 +118,300 @@ sensor.energy_meter_interval_4:
 switch.guest_bathroom_light_switch:
   platform: zwave
   unique_id: 8-72057594176946176
+switch.utility_room_light:
+  platform: zwave
+  unique_id: 9-72057594193723392
+switch.attic_stairs_light:
+  platform: zwave
+  unique_id: 10-72057594210500608
+switch.upstairs_room_light:
+  platform: zwave
+  unique_id: 11-72057594227277824
+switch.kitchen_lights:
+  platform: zwave
+  unique_id: 12-72057594244055040
+switch.kitchen_door_inside_light:
+  platform: zwave
+  unique_id: 13-72057594260832256
+switch.kitchen_door_outside_light:
+  platform: zwave
+  unique_id: 14-72057594277609472
+switch.ginas_room_light:
+  platform: zwave
+  unique_id: 15-72057594294386688
+switch.ginas_bathroom_light:
+  platform: zwave
+  unique_id: 16-72057594311163904
+switch.dining_room_light:
+  platform: zwave
+  unique_id: 17-72057594327941120
+binary_sensor.apartment_motion:
+  platform: zwave
+  unique_id: 18-72057594344898560
+sensor.apartment_motion_alarm_type:
+  platform: zwave
+  unique_id: 18-72057594345963521
+sensor.apartment_motion_alarm_level:
+  platform: zwave
+  unique_id: 18-72057594345963537
+sensor.apartment_motion_sourcenodeid:
+  platform: zwave
+  unique_id: 18-72057594345963553
+sensor.apartment_motion_sensor_burglar:
+  platform: zwave
+  unique_id: 18-72057594345963681
+sensor.apartment_motion_temperature:
+  platform: zwave
+  unique_id: 18-72057594344914962
+binary_sensor.apartment_door:
+  platform: zwave
+  unique_id: 19-72057594361675776
+sensor.apartment_door_alarm_type:
+  platform: zwave
+  unique_id: 19-72057594362740737
+sensor.apartment_door_alarm_level:
+  platform: zwave
+  unique_id: 19-72057594362740753
+sensor.apartment_door_sourcenodeid:
+  platform: zwave
+  unique_id: 19-72057594362740769
+sensor.apartment_door_burglar:
+  platform: zwave
+  unique_id: 19-72057594362740897
+switch.back_door_light:
+  platform: zwave
+  unique_id: 20-72057594378272768
+switch.bedroom_fan:
+  platform: zwave
+  unique_id: 21-72057594395049984
+light.bedroom_lights:
+  platform: zwave
+  unique_id: 22-72057594411843585
+switch.bathroom_fan:
+  platform: zwave
+  unique_id: 23-72057594428604416
+switch.bathroom_vanity:
+  platform: zwave
+  unique_id: 24-72057594445381632
+switch.patio_lights:
+  platform: zwave
+  unique_id: 25-72057594462158848
+switch.garage_outside_light:
+  platform: zwave
+  unique_id: 26-72057594478936064
+switch.backyard_flood_lights:
+  platform: zwave
+  unique_id: 27-72057594495713280
+binary_sensor.garage_side_door:
+  platform: zwave
+  unique_id: 28-72057594512670720
+sensor.garage_side_door_alarm_type:
+  platform: zwave
+  unique_id: 28-72057594513735681
+sensor.garage_side_door_alarm_level:
+  platform: zwave
+  unique_id: 28-72057594513735697
+sensor.garage_side_door_sourcenodeid:
+  platform: zwave
+  unique_id: 28-72057594513735713
+sensor.garage_side_door_burglar:
+  platform: zwave
+  unique_id: 28-72057594513735841
+binary_sensor.back_door:
+  platform: zwave
+  unique_id: 30-72057594546225152
+sensor.back_door_alarm_type:
+  platform: zwave
+  unique_id: 30-72057594547290113
+sensor.back_door_alarm_level:
+  platform: zwave
+  unique_id: 30-72057594547290129
+sensor.back_door_sourcenodeid:
+  platform: zwave
+  unique_id: 30-72057594547290145
+sensor.back_door_burglar:
+  platform: zwave
+  unique_id: 30-72057594547290273
+binary_sensor.kitchen_door:
+  platform: zwave
+  unique_id: 31-72057594563002368
+sensor.kitchen_door_alarm_type:
+  platform: zwave
+  unique_id: 31-72057594564067329
+sensor.kitchen_door_alarm_level:
+  platform: zwave
+  unique_id: 31-72057594564067345
+sensor.kitchen_door_sourcenodeid:
+  platform: zwave
+  unique_id: 31-72057594564067361
+sensor.kitchen_door_burglar:
+  platform: zwave
+  unique_id: 31-72057594564067489
+binary_sensor.front_door:
+  platform: zwave
+  unique_id: 32-72057594579779584
+sensor.front_door_alarm_type:
+  platform: zwave
+  unique_id: 32-72057594580844545
+sensor.front_door_alarm_level:
+  platform: zwave
+  unique_id: 32-72057594580844561
+sensor.front_door_sourcenodeid:
+  platform: zwave
+  unique_id: 32-72057594580844577
+sensor.front_door_burglar:
+  platform: zwave
+  unique_id: 32-72057594580844705
+light.living_room_lights:
+  platform: zwave
+  unique_id: 33-72057594596392961
+switch.front_door_lights:
+  platform: zwave
+  unique_id: 34-72057594613153792
+switch.laundry_light:
+  platform: zwave
+  unique_id: 35-72057594629931008
+binary_sensor.family_room_motion:
+  platform: zwave
+  unique_id: 36-72057594646888448
+sensor.family_room_motion_alarm_type:
+  platform: zwave
+  unique_id: 36-72057594647953409
+sensor.family_room_motion_alarm_level:
+  platform: zwave
+  unique_id: 36-72057594647953425
+sensor.family_room_motion_sourcenodeid:
+  platform: zwave
+  unique_id: 36-72057594647953441
+sensor.family_room_motion_burglar:
+  platform: zwave
+  unique_id: 36-72057594647953569
+binary_sensor.bedroom_motion:
+  platform: zwave
+  unique_id: 37-72057594663665664
+sensor.bedroom_motion_alarm_type:
+  platform: zwave
+  unique_id: 37-72057594664730625
+sensor.bedroom_motion_alarm_level:
+  platform: zwave
+  unique_id: 37-72057594664730641
+sensor.bedroom_motion_sourcenodeid:
+  platform: zwave
+  unique_id: 37-72057594664730657
+sensor.bedroom_motion_burglar:
+  platform: zwave
+  unique_id: 37-72057594664730785
+binary_sensor.living_room_motion:
+  platform: zwave
+  unique_id: 38-72057594680442880
+sensor.living_room_motion_alarm_type:
+  platform: zwave
+  unique_id: 38-72057594681507841
+sensor.living_room_motion_alarm_level:
+  platform: zwave
+  unique_id: 38-72057594681507857
+sensor.living_room_motion_sourcenodeid:
+  platform: zwave
+  unique_id: 38-72057594681507873
+sensor.living_room_motion_burglar:
+  platform: zwave
+  unique_id: 38-72057594681508001
+switch.fence_lights:
+  platform: zwave
+  unique_id: 39-72057594697039872
+sensor.fence_lights_unknown:
+  platform: zwave
+  unique_id: 39-72057594697252866
+sensor.fence_lights_power:
+  platform: zwave
+  unique_id: 39-72057594697252994
+sensor.fence_lights_voltage:
+  platform: zwave
+  unique_id: 39-72057594697253122
+sensor.fence_lights_current:
+  platform: zwave
+  unique_id: 39-72057594697253186
+sensor.fence_lights_previous_reading:
+  platform: zwave
+  unique_id: 39-72057594697253010
+sensor.fence_lights_previous_reading_2:
+  platform: zwave
+  unique_id: 39-72057594697253138
+sensor.fence_lights_previous_reading_3:
+  platform: zwave
+  unique_id: 39-72057594697253202
+switch.landscape_lighting:
+  platform: zwave
+  unique_id: 40-72057594713817088
+sensor.fence_lights_previous_reading_4:
+  platform: zwave
+  unique_id: 39-72057594697252882
+switch.family_room_fan:
+  platform: zwave
+  unique_id: 41-72057594730594304
+sensor.family_room_fan_unknown:
+  platform: zwave
+  unique_id: 41-72057594730807298
+sensor.family_room_fan_power:
+  platform: zwave
+  unique_id: 41-72057594730807426
+sensor.family_room_fan_voltage:
+  platform: zwave
+  unique_id: 41-72057594730807554
+sensor.family_room_fan_current:
+  platform: zwave
+  unique_id: 41-72057594730807618
+sensor.family_room_fan_previous_reading:
+  platform: zwave
+  unique_id: 41-72057594730807442
+sensor.family_room_fan_previous_reading_2:
+  platform: zwave
+  unique_id: 41-72057594730807570
+sensor.family_room_fan_previous_reading_3:
+  platform: zwave
+  unique_id: 41-72057594730807634
+binary_sensor.attic_door:
+  platform: zwave
+  unique_id: 42-72057594747551744
+sensor.attic_door_alarm_type:
+  platform: zwave
+  unique_id: 42-72057594748616705
+sensor.attic_door_alarm_level:
+  platform: zwave
+  unique_id: 42-72057594748616721
+sensor.attic_door_sourcenodeid:
+  platform: zwave
+  unique_id: 42-72057594748616737
+sensor.attic_door_burglar:
+  platform: zwave
+  unique_id: 42-72057594748616865
+sensor.family_room_fan_previous_reading_4:
+  platform: zwave
+  unique_id: 41-72057594730807314
+switch.home_audio_system:
+  platform: zwave
+  unique_id: 43-72057594764148736
+sensor.home_audio_system_unknown:
+  platform: zwave
+  unique_id: 43-72057594764361730
+sensor.home_audio_system_power:
+  platform: zwave
+  unique_id: 43-72057594764361858
+sensor.home_audio_system_exporting:
+  platform: zwave
+  unique_id: 43-72057594764362240
+sensor.home_audio_system_power_2:
+  platform: zwave
+  unique_id: 43-72057594764345410
+sensor.home_audio_system_previous_reading:
+  platform: zwave
+  unique_id: 43-72057594764361746
+sensor.home_audio_system_interval:
+  platform: zwave
+  unique_id: 43-72057594764361763
+sensor.home_audio_system_previous_reading_2:
+  platform: zwave
+  unique_id: 43-72057594764361874
+sensor.home_audio_system_interval_2:
+  platform: zwave
+  unique_id: 43-72057594764361891

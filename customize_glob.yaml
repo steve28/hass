@@ -18,3 +18,31 @@
   hidden: true
 "sensor.steves_iphone*":
   hidden: true
+"sensor.apartment_door*":
+  hidden: true
+"sensor.apartment_motion_*":
+  hidden: true
+"sensor.apartment_motion_temperature":
+  hidden: false
+"sensor.garage_side_door*":
+  hidden: true
+"sensor.back_door*":
+  hidden: true
+"sensor.kitchen_door*":
+  hidden: true
+"sensor.front_door*":
+  hidden: true
+"sensor.family_room_motion_*":
+  hidden: true
+"sensor.living_room_motion_*":
+  hidden: true
+"sensor.bedroom_motion_*":
+  hidden: true
+"sensor.fence_lights*":
+  hidden: true
+"sensor.family_room_fan*":
+  hidden: true
+"sensor.attic_door*":
+  hidden: true
+"sensor.home_audio_system*":
+  hidden: true
