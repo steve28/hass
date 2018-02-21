@@ -52,7 +52,7 @@ sensor.desk_lamp_current:
 switch.office_light_switch:
   platform: zwave
   unique_id: 5-72057594126614528
-light.family_room_lights_level:
+light.family_room_lights:
   platform: zwave
   unique_id: 6-72057594143408129
 sensor.energy_meter_power:

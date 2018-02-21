@@ -28,3 +28,10 @@ remote.family_room:
   icon: mdi:television
 light.ge_appliances_zll_light_000bdfb3_1:
   friendly_name: Attic Light
+
+# Set the device class for the Garage Doors so they appear with
+# the correct icons
+cover.left_garage_door:
+  device_class: garage
+cover.right_garage_door:
+  device_class: garage

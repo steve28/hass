@@ -88,46 +88,8 @@ nest:
 
 # Cloud
 cloud:
-  alexa:
-    filter:
-      include_entities:
-        - switch.desk_lamp_switch
-        - switch.office_light_switch
-        - light.living_room_lights
-        - light.family_room_lights_level
-        - media_player.family_room_tv
-        - light.bedroom_lights
-        - switch.kitchen_lights
-        - switch.bathroom_vanity
-        - switch.bathroom_fan
-    entity_config:
-      switch.desk_lamp_switch:
-        name: Desk Lamp
-        display_categories: LIGHT
-      switch.office_light_switch:
-        name: Office Light
-        display_categories: LIGHT
-      light.family_room_lights_level:
-        name: Family Room Lights
-        display_categories: LIGHT
-      media_player.family_room_tv:
-        name: Family Room TV
-        display_categories: TV
-      light.living_room_lights:
-        name: Living Room Lights
-        display_categories: LIGHT
-      light.bedroom_lights:
-        name: Bedroom Lights
-        display_categories: LIGHT
-      switch.kitchen_lights:
-        name: Kitchen Lights
-        display_categories: LIGHT
-      switch.bathroom_vanity:
-        name: Bathroom Light
-        display_categories: LIGHT
-      switch.bathroom_fan:
-        name: Bathroom Fan
-        display_categories: LIGHT
+  alexa: !include alexa_config.yaml
+
 
 # track phones 
 device_tracker:
@@ -149,32 +111,29 @@ camera:
     name: Front Door
 
 mqtt:
-#  protocol: "3.1"
-#  embedded:
-#    listeners:
-#      default:
-#        max-connections: 5000
-#        bind: 0.0.0.0:1883
-#        type: tcp
-#      ws-1:
-#        bind: 0.0.0.0:8181
-#        type: ws
-#    auth:
-#      plugins: ['auth.anonymous']
-#      allow-anonymous: true
   broker: 192.168.1.8
-   #user "homeassistant"
-   #pass <API PASSWORD>  
+
 zwave:
   usb_path: /dev/ttyUSB0
-
+  # add refresh delays for the GE dimmers
+  device_config:
+    light.living_room_lights: 
+      refresh_value: true
+      delay: 2
+    light.family_room_lights:
+      refresh_value: 2
+      delay: 2
+    light.bedroom_lights:
+      refresh_value: 2
+      delay: 2
 #zigbee
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
   
-# MQTT Sensors
+
 binary_sensor:
+  # MQTT Motion Sensors from SmartThings MQTT Bridge
   - platform: mqtt
     name: "Kitchen Motion"
     state_topic: "smartthings/Kitchen Motion Sensor/motion"
@@ -186,32 +145,8 @@ binary_sensor:
     payload_on: "active"
     payload_off: "inactive"
 
-
-#switch:
-#  - platform: mqtt
-#    name: "Office Light"
-#    state_topic: "smartthings/Office Light/switch"
-#    command_topic: "smartthings/Office Light/switch"
-#    payload_on: "on"
-#    payload_off: "off"
-#    retain: true
-
-#light:
-#  - platform: mqtt
-#    name: "Family Room Lights"
-#    state_topic: "smartthings/Family Room Lights/switch"
-#    command_topic: "smartthings/Family Room Lights/switch"
-#    brightness_state_topic: "smartthings/Family Room Lights/level"
-#    brightness_command_topic: "smartthings/Family Room Lights/level"
-#    brightness_scale: 100
-#    brightness_value_template: '{{ value }}'
-#    qos: 0
-#    payload_on: "on"
-#    payload_off: "off"
-#    optimistic: false
-#    retain: true
     
-# For the garage doors    
+# Set up the garage doors from SmartThings MQTT bridge    
 cover:
   - platform: mqtt
     name: "Right Garage Door"
@@ -242,14 +177,6 @@ remote:
     name: Bedroom Hub
     activity: Watch Bedroom TV
     
-panel_iframe:
- nodered:
-   title: 'Node-Red'
-   icon: 'mdi:shuffle-variant'
-   url: !secret nodered_url
-
-
-
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
