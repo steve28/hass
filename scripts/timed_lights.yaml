@@ -1,0 +1,9 @@
+timed_lights:
+  sequence:
+    - service: switch.turn_on
+      data_template:
+        entity_id: "{{lights}}"
+    - delay: "{{delay}}"
+    - service: switch.turn_off
+      data_template:
+        entity_id: "{{lights}}"

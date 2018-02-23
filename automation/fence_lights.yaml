@@ -1,0 +1,25 @@
+- alias: Fence & Landscape Lights on at Sunset
+  trigger:
+    - platform: sun
+      event: sunset
+  action:
+    - service: switch.turn_on
+      entity_id: 
+        - switch.fence_lights
+        - switch.landscape_lighting
+
+- alias: Landscape Lights off at 11pm
+  trigger:
+    - platform: time
+      at: '23:00:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.landscape_lighting
+
+- alias: Fence Lights off at Sunrise
+  trigger:
+    - platform: sun
+      event: sunrise
+  action:
+    - service: switch.turn_off
+      entity_id: switch.fence_lights

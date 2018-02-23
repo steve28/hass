@@ -1,0 +1,25 @@
+- alias: Away
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      to: 'not_home'
+  action:
+    - service: climate.set_away_mode
+      entity_id: climate.family_room
+      data:
+        away_mode: true
+
+
+- alias: Home
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      to: 'home'
+  action:
+    - service: climate.set_away_mode
+      entity_id: climate.family_room
+      data:
+        away_mode: false
+        
