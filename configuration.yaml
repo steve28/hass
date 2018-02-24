@@ -63,6 +63,20 @@ map:
 # Track the sun
 sun:
 
+input_boolean:
+  left_garage_auto_open:
+    name: Left Garage Auto-Open
+    icon: mdi:home-automation
+  right_garage_auto_open:
+    name: Right Garage Auto-Open
+    icon: mdi:home-automation
+  living_room_tv:
+    name: Living Room TV
+    icon: mdi:television
+  bedroom_tv:
+    name: Bedroom TV
+    icon: mdi:television
+    
 sensor:
   - platform: yr
     name: "Outside"
@@ -178,5 +192,6 @@ remote:
     activity: Watch Bedroom TV
     
 group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+#automation: !include automations.yaml
+automation: !include_dir_merge_list automation/
+script: !include_dir_merge_named scripts/

@@ -1,4 +1,4 @@
-- alias: Away
+- alias: Away Actions
   hide_entity: true
   trigger:
     - platform: state
@@ -9,7 +9,10 @@
       entity_id: climate.family_room
       data:
         away_mode: true
-
+    - service: script.lights_off
+    - service: notify.ios_steves_iphone_x
+      data:
+        message: "Away"
 
 - alias: Home
   hide_entity: true
@@ -22,4 +25,7 @@
       entity_id: climate.family_room
       data:
         away_mode: false
+    - service: notify.ios_steves_iphone_x
+      data:
+        message: "Home"
         

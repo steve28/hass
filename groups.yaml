@@ -30,3 +30,11 @@ motion:
     - binary_sensor.living_room_motion
     - binary_sensor.office_motion
     - binary_sensor.kitchen_motion
+    
+garage:
+  name: Garage
+  entities:
+    - cover.left_garage_door
+    - input_boolean.left_garage_auto_open
+    - cover.right_garage_door
+    - input_boolean.right_garage_auto_open

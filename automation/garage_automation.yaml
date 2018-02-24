@@ -1,0 +1,67 @@
+### Steve's Garage Control
+
+- alias: Right Auto Open Detect
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: device_tracker.steves_iphone_x
+      to: 'not_home'
+  action:
+    - service_template: >
+        {% if (as_timestamp(now())-as_timestamp(states.cover.right_garage_door.last_changed)) < 600  %}
+          input_boolean.turn_on
+        {% else %}
+          input_boolean.turn_off
+        {% endif %}
+      entity_id: input_boolean.right_garage_auto_open
+    - service: notify.ios_steves_iphone_x
+      data:
+        message: "garage set"
+      
+- alias: Right Auto Open
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: device_tracker.steves_iphone_x
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: input_boolean.right_garage_auto_open
+      state: 'on'
+  action:
+    - service: cover.open_cover
+      entity_id: cover.right_garage_door
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.right_garage_auto_open
+    - service: notify.ios_steves_iphone_x
+      data:
+        message: "garage open"
+
+### Airie's Garage Control
+#
+#- alias: Left Auto Open
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.XXXXXX
+#      to: 'not_home'
+#  action:
+#    service_template: >
+#        {% if (as_timestamp(now())-as_timestamp(states.cover.left_garage_door.last_changed)) < 600  %}
+#          input_boolean.turn_on
+#        {% else %}
+#          input_boolean.turn_off
+#        {% endif %}
+#    entity_id: input_boolean.left_garage_auto_open
+#      
+#- alias: Open Left Garage if needed
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.XXXXXXX
+#      to: 'home'
+#  condition:
+#    - condition: state
+#      entity_id: input_boolean.left_garage_auto_open
+#      state: 'on'
+#  action:
+#    - service: cover.open_cover
+#      entity_id: cover.left_garage_door

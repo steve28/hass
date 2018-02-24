@@ -1,0 +1,55 @@
+- alias: Living Room TV
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: input_boolean.living_room_tv
+  action:
+    - service_template: >
+       {% if states.input_boolean.living_room_tv.state == 'on'  %}
+         remote.turn_on
+       {% else %}
+         remote.turn_off
+       {% endif %}
+      entity_id: remote.family_room
+
+- alias: Bedrrom TV
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bedroom_tv
+  action:
+    - service_template: >
+       {% if states.input_boolean.bedroom_tv.state == 'on'  %}
+         remote.turn_on
+       {% else %}
+         remote.turn_off
+       {% endif %}
+      entity_id: remote.bedroom_hub
+      
+- alias: Set Input Boolean Living Room TV
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: remote.family_room
+  action:
+    - service_template: >
+       {% if states.remote.family_room.state == 'on'  %}
+         input_boolean.turn_on
+       {% else %}
+         input_boolean.turn_off
+       {% endif %}
+      entity_id: input_boolean.living_room_tv
+
+- alias: Set Input Boolean Bedroom TV
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: remote.bedroom_hub
+  action:
+    - service_template: >
+       {% if states.remote.bedroom_hub.state == 'on'  %}
+         input_boolean.turn_on
+       {% else %}
+         input_boolean.turn_off
+       {% endif %}
+      entity_id: input_boolean.bedroom_tv
