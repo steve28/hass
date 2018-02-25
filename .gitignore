@@ -18,3 +18,5 @@ tts/
 zigbee.db
 zwcfg_*.xml
 zwscene.xml
+._*
+.DS_Store

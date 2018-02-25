@@ -78,11 +78,12 @@ input_boolean:
     icon: mdi:television
     
 sensor:
-  - platform: yr
-    name: "Outside"
+  - platform: wunderground
+    api_key: !secret wunderground_api_key
+    pws_id: KCASTUDI18
     monitored_conditions:
-      - temperature
-      - symbol
+      - temp_f
+      - weather_1d
   - platform: mqtt
     name: "Kitchen Temperature"
     state_topic: "smartthings/Kitchen Motion Sensor/temperature"

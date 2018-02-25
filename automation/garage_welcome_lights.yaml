@@ -5,12 +5,17 @@
       from: 'off'
       to: 'on'
   condition:
-    condition: or  # 'when dark' condition: either after sunset or before sunrise
+    condition: and
     conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
+      - condition: or  # 'when dark' condition: either after sunset or before sunrise
+        conditions:
+          - condition: sun
+            after: sunset
+          - condition: sun
+            before: sunrise
+      - condition: template # One of us got home in the last 10 minutes
+        value_template: "{{ ((as_timestamp(now())-as_timestamp(states.device_tracker.airies_iphone_se.last_changed)) < 600) or
+                           ((as_timestamp(now())-as_timestamp(states.device_tracker.steves_iphone_x.last_changed)) < 600)   }}"
   action:
       service: script.timed_lights
       data_template:
