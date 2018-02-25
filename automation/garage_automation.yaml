@@ -14,8 +14,8 @@
       entity_id: input_boolean.right_garage_auto_open
     - service: notify.ios_steves_iphone_x
       data:
-        message: "garage set"
-      
+        message: "steve garage set"
+
 - alias: Right Auto Open
   hide_entity: true
   trigger:
@@ -52,8 +52,8 @@
       entity_id: input_boolean.left_garage_auto_open
     - service: notify.ios_steves_iphone_x
       data:
-        message: "garage set"
-      
+        message: "airie garage set"
+
 - alias: Right Auto Open
   hide_entity: true
   trigger:
