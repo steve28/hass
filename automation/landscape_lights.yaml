@@ -1,0 +1,14 @@
+- alias: Landscape Lights
+  trigger:
+    - platform: sun
+      event: sunset
+    - platform: time
+      at: '23:00:00'
+  action:
+    - service_template: >
+        {% if trigger.platform=='sun' %}
+          switch.turn_on
+        {% else %}
+          switch.turn_off
+        {% endif %}
+      entity_id: switch.landscape_lighting
