@@ -1,4 +1,4 @@
-- alias: Dog Potty Lights
+- alias: Dog Lights
   trigger:
     - platform: state
       entity_id: binary_sensor.back_door

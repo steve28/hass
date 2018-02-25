@@ -15,6 +15,7 @@ filter:
     - switch.utility_room_light
     - input_boolean.living_room_tv
     - input_boolean.bedroom_tv
+    - switch.family_room_fan
     
 entity_config:
   switch.desk_lamp_switch:
@@ -62,3 +63,6 @@ entity_config:
   input_boolean.bedroom_tv:
     name: Bedroom TV
     display_categories: TV
+  switch.family_room_fan:
+    name: Family Room
+    display_categories: SWITCH

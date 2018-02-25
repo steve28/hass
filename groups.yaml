@@ -10,6 +10,7 @@ family:
   name: Family
   entities:
     - device_tracker.steves_iphone_x
+    - device_tracker.airies_iphone_se
     
 doors:
   name: Doors

@@ -32,7 +32,11 @@ input_boolean.living_room_tv:
   hidden: true
 input_boolean.bedroom_tv:
   hidden: true
-
+sensor.garage_temperature:
+  hidden: true
+sensor.apartment_motion_temperature:
+  hidden: true
+  
 # Set the device class for the Garage Doors so they appear with
 # the correct icons
 cover.left_garage_door:

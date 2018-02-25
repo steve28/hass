@@ -6,8 +6,6 @@
   hidden: true
 "sensor.energy_meter_power*":
   hidden: true
-"sensor.energy_meter_power_4":
-  hidden: false
 "sensor.energy_meter_previous_reading*":
   hidden: true
 "sensor.desk_lamp*":
@@ -17,6 +15,8 @@
 "sensor.steves_ipad*":
   hidden: true
 "sensor.steves_iphone*":
+  hidden: true
+"sensor.airies_iphone*":
   hidden: true
 "sensor.apartment_door*":
   hidden: true

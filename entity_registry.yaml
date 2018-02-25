@@ -415,3 +415,9 @@ sensor.home_audio_system_previous_reading_2:
 sensor.home_audio_system_interval_2:
   platform: zwave
   unique_id: 43-72057594764361891
+sensor.airies_iphone_se_battery_level:
+  platform: ios
+  unique_id: level_airies_iphone_se
+sensor.airies_iphone_se_battery_state:
+  platform: ios
+  unique_id: state_airies_iphone_se
