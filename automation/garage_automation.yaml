@@ -54,7 +54,7 @@
       data:
         message: "airie garage set"
 
-- alias: Right Auto Open
+- alias: Left Auto Open
   hide_entity: true
   trigger:
     - platform: state

@@ -26,7 +26,7 @@ remote.bedroom_hub:
 remote.family_room:
   friendly_name: Living Room TV
   icon: mdi:television
-light.ge_appliances_zll_light_000bdfb3_1:
+light.attic_light:
   friendly_name: Attic Light
 input_boolean.living_room_tv:
   hidden: true

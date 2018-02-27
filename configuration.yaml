@@ -13,7 +13,7 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
-  
+
 
 # Show links to resources in log and frontend
 #introduction:
@@ -76,7 +76,7 @@ input_boolean:
   bedroom_tv:
     name: Bedroom TV
     icon: mdi:television
-    
+
 sensor:
   - platform: wunderground
     api_key: !secret wunderground_api_key
@@ -106,7 +106,7 @@ sensor:
         value_template: "{{ '%i'|format(float(states.sensor.energy_meter_power_4.state)) }}"
 
 
-    
+
 # Text to speech
 tts:
   - platform: google
@@ -121,7 +121,7 @@ cloud:
   alexa: !include alexa_config.yaml
 
 
-# track phones 
+# track phones
 device_tracker:
 
 ios:
@@ -147,7 +147,7 @@ zwave:
   usb_path: /dev/ttyUSB0
   # add refresh delays for the GE dimmers
   device_config:
-    light.living_room_lights: 
+    light.living_room_lights:
       refresh_value: true
       delay: 2
     light.family_room_lights:
@@ -160,7 +160,7 @@ zwave:
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
-  
+
 
 binary_sensor:
   # MQTT Motion Sensors from SmartThings MQTT Bridge
@@ -175,8 +175,8 @@ binary_sensor:
     payload_on: "active"
     payload_off: "inactive"
 
-    
-# Set up the garage doors from SmartThings MQTT bridge    
+
+# Set up the garage doors from SmartThings MQTT bridge
 cover:
   - platform: mqtt
     name: "Right Garage Door"
@@ -188,6 +188,7 @@ cover:
     payload_close: 'closed'
     retain: true
     optimistic: true
+    qos: 2
   - platform: mqtt
     name: "Left Garage Door"
     state_topic: "smartthings/Left Garage Door/contact"
@@ -198,6 +199,7 @@ cover:
     payload_close: 'closed'
     retain: true
     optimistic: true
+    qos: 2
 
 remote:
   - platform: harmony
@@ -206,7 +208,7 @@ remote:
   - platform: harmony
     name: Bedroom Hub
     activity: Watch Bedroom TV
-    
+
 group: !include groups.yaml
 #automation: !include automations.yaml
 automation: !include_dir_merge_list automation/
