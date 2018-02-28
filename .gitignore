@@ -20,3 +20,5 @@ zwcfg_*.xml
 zwscene.xml
 ._*
 .DS_Store
+*.db-wal
+*.db-shm

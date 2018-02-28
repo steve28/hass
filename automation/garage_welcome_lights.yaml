@@ -22,8 +22,8 @@
         delay: '00:02:00'
         # pass a list of lights, rulling out the ones that are already on
         lights: >
-          {{ [states.switch.garage_outside_light, 
-                            states.switch.back_door_light] 
+          {{ [states.switch.garage_outside_light,
+                            states.switch.back_door_light]
           | rejectattr('state','equalto','on')
-          | map(attribute='entity_id' ) 
+          | map(attribute='entity_id' )
           | join(', ') }}
