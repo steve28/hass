@@ -34,7 +34,7 @@ lights_off:
         entity_id: >
          {{ [states.light.bedroom_lights,
              states.light.family_room_lights,
-             states.light.ge_appliances_zll_light_000bdfb3_1,
+             states.light.attic_light,
              states.light.living_room_lights] 
          | rejectattr('state','equalto','off')
          | map(attribute='entity_id' ) 

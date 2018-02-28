@@ -1,0 +1,29 @@
+- alias: Garage Welcome Lights
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.garage_side_door
+      from: 'off'
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: or  # 'when dark' condition: either after sunset or before sunrise
+        conditions:
+          - condition: sun
+            after: sunset
+          - condition: sun
+            before: sunrise
+      - condition: template # One of us got home in the last 10 minutes
+        value_template: "{{ ((as_timestamp(now())-as_timestamp(states.device_tracker.airies_iphone_se.last_changed)) < 600) or
+                           ((as_timestamp(now())-as_timestamp(states.device_tracker.steves_iphone_x.last_changed)) < 600)   }}"
+  action:
+      service: script.timed_lights
+      data_template:
+        delay: '00:02:00'
+        # pass a list of lights, rulling out the ones that are already on
+        lights: >
+          {{ [states.switch.garage_outside_light, 
+                            states.switch.back_door_light] 
+          | rejectattr('state','equalto','on')
+          | map(attribute='entity_id' ) 
+          | join(', ') }}

@@ -1,0 +1,14 @@
+- alias: Attic Lights
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.attic_door
+      to: 'off'
+  condition:
+    condition: state
+    entity_id: binary_sensor.attic_door
+    state: 'off'
+    for:
+      minutes: 5
+  action:
+    - service: light.turn_off
+      entity_id: light.attic_light
