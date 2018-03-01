@@ -16,5 +16,5 @@
       - condition: template # One of us got home in the last 10 minutes
         value_template: "{{ (as_timestamp(now())-as_timestamp(states.group.family.last_changed)) < 600 }}"
   action:
-      service: light._turn_on
+      service: light.turn_on
       entity_id: light.family_room_lights
