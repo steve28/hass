@@ -87,15 +87,15 @@ sensor:
   - platform: mqtt
     name: "Kitchen Temperature"
     state_topic: "smartthings/Kitchen Motion Sensor/temperature"
+    unit_of_measurement: '°F'
+    value_template: "{{ '%i'|format(float(value)) }}"
   - platform: mqtt
     name: "Garage Temperature"
     state_topic: "smartthings/Garage Temperature/temperature"
+    unit_of_measurement: '°F'
+    value_template: "{{ '%i'|format(float(value)) }}"
   - platform: template
     sensors:
-      garage_temp:
-        friendly_name: "Garage Temperature"
-        unit_of_measurement: '°F'
-        value_template: "{{ '%i'|format(float(states.sensor.garage_temperature.state)) }}"
       apartment_temperature:
         friendly_name: "Apartment Temperature"
         unit_of_measurement: '°F'
