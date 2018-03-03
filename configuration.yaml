@@ -136,12 +136,25 @@ device_tracker:
 
 ios:
 
+wake_on_lan:
+
 media_player:
   - platform: webostv
     host: 192.168.1.12
     name: Family Room TV
     timeout: 5
     filename: webostv.conf
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: 38:8C:50:DC:DE:A4
+    customize:
+      sources:
+        - HDMI1
+        - HDMI2
+  - platform: roku
+    host: 192.168.1.13
+    name: Family Room Roku 
 
 camera:
   - platform: foscam
@@ -223,3 +236,4 @@ group: !include groups.yaml
 #automation: !include automations.yaml
 automation: !include_dir_merge_list automation/
 script: !include_dir_merge_named scripts/
+scene: !include_dir_merge_list scenes/

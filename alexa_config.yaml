@@ -9,7 +9,9 @@ filter:
     - switch.kitchen_lights
     - switch.bathroom_vanity
     - switch.bathroom_fan
-    - script.lights_off
+    - scene.bedtime
+    - scene.gina_bedtime
+    - scene.tv_time
     - switch.patio_lights
     - switch.front_door_lights
     - switch.utility_room_light
@@ -47,8 +49,14 @@ entity_config:
   switch.bathroom_fan:
     name: Bathroom Fan
     display_categories: LIGHT
-  script.lights_off:
+  scene.bedtime:
     name: Bedtime
+    display_categories: SCENE_TRIGGER
+  scene.gina_bedtime:
+    name: Gina Bedtime
+    display_categories: SCENE_TRIGGER
+  scene.tv_time:
+    name: TV Time
     display_categories: SCENE_TRIGGER
   switch.patio_lights:
     name: Patio Lights

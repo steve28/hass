@@ -1,0 +1,27 @@
+- name: Gina Bedtime
+  entities:
+    switch.attic_stairs_light: off
+    switch.back_door_light: off
+    switch.backyard_flood_lights: off
+    switch.bathroom_fan: off
+    switch.bathroom_vanity: off
+    switch.bedroom_fan: off
+    switch.desk_lamp_switch: off
+    switch.dining_room_light: off
+    switch.family_room_fan: off
+    switch.front_door_lights: off
+    switch.garage_outside_light: off
+    switch.guest_bathroom_light_switch: off
+    switch.home_audio_system: off
+    switch.kitchen_door_inside_light: off
+    switch.kitchen_door_outside_light: off
+    switch.kitchen_lights: off
+    switch.laundry_light: off
+    switch.office_light_switch: off
+    switch.patio_lights: off
+    switch.upstairs_room_light: off
+    switch.utility_room_light: off
+    light.bedroom_lights: off
+    light.family_room_lights: off
+    light.attic_light: off
+    light.living_room_lights: off

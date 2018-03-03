@@ -1,0 +1,11 @@
+- name: TV Time
+  entities:
+    switch.dining_room_light: off
+    switch.front_door_lights: off
+    switch.kitchen_door_inside_light: off
+    switch.kitchen_lights: off
+    switch.laundry_light: off
+    light.family_room_lights: off
+    light.living_room_lights:
+      state: on
+      brightness: 75

@@ -11,7 +11,7 @@ family:
   entities:
     - device_tracker.steves_iphone_x
     - device_tracker.airies_iphone_se
-    
+
 doors:
   name: Doors
   entities:
@@ -21,7 +21,7 @@ doors:
     - binary_sensor.garage_side_door
     - binary_sensor.kitchen_door
     - binary_sensor.front_door
-    
+
 motion:
   name: Motion
   entities:
@@ -31,7 +31,7 @@ motion:
     - binary_sensor.living_room_motion
     - binary_sensor.office_motion
     - binary_sensor.kitchen_motion
-    
+
 garage:
   name: Garage
   control: hidden
@@ -40,3 +40,23 @@ garage:
     - input_boolean.left_garage_auto_open
     - cover.right_garage_door
     - input_boolean.right_garage_auto_open
+
+outside_lights:
+  name: Outside Lights
+  control: hidden
+  entities:
+    - switch.back_door_light
+    - switch.garage_outside_light
+    - switch.patio_lights
+    - switch.front_door_lights
+    - switch.kitchen_door_outside_light
+    - switch.backyard_flood_lights
+    - switch.landscape_lighting
+    - switch.fence_lights
+
+automation_view:
+  name: Automation
+  view: yes
+  entities:
+    - group.all_automations
+    - group.all_scripts

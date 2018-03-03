@@ -49,3 +49,9 @@ cover.left_garage_door:
   device_class: garage
 cover.right_garage_door:
   device_class: garage
+
+# Unhide some groups
+group.all_automations:
+  hidden: false
+group.all_scripts:
+  hidden: false

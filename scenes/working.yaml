@@ -1,0 +1,4 @@
+- name: Working
+  entities:
+    switch.office_light_switch: on
+    switch.desk_lamp_switch: on
