@@ -15,6 +15,16 @@ homeassistant:
   customize_glob: !include customize_glob.yaml
 
 
+zone:
+  name: Home
+  latitude: !secret lat
+  longitude: !secret lon
+  radius: 100
+  # beacon:
+  #   uuid: 74278bda-b6444520-8f0c720e-af059935
+  #   major: 1
+  #   minor: 1080
+
 # Show links to resources in log and frontend
 #introduction:
 

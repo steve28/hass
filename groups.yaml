@@ -34,6 +34,7 @@ motion:
     
 garage:
   name: Garage
+  control: hidden
   entities:
     - cover.left_garage_door
     - input_boolean.left_garage_auto_open

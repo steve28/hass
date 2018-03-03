@@ -1,3 +1,11 @@
+# Add Beacons to Home Zone:
+zone.home:
+  # track_ios: false
+  beacon:
+    uuid: 1d3b9493-07e0-4192-8356-1248d84b2bdc
+    major: 2
+    minor: 1080
+
 binary_sensor.family_room_thermostat_has_leaf:
   hidden: true
 binary_sensor.family_room_thermostat_is_locked:
