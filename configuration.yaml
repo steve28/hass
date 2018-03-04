@@ -20,10 +20,6 @@ zone:
   latitude: !secret lat
   longitude: !secret lon
   radius: 100
-  # beacon:
-  #   uuid: 74278bda-b6444520-8f0c720e-af059935
-  #   major: 1
-  #   minor: 1080
 
 # Show links to resources in log and frontend
 #introduction:
@@ -34,19 +30,13 @@ frontend:
 # Enables configuration UI
 config:
 
-
+# Set up security
 http:
   api_password: !secret http_password
   ssl_certificate: !secret cert_path
   ssl_key: !secret key_path
   base_url: !secret url
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
@@ -58,8 +48,9 @@ discovery:
    - apple_tv
    - samsung_tv
    - roku
+
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -73,6 +64,34 @@ map:
 # Track the sun
 sun:
 
+
+mqtt:
+  broker: 192.168.1.8
+
+
+# Text to speech
+tts:
+  - platform: google
+
+#nest
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+# Cloud
+cloud:
+  alexa: !include alexa_config.yaml
+
+# track phones
+device_tracker:
+
+# iOS Support
+ios:
+
+# Wake On Lan Support
+wake_on_lan:
+
+# Some input booeleans as flags for some automations
 input_boolean:
   left_garage_auto_open:
     name: Left Garage Auto-Open
@@ -87,6 +106,7 @@ input_boolean:
     name: Bedroom TV
     icon: mdi:television
 
+# Sensors
 sensor:
   - platform: wunderground
     api_key: !secret wunderground_api_key
@@ -113,30 +133,12 @@ sensor:
         friendly_name: "Kitchen Temperature"
         unit_of_measurement: '°F'
         value_template: "{{ '%i'|format(float(states.sensor.kitchen_motion_temperature.state)) }}"
+      office_temperature:
+        friendly_name: "Office Temperature"
+        unit_of_measurement: '°F'
+        value_template: "{{ '%i'|format(float(states.sensor.office_motion_temperature.state)) }}"
 
-
-
-# Text to speech
-tts:
-  - platform: google
-
-#nest
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
-
-# Cloud
-cloud:
-  alexa: !include alexa_config.yaml
-
-
-# track phones
-device_tracker:
-
-ios:
-
-wake_on_lan:
-
+# Media Player Definitions
 media_player:
   - platform: webostv
     host: 192.168.1.12
@@ -155,6 +157,16 @@ media_player:
     host: 192.168.1.13
     name: Family Room Roku
 
+# Set up the Harmony Remotes
+remote:
+  - platform: harmony
+    name: Family Room
+    activity: AppleTV
+  - platform: harmony
+    name: Bedroom Hub
+    activity: Watch Bedroom TV
+
+# Camera Supprt
 camera:
   - platform: foscam
     ip: 192.168.1.22
@@ -162,9 +174,7 @@ camera:
     password: !secret foscam_password
     name: Front Door
 
-mqtt:
-  broker: 192.168.1.8
-
+# Set up Z-Wave
 zwave:
   usb_path: /dev/ttyUSB0
   # add refresh delays for the GE dimmers
@@ -178,20 +188,11 @@ zwave:
     light.bedroom_lights:
       refresh_value: 2
       delay: 2
+
 #zigbee
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
-
-
-binary_sensor:
-  # MQTT Motion Sensors from SmartThings MQTT Bridge
-  - platform: mqtt
-    name: "Office Motion"
-    state_topic: "smartthings/Office Motion Sensor/motion"
-    payload_on: "active"
-    payload_off: "inactive"
-
 
 # Set up the garage doors from SmartThings MQTT bridge
 cover:
@@ -218,16 +219,9 @@ cover:
     optimistic: true
     qos: 2
 
-remote:
-  - platform: harmony
-    name: Family Room
-    activity: AppleTV
-  - platform: harmony
-    name: Bedroom Hub
-    activity: Watch Bedroom TV
 
+# My Split out configuration
 group: !include groups.yaml
-#automation: !include automations.yaml
 automation: !include_dir_merge_list automation/
 script: !include_dir_merge_named scripts/
 scene: !include_dir_merge_list scenes/

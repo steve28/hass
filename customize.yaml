@@ -44,18 +44,20 @@ sensor.apartment_motion_temperature:
   hidden: true
 sensor.kitchen_motion_temperature:
   hidden: true
+sensor.office_motion_temperature:
+  hidden: true
 
 # Customize the motion sensor
 binary_sensor.kitchen_motion:
   friendly_name: Kitchen Motion
   device_class: motion
+binary_sensor.office_motion:
+  friendly_name: Office Motion
 binary_sensor.family_room_motion:
   device_class: motion
 binary_sensor.bedroom_motion:
   device_class: motion
 binary_sensor.living_room_motion:
-  device_class: motion
-binary_sensor.office_motion:
   device_class: motion
 binary_sensor.apartment_motion:
   device_class: motion
