@@ -127,7 +127,7 @@ sensor:
   - platform: mqtt
     name: "Garage RSSI"
     state_topic: "garage/rssi"
-    #unit_of_measurement: '-'
+    unit_of_measurement: 'dBm'
     value_template: "{{ '%i'|format(float(value)) }}"
   - platform: template
     sensors:
@@ -214,9 +214,9 @@ cover:
     state_closed: 'closed'
     payload_open: 'open'
     payload_close: 'close'
-    retain: true
+    retain: false
     optimistic: true
-    qos: 0
+    qos: 1
   - platform: mqtt
     name: "Left Garage Door"
     state_topic: "garage/leftDoor"
@@ -225,9 +225,9 @@ cover:
     state_closed: 'closed'
     payload_open: 'open'
     payload_close: 'closed'
-    retain: true
+    retain: false
     optimistic: true
-    qos: 0
+    qos: 1
 
 
 # My Split out configuration
