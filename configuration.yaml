@@ -116,8 +116,18 @@ sensor:
       - weather_1d
   - platform: mqtt
     name: "Garage Temperature"
-    state_topic: "smartthings/Garage Temperature/temperature"
+    state_topic: "garage/temperature"
     unit_of_measurement: '°F'
+    value_template: "{{ '%i'|format(float(value)) }}"
+  - platform: mqtt
+    name: "Garage Humidity"
+    state_topic: "garage/humidity"
+    unit_of_measurement: '%'
+    value_template: "{{ '%i'|format(float(value)) }}"
+  - platform: mqtt
+    name: "Garage RSSI"
+    state_topic: "garage/rssi"
+    #unit_of_measurement: '-'
     value_template: "{{ '%i'|format(float(value)) }}"
   - platform: template
     sensors:
@@ -198,26 +208,26 @@ zha:
 cover:
   - platform: mqtt
     name: "Right Garage Door"
-    state_topic: "smartthings/Right Garage Door/contact"
-    command_topic: "smartthings/Right Garage Door/door"
+    state_topic: "garage/rightDoor"
+    command_topic: "garage/rightDoor/cmd"
     state_open: 'open'
     state_closed: 'closed'
     payload_open: 'open'
-    payload_close: 'closed'
+    payload_close: 'close'
     retain: true
     optimistic: true
-    qos: 2
+    qos: 0
   - platform: mqtt
     name: "Left Garage Door"
-    state_topic: "smartthings/Left Garage Door/contact"
-    command_topic: "smartthings/Left Garage Door/door"
+    state_topic: "garage/leftDoor"
+    command_topic: "garage/leftDoor/cmd"
     state_open: 'open'
     state_closed: 'closed'
     payload_open: 'open'
     payload_close: 'closed'
     retain: true
     optimistic: true
-    qos: 2
+    qos: 0
 
 
 # My Split out configuration
