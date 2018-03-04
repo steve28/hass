@@ -95,11 +95,6 @@ sensor:
       - temp_f
       - weather_1d
   - platform: mqtt
-    name: "Kitchen Temperature"
-    state_topic: "smartthings/Kitchen Motion Sensor/temperature"
-    unit_of_measurement: '°F'
-    value_template: "{{ '%i'|format(float(value)) }}"
-  - platform: mqtt
     name: "Garage Temperature"
     state_topic: "smartthings/Garage Temperature/temperature"
     unit_of_measurement: '°F'
@@ -114,6 +109,10 @@ sensor:
         friendly_name: House Power
         unit_of_measurement: 'W'
         value_template: "{{ '%i'|format(float(states.sensor.energy_meter_power_4.state)) }}"
+      kitchen_temperature:
+        friendly_name: "Kitchen Temperature"
+        unit_of_measurement: '°F'
+        value_template: "{{ '%i'|format(float(states.sensor.kitchen_motion_temperature.state)) }}"
 
 
 
@@ -154,7 +153,7 @@ media_player:
         - HDMI2
   - platform: roku
     host: 192.168.1.13
-    name: Family Room Roku 
+    name: Family Room Roku
 
 camera:
   - platform: foscam
@@ -187,11 +186,6 @@ zha:
 
 binary_sensor:
   # MQTT Motion Sensors from SmartThings MQTT Bridge
-  - platform: mqtt
-    name: "Kitchen Motion"
-    state_topic: "smartthings/Kitchen Motion Sensor/motion"
-    payload_on: "active"
-    payload_off: "inactive"
   - platform: mqtt
     name: "Office Motion"
     state_topic: "smartthings/Office Motion Sensor/motion"

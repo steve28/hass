@@ -42,6 +42,23 @@ input_boolean.bedroom_tv:
   hidden: true
 sensor.apartment_motion_temperature:
   hidden: true
+sensor.kitchen_motion_temperature:
+  hidden: true
+
+# Customize the motion sensor
+binary_sensor.kitchen_motion:
+  friendly_name: Kitchen Motion
+  device_class: motion
+binary_sensor.family_room_motion:
+  device_class: motion
+binary_sensor.bedroom_motion:
+  device_class: motion
+binary_sensor.living_room_motion:
+  device_class: motion
+binary_sensor.office_motion:
+  device_class: motion
+binary_sensor.apartment_motion:
+  device_class: motion
 
 # Set the device class for the Garage Doors so they appear with
 # the correct icons
