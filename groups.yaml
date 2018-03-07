@@ -21,6 +21,7 @@ doors:
     - binary_sensor.garage_side_door
     - binary_sensor.kitchen_door
     - binary_sensor.front_door
+    - binary_sensor.bedroom_outside_door
 
 motion:
   name: Motion

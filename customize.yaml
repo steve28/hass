@@ -74,3 +74,24 @@ group.all_automations:
   hidden: false
 group.all_scripts:
   hidden: false
+
+#Customize the door sensors:
+sensor.bedroom_outside_door_temperature:
+  friendly_name: Bedroom Temperature
+binary_sensor.bedroom_outside_door:
+  device_class: door
+  friendly_name: Bedroom Outside Door
+binary_sensor.attic_door:
+  device_class: door
+binary_sensor.back_door:
+  device_class: door
+binary_sensor.apartment_door:
+  device_class: door
+binary_senor.back_door:
+  device_class: door
+binary_sensor.kitchen_door:
+  device_class: door
+binary_sensor.front_door:
+  device_class: door
+binary_sensor.garage_side_door:
+  device_class: door

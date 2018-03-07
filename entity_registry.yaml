@@ -436,3 +436,9 @@ sensor.office_motion_temperature:
 binary_sensor.office_motion:
   platform: zha
   unique_id: 00:0d:6f:00:0e:f4:fa:a4-1-1280
+sensor.bedroom_outside_door_temperature:
+  platform: zha
+  unique_id: 00:0d:6f:00:03:29:48:1b-1-1026
+binary_sensor.bedroom_outside_door:
+  platform: zha
+  unique_id: 00:0d:6f:00:03:29:48:1b-1-1280
