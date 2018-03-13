@@ -58,6 +58,8 @@ history:
 # View all events in a logbook
 logbook:
 
+python_script:
+
 # Enables a map showing the location of tracked devices
 map:
 
@@ -125,11 +127,11 @@ sensor:
     state_topic: "garage/humidity"
     unit_of_measurement: '%'
     value_template: "{{ '%i'|format(float(value)) }}"
-  - platform: mqtt
-    name: "Garage RSSI"
-    state_topic: "garage/rssi"
-    unit_of_measurement: 'dBm'
-    value_template: "{{ '%i'|format(float(value)) }}"
+  # - platform: mqtt
+  #   name: "Garage RSSI"
+  #   state_topic: "garage/rssi"
+  #   unit_of_measurement: 'dBm'
+  #   value_template: "{{ '%i'|format(float(value)) }}"
   - platform: template
     sensors:
       apartment_temperature:
@@ -171,9 +173,11 @@ media_player:
 # Set up the Harmony Remotes
 remote:
   - platform: harmony
+    host: 192.168.1.15
     name: Family Room
     activity: AppleTV
   - platform: harmony
+    host: 192.168.1.14
     name: Bedroom Hub
     activity: Watch Bedroom TV
 
@@ -225,7 +229,7 @@ cover:
     state_open: 'open'
     state_closed: 'closed'
     payload_open: 'open'
-    payload_close: 'closed'
+    payload_close: 'close'
     retain: false
     optimistic: true
     qos: 1

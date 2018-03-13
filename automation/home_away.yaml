@@ -9,7 +9,8 @@
       entity_id: climate.family_room
       data:
         away_mode: true
-    - service: script.lights_off
+    - service: scene.turn_on
+      entity_id: scene.bedtime
     - service: notify.ios_steves_iphone_x
       data:
         message: "Away"
@@ -28,4 +29,3 @@
     - service: notify.ios_steves_iphone_x
       data:
         message: "Home"
-        

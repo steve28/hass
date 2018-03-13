@@ -1,0 +1,23 @@
+- id: gentle_wake
+  alias: Gentle Wake
+  trigger:
+    - platform: time
+      at: "06:40:00"
+  condition:
+    - condition: sun
+      before: sunset
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: python_script.fade_on
+      data:
+        entity_id: light.bedroom_lights
+        delay_in_sec: 24
+        start_level_pct: 1
+        end_level_pct: 50
+        step_in_level_pct: 1
