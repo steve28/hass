@@ -16,8 +16,6 @@ homeassistant:
 
 logger:
   default: warn
-  logs:
-    homeassistant.components.automation: debug
 
 zone:
   name: Home
@@ -112,28 +110,22 @@ input_boolean:
   bedroom_tv:
     name: Bedroom TV
     icon: mdi:television
-
-input_select:
-  log_level:
-    name: Log Level
-    options:
-      - critical
-      - fatal
-      - error
-      - warning
-      - warn
-      - info
-      - debug
-      - notset
-    initial: warn
-  which_component:
-    name: Component
-    options:
-      - homeassistant.components.python_script
-      - homeassistant.components.automation
-      - homeassistant.components.device_tracker
-      - homeassistant.components.mqtt
-    initial: homeassistant.components.automation
+  automation_debug:
+    name: Automation
+    icon: mdi:bug
+    initial: off
+  mqtt_debug:
+    name: MQTT
+    icon: mdi:bug
+    initial: off
+  python_script_debug:
+    name: Python Scripts
+    icon: mdi:bug
+    initial: off
+  device_tracker_debug:
+    name: Device Tracker
+    icon: mdi:bug
+    initial: off
 
 # Sensors
 sensor:

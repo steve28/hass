@@ -1,8 +1,55 @@
-- alias: Log Level
+- alias: MQTT Debug Switch
   trigger:
     platform: state
-    entity_id: input_select.log_level
+    entity_id: input_boolean.mqtt_debug
   action:
     service: logger.set_level
     data_template:
-      "{{ states.input_select.which_component.state}}": "{{ trigger.to_state.state }}"
+      homeassistant.components.mqtt: >
+        {% if trigger.to_state.state == 'on' %}
+          debug
+        {% else %}
+          warn
+        {% endif %}
+
+- alias: Automation Debug Switch
+  trigger:
+    platform: state
+    entity_id: input_boolean.automation_debug
+  action:
+    service: logger.set_level
+    data_template:
+      homeassistant.components.automation: >
+        {% if trigger.to_state.state == 'on' %}
+          debug
+        {% else %}
+          warn
+        {% endif %}
+
+- alias: Python Scripts Debug Switch
+  trigger:
+    platform: state
+    entity_id: input_boolean.python_script_debug
+  action:
+    service: logger.set_level
+    data_template:
+      homeassistant.components.python_script: >
+        {% if trigger.to_state.state == 'on' %}
+          debug
+        {% else %}
+          warn
+        {% endif %}
+
+- alias: Device Tracter Debug Switch
+  trigger:
+    platform: state
+    entity_id: input_boolean.device_tracker_debug
+  action:
+    service: logger.set_level
+    data_template:
+      homeassistant.components.device_tracker: >
+        {% if trigger.to_state.state == 'on' %}
+          debug
+        {% else %}
+          warn
+        {% endif %}

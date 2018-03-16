@@ -71,7 +71,10 @@ automation_view:
     - group.all_scripts
 
 logging_control:
-  name: Logging
+  name: Debug Logging
+  control: hidden
   entities:
-    - input_select.which_component
-    - input_select.log_level
+    - input_boolean.automation_debug
+    - input_boolean.mqtt_debug
+    - input_boolean.python_script_debug
+    - input_boolean.device_tracker_debug
