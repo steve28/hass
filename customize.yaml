@@ -1,11 +1,11 @@
-# Add Beacons to Home Zone:
+# Add my iBeacons to the home zone
 zone.home:
-  # track_ios: false
   beacon:
     uuid: 1d3b9493-07e0-4192-8356-1248d84b2bdc
     major: 2
     minor: 1080
 
+# Customize the Nest Display
 binary_sensor.family_room_thermostat_has_leaf:
   hidden: true
 binary_sensor.family_room_thermostat_is_locked:
@@ -28,6 +28,8 @@ binary_sensor.family_room_thermostat_fan:
   hidden: true
 binary_sensor.family_room_thermostat_online:
   friendly_name: Online Status
+
+# televisions
 remote.bedroom_hub:
   friendly_name: Bedroom TV
   icon: mdi:television
@@ -40,14 +42,14 @@ input_boolean.living_room_tv:
   hidden: true
 input_boolean.bedroom_tv:
   hidden: true
+
+# motion sensors
 sensor.apartment_motion_temperature:
   hidden: true
 sensor.kitchen_motion_temperature:
   hidden: true
 sensor.office_motion_temperature:
   hidden: true
-
-# Customize the motion sensor
 binary_sensor.kitchen_motion:
   friendly_name: Kitchen Motion
   device_class: motion
@@ -62,20 +64,19 @@ binary_sensor.living_room_motion:
 binary_sensor.apartment_motion:
   device_class: motion
 
-# Set the device class for the Garage Doors so they appear with
-# the correct icons
+# Customize the garage doors
 cover.left_garage_door:
   device_class: garage
 cover.right_garage_door:
   device_class: garage
 
-# Unhide some groups
+# Unhide the all_scripts/automations groups
 group.all_automations:
   hidden: false
 group.all_scripts:
   hidden: false
 
-#Customize the door sensors:
+# Customize the door sensors
 sensor.bedroom_outside_door_temperature:
   friendly_name: Bedroom Temperature
 binary_sensor.bedroom_outside_door:
@@ -95,3 +96,21 @@ binary_sensor.front_door:
   device_class: door
 binary_sensor.garage_side_door:
   device_class: door
+
+# Customize the smoke alarms
+sensor.alarm_type:
+  hidden: true
+sensor.alarm_type_2:
+  hidden: true
+sensor.alarm_level:
+  hidden: true
+sensor.alarm_level_2:
+  hidden: true
+sensor.laundry_smoke_co_alarm:
+  icon: mdi:alarm-bell
+sensor.laundry_laundry_smoke_co_alarm_battery:
+  icon: mdi:battery-outline
+sensor.bedroom_smoke_alarm:
+  icon: mdi:alarm-bell
+sensor.bedroom_smoke_alarm_battery:
+  icon: mdi:battery-outline

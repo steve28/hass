@@ -1,444 +1,608 @@
 climate.family_room:
+  name:
   platform: nest
   unique_id: lqBlnFy-SqzMwTKqWwXBwtWxV87Kud1g
 sensor.steves_iphone_x_battery_level:
+  name:
   platform: ios
   unique_id: level_steves_iphone_x
 sensor.steves_ipad_pro_battery_state:
+  name:
   platform: ios
   unique_id: state_steves_ipad_pro
 sensor.steves_iphone_x_battery_state:
+  name:
   platform: ios
   unique_id: state_steves_iphone_x
 sensor.steves_ipad_pro_battery_level:
+  name:
   platform: ios
   unique_id: level_steves_ipad_pro
 switch.outlet_plug_switch:
+  name:
   platform: zwave
   unique_id: 2-72057594076282880
 light.siren_level:
+  name:
   platform: zwave
   unique_id: 3-72057594093076481
 sensor.siren_alarm_type:
+  name:
   platform: zwave
   unique_id: 3-72057594094305281
 sensor.siren_alarm_level:
+  name:
   platform: zwave
   unique_id: 3-72057594094305297
 sensor.siren_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 3-72057594094305313
 sensor.siren_burglar:
+  name:
   platform: zwave
   unique_id: 3-72057594094305441
 switch.desk_lamp_switch:
+  name:
   platform: zwave
   unique_id: 4-72057594109837312
 sensor.desk_lamp_energy:
+  name:
   platform: zwave
   unique_id: 4-72057594110050306
 sensor.desk_lamp_previous_reading:
+  name:
   platform: zwave
   unique_id: 4-72057594110050322
 sensor.desk_lamp_power:
+  name:
   platform: zwave
   unique_id: 4-72057594110050434
 sensor.desk_lamp_voltage:
+  name:
   platform: zwave
   unique_id: 4-72057594110050562
 sensor.desk_lamp_current:
+  name:
   platform: zwave
   unique_id: 4-72057594110050626
 switch.office_light_switch:
+  name:
   platform: zwave
   unique_id: 5-72057594126614528
 light.family_room_lights:
+  name:
   platform: zwave
   unique_id: 6-72057594143408129
 sensor.energy_meter_power:
+  name:
   platform: zwave
   unique_id: 7-72057594160365634
 sensor.energy_meter_power_2:
+  name:
   platform: zwave
   unique_id: 7-144115188198293570
 sensor.energy_meter_power_3:
+  name:
   platform: zwave
   unique_id: 7-216172782236221506
 sensor.energy_meter_energy:
+  name:
   platform: zwave
   unique_id: 7-72057594160381954
 sensor.energy_meter_energy_2:
+  name:
   platform: zwave
   unique_id: 7-144115188198309890
 sensor.energy_meter_energy_3:
+  name:
   platform: zwave
   unique_id: 7-216172782236237826
 sensor.energy_meter_previous_reading:
+  name:
   platform: zwave
   unique_id: 7-72057594160381970
 sensor.energy_meter_interval:
+  name:
   platform: zwave
   unique_id: 7-72057594160381987
 sensor.energy_meter_power_4:
+  name:
   platform: zwave
   unique_id: 7-72057594160382082
 sensor.energy_meter_exporting:
+  name:
   platform: zwave
   unique_id: 7-72057594160382464
 sensor.energy_meter_previous_reading_2:
+  name:
   platform: zwave
   unique_id: 7-144115188198309906
 sensor.energy_meter_interval_2:
+  name:
   platform: zwave
   unique_id: 7-144115188198309923
 sensor.energy_meter_power_5:
+  name:
   platform: zwave
   unique_id: 7-144115188198310018
 sensor.energy_meter_exporting_2:
+  name:
   platform: zwave
   unique_id: 7-144115188198310400
 sensor.energy_meter_previous_reading_3:
+  name:
   platform: zwave
   unique_id: 7-216172782236237842
 sensor.energy_meter_interval_3:
+  name:
   platform: zwave
   unique_id: 7-216172782236237859
 sensor.energy_meter_power_6:
+  name:
   platform: zwave
   unique_id: 7-216172782236237954
 sensor.energy_meter_exporting_3:
+  name:
   platform: zwave
   unique_id: 7-216172782236238336
 sensor.energy_meter_previous_reading_4:
+  name:
   platform: zwave
   unique_id: 7-72057594160382098
 sensor.energy_meter_interval_4:
+  name:
   platform: zwave
   unique_id: 7-72057594160382115
 switch.guest_bathroom_light_switch:
+  name:
   platform: zwave
   unique_id: 8-72057594176946176
 switch.utility_room_light:
+  name:
   platform: zwave
   unique_id: 9-72057594193723392
 switch.attic_stairs_light:
+  name:
   platform: zwave
   unique_id: 10-72057594210500608
 switch.upstairs_room_light:
+  name:
   platform: zwave
   unique_id: 11-72057594227277824
 switch.kitchen_lights:
+  name:
   platform: zwave
   unique_id: 12-72057594244055040
 switch.kitchen_door_inside_light:
+  name:
   platform: zwave
   unique_id: 13-72057594260832256
 switch.kitchen_door_outside_light:
+  name:
   platform: zwave
   unique_id: 14-72057594277609472
 switch.ginas_room_light:
+  name:
   platform: zwave
   unique_id: 15-72057594294386688
 switch.ginas_bathroom_light:
+  name:
   platform: zwave
   unique_id: 16-72057594311163904
 switch.dining_room_light:
+  name:
   platform: zwave
   unique_id: 17-72057594327941120
 binary_sensor.apartment_motion:
+  name:
   platform: zwave
   unique_id: 18-72057594344898560
 sensor.apartment_motion_alarm_type:
+  name:
   platform: zwave
   unique_id: 18-72057594345963521
 sensor.apartment_motion_alarm_level:
+  name:
   platform: zwave
   unique_id: 18-72057594345963537
 sensor.apartment_motion_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 18-72057594345963553
 sensor.apartment_motion_sensor_burglar:
+  name:
   platform: zwave
   unique_id: 18-72057594345963681
 sensor.apartment_motion_temperature:
+  name:
   platform: zwave
   unique_id: 18-72057594344914962
 binary_sensor.apartment_door:
+  name:
   platform: zwave
   unique_id: 19-72057594361675776
 sensor.apartment_door_alarm_type:
+  name:
   platform: zwave
   unique_id: 19-72057594362740737
 sensor.apartment_door_alarm_level:
+  name:
   platform: zwave
   unique_id: 19-72057594362740753
 sensor.apartment_door_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 19-72057594362740769
 sensor.apartment_door_burglar:
+  name:
   platform: zwave
   unique_id: 19-72057594362740897
 switch.back_door_light:
+  name:
   platform: zwave
   unique_id: 20-72057594378272768
 switch.bedroom_fan:
+  name:
   platform: zwave
   unique_id: 21-72057594395049984
 light.bedroom_lights:
+  name:
   platform: zwave
   unique_id: 22-72057594411843585
 switch.bathroom_fan:
+  name:
   platform: zwave
   unique_id: 23-72057594428604416
 switch.bathroom_vanity:
+  name:
   platform: zwave
   unique_id: 24-72057594445381632
 switch.patio_lights:
+  name:
   platform: zwave
   unique_id: 25-72057594462158848
 switch.garage_outside_light:
+  name:
   platform: zwave
   unique_id: 26-72057594478936064
 switch.backyard_flood_lights:
+  name:
   platform: zwave
   unique_id: 27-72057594495713280
 binary_sensor.garage_side_door:
+  name:
   platform: zwave
   unique_id: 28-72057594512670720
 sensor.garage_side_door_alarm_type:
+  name:
   platform: zwave
   unique_id: 28-72057594513735681
 sensor.garage_side_door_alarm_level:
+  name:
   platform: zwave
   unique_id: 28-72057594513735697
 sensor.garage_side_door_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 28-72057594513735713
 sensor.garage_side_door_burglar:
+  name:
   platform: zwave
   unique_id: 28-72057594513735841
 binary_sensor.back_door:
+  name:
   platform: zwave
   unique_id: 30-72057594546225152
 sensor.back_door_alarm_type:
+  name:
   platform: zwave
   unique_id: 30-72057594547290113
 sensor.back_door_alarm_level:
+  name:
   platform: zwave
   unique_id: 30-72057594547290129
 sensor.back_door_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 30-72057594547290145
 sensor.back_door_burglar:
+  name:
   platform: zwave
   unique_id: 30-72057594547290273
 binary_sensor.kitchen_door:
+  name:
   platform: zwave
   unique_id: 31-72057594563002368
 sensor.kitchen_door_alarm_type:
+  name:
   platform: zwave
   unique_id: 31-72057594564067329
 sensor.kitchen_door_alarm_level:
+  name:
   platform: zwave
   unique_id: 31-72057594564067345
 sensor.kitchen_door_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 31-72057594564067361
 sensor.kitchen_door_burglar:
+  name:
   platform: zwave
   unique_id: 31-72057594564067489
 binary_sensor.front_door:
+  name:
   platform: zwave
   unique_id: 32-72057594579779584
 sensor.front_door_alarm_type:
+  name:
   platform: zwave
   unique_id: 32-72057594580844545
 sensor.front_door_alarm_level:
+  name:
   platform: zwave
   unique_id: 32-72057594580844561
 sensor.front_door_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 32-72057594580844577
 sensor.front_door_burglar:
+  name:
   platform: zwave
   unique_id: 32-72057594580844705
 light.living_room_lights:
+  name:
   platform: zwave
   unique_id: 33-72057594596392961
 switch.front_door_lights:
+  name:
   platform: zwave
   unique_id: 34-72057594613153792
 switch.laundry_light:
+  name:
   platform: zwave
   unique_id: 35-72057594629931008
 binary_sensor.family_room_motion:
+  name:
   platform: zwave
   unique_id: 36-72057594646888448
 sensor.family_room_motion_alarm_type:
+  name:
   platform: zwave
   unique_id: 36-72057594647953409
 sensor.family_room_motion_alarm_level:
+  name:
   platform: zwave
   unique_id: 36-72057594647953425
 sensor.family_room_motion_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 36-72057594647953441
 sensor.family_room_motion_burglar:
+  name:
   platform: zwave
   unique_id: 36-72057594647953569
 binary_sensor.bedroom_motion:
+  name:
   platform: zwave
   unique_id: 37-72057594663665664
 sensor.bedroom_motion_alarm_type:
+  name:
   platform: zwave
   unique_id: 37-72057594664730625
 sensor.bedroom_motion_alarm_level:
+  name:
   platform: zwave
   unique_id: 37-72057594664730641
 sensor.bedroom_motion_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 37-72057594664730657
 sensor.bedroom_motion_burglar:
+  name:
   platform: zwave
   unique_id: 37-72057594664730785
 binary_sensor.living_room_motion:
+  name:
   platform: zwave
   unique_id: 38-72057594680442880
 sensor.living_room_motion_alarm_type:
+  name:
   platform: zwave
   unique_id: 38-72057594681507841
 sensor.living_room_motion_alarm_level:
+  name:
   platform: zwave
   unique_id: 38-72057594681507857
 sensor.living_room_motion_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 38-72057594681507873
 sensor.living_room_motion_burglar:
+  name:
   platform: zwave
   unique_id: 38-72057594681508001
 switch.fence_lights:
+  name:
   platform: zwave
   unique_id: 39-72057594697039872
 sensor.fence_lights_unknown:
+  name:
   platform: zwave
   unique_id: 39-72057594697252866
 sensor.fence_lights_power:
+  name:
   platform: zwave
   unique_id: 39-72057594697252994
 sensor.fence_lights_voltage:
+  name:
   platform: zwave
   unique_id: 39-72057594697253122
 sensor.fence_lights_current:
+  name:
   platform: zwave
   unique_id: 39-72057594697253186
 sensor.fence_lights_previous_reading:
+  name:
   platform: zwave
   unique_id: 39-72057594697253010
 sensor.fence_lights_previous_reading_2:
+  name:
   platform: zwave
   unique_id: 39-72057594697253138
 sensor.fence_lights_previous_reading_3:
+  name:
   platform: zwave
   unique_id: 39-72057594697253202
 switch.landscape_lighting:
+  name:
   platform: zwave
   unique_id: 40-72057594713817088
 sensor.fence_lights_previous_reading_4:
+  name:
   platform: zwave
   unique_id: 39-72057594697252882
 switch.family_room_fan:
+  name:
   platform: zwave
   unique_id: 41-72057594730594304
 sensor.family_room_fan_unknown:
+  name:
   platform: zwave
   unique_id: 41-72057594730807298
 sensor.family_room_fan_power:
+  name:
   platform: zwave
   unique_id: 41-72057594730807426
 sensor.family_room_fan_voltage:
+  name:
   platform: zwave
   unique_id: 41-72057594730807554
 sensor.family_room_fan_current:
+  name:
   platform: zwave
   unique_id: 41-72057594730807618
 sensor.family_room_fan_previous_reading:
+  name:
   platform: zwave
   unique_id: 41-72057594730807442
 sensor.family_room_fan_previous_reading_2:
+  name:
   platform: zwave
   unique_id: 41-72057594730807570
 sensor.family_room_fan_previous_reading_3:
+  name:
   platform: zwave
   unique_id: 41-72057594730807634
 binary_sensor.attic_door:
+  name:
   platform: zwave
   unique_id: 42-72057594747551744
 sensor.attic_door_alarm_type:
+  name:
   platform: zwave
   unique_id: 42-72057594748616705
 sensor.attic_door_alarm_level:
+  name:
   platform: zwave
   unique_id: 42-72057594748616721
 sensor.attic_door_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 42-72057594748616737
 sensor.attic_door_burglar:
+  name:
   platform: zwave
   unique_id: 42-72057594748616865
 sensor.family_room_fan_previous_reading_4:
+  name:
   platform: zwave
   unique_id: 41-72057594730807314
 switch.home_audio_system:
+  name:
   platform: zwave
   unique_id: 43-72057594764148736
 sensor.home_audio_system_unknown:
+  name:
   platform: zwave
   unique_id: 43-72057594764361730
 sensor.home_audio_system_power:
+  name:
   platform: zwave
   unique_id: 43-72057594764361858
 sensor.home_audio_system_exporting:
+  name:
   platform: zwave
   unique_id: 43-72057594764362240
 sensor.home_audio_system_power_2:
+  name:
   platform: zwave
   unique_id: 43-72057594764345410
 sensor.home_audio_system_previous_reading:
+  name:
   platform: zwave
   unique_id: 43-72057594764361746
 sensor.home_audio_system_interval:
+  name:
   platform: zwave
   unique_id: 43-72057594764361763
 sensor.home_audio_system_previous_reading_2:
+  name:
   platform: zwave
   unique_id: 43-72057594764361874
 sensor.home_audio_system_interval_2:
+  name:
   platform: zwave
   unique_id: 43-72057594764361891
 sensor.airies_iphone_se_battery_level:
+  name:
   platform: ios
   unique_id: level_airies_iphone_se
 sensor.airies_iphone_se_battery_state:
+  name:
   platform: ios
   unique_id: state_airies_iphone_se
 light.attic_light:
+  name:
   platform: zha
   unique_id: 7c:e5:24:00:00:0b:df:b3-1
 sensor.kitchen_motion_temperature:
+  name:
   platform: zha
   unique_id: 00:0d:6f:00:04:05:56:7d-1-1026
 binary_sensor.kitchen_motion:
+  name:
   platform: zha
   unique_id: 00:0d:6f:00:04:05:56:7d-1-1280
 sensor.office_motion_temperature:
+  name:
   platform: zha
   unique_id: 00:0d:6f:00:0e:f4:fa:a4-1-1026
 binary_sensor.office_motion:
+  name:
   platform: zha
   unique_id: 00:0d:6f:00:0e:f4:fa:a4-1-1280
 sensor.bedroom_outside_door_temperature:
+  name:
   platform: zha
   unique_id: 00:0d:6f:00:03:29:48:1b-1-1026
 binary_sensor.bedroom_outside_door:
+  name:
   platform: zha
   unique_id: 00:0d:6f:00:03:29:48:1b-1-1280
+sensor.alarm_type:
+  name: Laundry Smoke Alarm Type
+  platform: zwave
+  unique_id: 44-72057594782171137
+sensor.alarm_level:
+  name: Laundry Smoke Alarm Level
+  platform: zwave
+  unique_id: 44-72057594782171153
+sensor.alarm_type_2:
+  name:
+  platform: zwave
+  unique_id: 45-72057594798948353
+sensor.alarm_level_2:
+  name:
+  platform: zwave
+  unique_id: 45-72057594798948369

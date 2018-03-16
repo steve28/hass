@@ -1,5 +1,8 @@
 - name: Bedtime
   entities:
+    light.bedroom_lights: off
+    light.living_room_lights: off
+    light.family_room_lights: off
     switch.attic_stairs_light: off
     switch.back_door_light: off
     switch.backyard_flood_lights: off
@@ -23,7 +26,6 @@
     switch.patio_lights: off
     switch.upstairs_room_light: off
     switch.utility_room_light: off
-    light.bedroom_lights: off
-    light.family_room_lights: off
     light.attic_light: off
-    light.living_room_lights: off
+    remote.family_room: off
+    media_player.family_room_tv: off

@@ -6,6 +6,14 @@ climate:
     - sensor.family_room_thermostat_hvac_state
     - binary_sensor.family_room_thermostat_online
 
+smoke:
+  name: Smoke & CO2
+  entities:
+    - sensor.laundry_smoke_co_alarm
+    - sensor.laundry_laundry_smoke_co_alarm_battery
+    - sensor.bedroom_smoke_alarm
+    - sensor.bedroom_smoke_alarm_battery
+
 family:
   name: Family
   entities:
@@ -61,3 +69,9 @@ automation_view:
   entities:
     - group.all_automations
     - group.all_scripts
+
+logging_control:
+  name: Logging
+  entities:
+    - input_select.which_component
+    - input_select.log_level
