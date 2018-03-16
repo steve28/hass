@@ -155,11 +155,21 @@ sensor:
       apartment_temperature:
         friendly_name: "Apartment Temperature"
         unit_of_measurement: '°F'
-        value_template: "{{ states.sensor.apartment_motion_temperature.state|int('-') }}"
+        value_template: >
+          {% if states.sensor.apartment_motion_temperature.state %}
+            {{ states.sensor.apartment_motion_temperature.state|int('-') }}
+          {% else %}
+            -
+          {% endif %}
       house_power:
         friendly_name: House Power
         unit_of_measurement: 'W'
-        value_template: "{{ states.sensor.energy_meter_power_4.state|int('-') }}"
+        value_template: >
+          {% if states.sensor.energy_meter_power_4.state %}
+            {{ states.sensor.energy_meter_power_4.state|int('-') }}
+          {% else %}
+            -
+          {% endif %}
       kitchen_temperature:
         friendly_name: "Kitchen Temperature"
         unit_of_measurement: '°F'
@@ -197,11 +207,21 @@ sensor:
                 Unknown
             {%- endif %}
       laundry_laundry_smoke_co_alarm_battery:
-        value_template: '{{states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector.attributes.battery_level}}'
+        value_template: >
+          {% if states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector.state %}
+            {{states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector.attributes.battery_level}}
+          {% else %}
+            n/a
+          {% endif %}
         friendly_name: 'Laundry Smoke/CO Alarm Battery'
         unit_of_measurement: '%'
       bedroom_smoke_alarm_battery:
-        value_template: '{{states.zwave.first_alert_unknown_type0001_id0001.attributes.battery_level}}'
+        value_template: >
+          {% if states.zwave.first_alert_unknown_type0001_id0001.state %}
+            {{states.zwave.first_alert_unknown_type0001_id0001.attributes.battery_level}}
+          {% else %}
+            n/a
+          {% endif %}
         friendly_name: 'Bedroom Smoke Alarm Battery'
         unit_of_measurement: '%'
 
