@@ -54,6 +54,12 @@ updater:
 # Allows you to issue voice commands from the frontend in enabled browsers
 # conversation:
 
+# Enable the recorder
+recorder:
+  purge_keep_days: 10   # how many days to keep
+  purge_interval: 1     # how often (in days) to purge old data
+
+
 # Enables support for tracking state changes over time
 history:
 
