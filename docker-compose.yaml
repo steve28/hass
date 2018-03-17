@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  home-assistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant
+    volumes:
+      - /var/homeserver/home-assistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /var/homeserver/certs:/config/certs
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - "/dev/ttyUSB1:/dev/ttyUSB1"
+    restart: unless-stopped
+    network_mode: host
