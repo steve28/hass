@@ -1,11 +1,8 @@
-# Add my iBeacons to the home zone
 zone.home:
   beacon:
     uuid: 1d3b9493-07e0-4192-8356-1248d84b2bdc
     major: 2
     minor: 1080
-
-# Customize the Nest Display
 binary_sensor.family_room_thermostat_has_leaf:
   hidden: true
 binary_sensor.family_room_thermostat_is_locked:
@@ -28,8 +25,6 @@ binary_sensor.family_room_thermostat_fan:
   hidden: true
 binary_sensor.family_room_thermostat_online:
   friendly_name: Online Status
-
-# televisions
 remote.bedroom_hub:
   friendly_name: Bedroom TV
   icon: mdi:television
@@ -42,8 +37,6 @@ input_boolean.living_room_tv:
   hidden: true
 input_boolean.bedroom_tv:
   hidden: true
-
-# motion sensors
 sensor.apartment_motion_temperature:
   hidden: true
 sensor.kitchen_motion_temperature:
@@ -63,20 +56,14 @@ binary_sensor.living_room_motion:
   device_class: motion
 binary_sensor.apartment_motion:
   device_class: motion
-
-# Customize the garage doors
 cover.left_garage_door:
   device_class: garage
 cover.right_garage_door:
   device_class: garage
-
-# Unhide the all_scripts/automations groups
 group.all_automations:
   hidden: false
 group.all_scripts:
   hidden: false
-
-# Customize the door sensors
 sensor.bedroom_outside_door_temperature:
   friendly_name: Bedroom Temperature
 binary_sensor.bedroom_outside_door:
@@ -96,8 +83,6 @@ binary_sensor.front_door:
   device_class: door
 binary_sensor.garage_side_door:
   device_class: door
-
-# Customize the smoke alarms
 sensor.alarm_type:
   hidden: true
 sensor.alarm_type_2:
@@ -114,3 +99,59 @@ sensor.bedroom_smoke_alarm:
   icon: mdi:alarm-bell
 sensor.bedroom_smoke_alarm_battery:
   icon: mdi:battery-outline
+switch.office_light_switch:
+  friendly_name: Office Light
+switch.attic_stairs_light:
+  friendly_name: Attic Stairs Light
+switch.back_door_light:
+  friendly_name: Back Door Light
+switch.backyard_flood_lights:
+  friendly_name: Backyard Flood Lights
+switch.bathroom_fan:
+  friendly_name: Bathroom Fan
+switch.bathroom_vanity:
+  friendly_name: Bathroom Vanity
+switch.bedroom_fan:
+  friendly_name: Bedroom Fan
+light.bedroom_lights:
+  friendly_name: Bedroom Lights
+switch.desk_lamp_switch:
+  friendly_name: Desk Lamp
+switch.dining_room_light:
+  friendly_name: Dining Room Light
+switch.family_room_fan:
+  friendly_name: Family Room Fan
+switch.landscape_lighting:
+  friendly_name: Landscape Lighting
+switch.laundry_light:
+  friendly_name: Laundry Light
+light.living_room_lights:
+  friendly_name: Living Room Lights
+switch.outlet_plug_switch:
+  friendly_name: Outlet Plug
+switch.ginas_bathroom_light:
+  friendly_name: Gina's Bathroom Light
+switch.guest_bathroom_light_switch:
+  friendly_name: Guest Bathroom Light
+switch.ginas_room_light:
+  friendly_name: Gina's Room Light
+light.family_room_lights:
+  friendly_name: Family Room Lights
+switch.kitchen_door_outside_light:
+  friendly_name: Kitchen Door Outside Light
+switch.kitchen_door_inside_light:
+  friendly_name: Kitchen Door Inside Light
+switch.kitchen_lights:
+  friendly_name: Kitchen Lights
+switch.upstairs_room_light:
+  friendly_name: Upstairs Room Light
+switch.utility_room_light:
+  friendly_name: Utility Room Light
+switch.front_door_lights:
+  friendly_name: Front Door Lights
+switch.garage_outside_light:
+  friendly_name: Garage Outside Light
+light.siren_level:
+  friendly_name: Siren
+switch.home_audio_system:
+  friendly_name: Home Audio System

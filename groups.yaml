@@ -1,3 +1,71 @@
+master_bedroom:
+  name: Master Bedroom
+  control: hidden
+  entities:
+    - light.bedroom_lights
+    - switch.bedroom_fan
+    - remote.bedroom_hub
+    - switch.bathroom_fan
+    - switch.bathroom_vanity
+
+ginas_room:
+  name: Gina's Room
+  control: hidden
+  entities:
+    - switch.ginas_room_light
+    - switch.ginas_bathroom_light
+
+office:
+  name: Office and Utility
+  control: hidden
+  entities:
+    - switch.office_light_switch
+    - switch.desk_lamp_switch
+    - switch.utility_room_light
+    - switch.outlet_plug_switch
+    - switch.home_audio_system
+
+living_room:
+  name: Living Room
+  control: hidden
+  entities:
+    - light.living_room_lights
+    - remote.family_room
+
+dining_room:
+  name: Dining Room
+  control: hidden
+  entities:
+    - switch.dining_room_light
+
+family_room:
+  name: Family Room
+  control: hidden
+  entities:
+    - light.family_room_lights
+    - switch.family_room_fan
+    - media_player.family_room_tv
+    - media_player.family_room_roku
+    - switch.laundry_light
+    - switch.guest_bathroom_light_switch
+    - light.siren_level
+
+kitchen:
+  name: Kitchen
+  control: hidden
+  entities:
+    - switch.kitchen_lights
+    - switch.kitchen_door_inside_light
+
+attic:
+  name: Attic
+  control: hidden
+  entities:
+    - switch.attic_stairs_light
+    - switch.upstairs_room_light
+    - light.attic_light
+
+
 climate:
   name: HVAC
   entities:
@@ -63,13 +131,6 @@ outside_lights:
     - switch.landscape_lighting
     - switch.fence_lights
 
-automation_view:
-  name: Automation
-  view: yes
-  entities:
-    - group.all_automations
-    - group.all_scripts
-
 logging_control:
   name: Debug Logging
   control: hidden
@@ -78,3 +139,61 @@ logging_control:
     - input_boolean.mqtt_debug
     - input_boolean.python_script_debug
     - input_boolean.device_tracker_debug
+
+zwave_device_status:
+  name: Z-Wave Device Status
+  entities:
+    - zwave.apartment_door
+    - zwave.apartment_motion
+    - zwave.attic_door
+    - zwave.attic_stairs_light
+    - zwave.back_door
+    - zwave.back_door_light
+    - zwave.backyard_flood_lights
+    - zwave.bathroom_fan
+    - zwave.bathroom_vanity
+    - zwave.bedroom_fan
+    - zwave.bedroom_lights
+    - zwave.bedroom_motion
+    - zwave.desk_lamp
+    - zwave.dining_room_light
+    - zwave.energy_meter
+    - zwave.family_room_fan
+    - zwave.family_room_lights
+    - zwave.family_room_motion
+    - zwave.fence_lights
+    - zwave.first_alert_unknown_type0001_id0001
+    - zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector
+    - zwave.front_door
+    - zwave.front_door_lights
+    - zwave.garage_outside_light
+    - zwave.garage_side_door
+    - zwave.ginas_bathroom_light
+    - zwave.ginas_room_light
+    - zwave.guest_bathroom_light
+    - zwave.home_audio_system
+    - zwave.kitchen_door
+    - zwave.kitchen_door_inside_light
+    - zwave.kitchen_door_outside_light
+    - zwave.kitchen_lights
+    - zwave.landscape_lighting
+    - zwave.laundry_light
+    - zwave.living_room_lights
+    - zwave.living_room_motion
+    - zwave.office_light
+    - zwave.outlet_plug
+    - zwave.patio_lights
+    - zwave.sigma_designs_uzb_zwave_usb_adapter
+    - zwave.siren
+    - zwave.upstairs_room_light
+    - zwave.utility_room
+
+# Views
+automation_view:
+  name: Status
+  view: yes
+  entities:
+    - group.all_automations
+    - group.all_scripts
+    - group.zwave_device_status
+    - group.logging_control
