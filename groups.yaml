@@ -1,3 +1,29 @@
+living_room:
+  name: Living Room
+  control: hidden
+  entities:
+    - light.living_room_lights
+    - remote.family_room
+
+family_room:
+  name: Family Room
+  control: hidden
+  entities:
+    - light.family_room_lights
+    - switch.family_room_fan
+    - media_player.family_room_tv
+    - media_player.family_room_roku
+    - switch.laundry_light
+    - switch.guest_bathroom_light_switch
+    - light.siren_level
+
+kitchen:
+  name: Kitchen
+  control: hidden
+  entities:
+    - switch.kitchen_lights
+    - switch.kitchen_door_inside_light
+
 master_bedroom:
   name: Master Bedroom
   control: hidden
@@ -25,37 +51,11 @@ office:
     - switch.outlet_plug_switch
     - switch.home_audio_system
 
-living_room:
-  name: Living Room
-  control: hidden
-  entities:
-    - light.living_room_lights
-    - remote.family_room
-
 dining_room:
   name: Dining Room
   control: hidden
   entities:
     - switch.dining_room_light
-
-family_room:
-  name: Family Room
-  control: hidden
-  entities:
-    - light.family_room_lights
-    - switch.family_room_fan
-    - media_player.family_room_tv
-    - media_player.family_room_roku
-    - switch.laundry_light
-    - switch.guest_bathroom_light_switch
-    - light.siren_level
-
-kitchen:
-  name: Kitchen
-  control: hidden
-  entities:
-    - switch.kitchen_lights
-    - switch.kitchen_door_inside_light
 
 attic:
   name: Attic
@@ -64,7 +64,6 @@ attic:
     - switch.attic_stairs_light
     - switch.upstairs_room_light
     - light.attic_light
-
 
 climate:
   name: HVAC
@@ -140,6 +139,12 @@ logging_control:
     - input_boolean.python_script_debug
     - input_boolean.device_tracker_debug
 
+server:
+  name: Server
+  entities:
+    - sensor.ssl_cert_expires
+    - sensor.homeassistant_v2db
+
 zwave_device_status:
   name: Z-Wave Device Status
   entities:
@@ -193,6 +198,7 @@ automation_view:
   name: Status
   view: yes
   entities:
+    - group.server
     - group.all_automations
     - group.all_scripts
     - group.zwave_device_status
