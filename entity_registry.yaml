@@ -606,3 +606,11 @@ sensor.alarm_level_2:
   name:
   platform: zwave
   unique_id: 45-72057594798948369
+sensor.garage_side_door_smoke:
+  name:
+  platform: zwave
+  unique_id: 28-72057594513735745
+sensor.garage_side_door_carbon_dioxide:
+  name:
+  platform: zwave
+  unique_id: 28-72057594513735777

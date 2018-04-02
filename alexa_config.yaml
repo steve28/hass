@@ -20,6 +20,7 @@ filter:
     - switch.family_room_fan
     - switch.bedroom_fan
     - switch.dining_room_light
+    - switch.back_door_light
 
 entity_config:
   switch.desk_lamp_switch:
@@ -82,3 +83,7 @@ entity_config:
   switch.dining_room_light:
     name: Dining Room Light
     display_categories: LIGHT
+  switch.back_door_light:
+    name: Back Door Light
+    display_categories: LIGHT
+

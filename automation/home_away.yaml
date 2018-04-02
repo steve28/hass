@@ -1,5 +1,5 @@
 - alias: Away Actions
-  hide_entity: true
+  hide_entity: false
   trigger:
     - platform: state
       entity_id: group.all_devices
@@ -15,8 +15,8 @@
       data:
         message: "Away"
 
-- alias: Home
-  hide_entity: true
+- alias: Arrive Actions
+  hide_entity: false
   trigger:
     - platform: state
       entity_id: group.all_devices
