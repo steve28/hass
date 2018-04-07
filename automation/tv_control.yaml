@@ -26,6 +26,32 @@
        {% endif %}
       entity_id: remote.bedroom_hub
 
+- alias: Family Room TV Off
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: input_boolean.family_room_tv
+      to: 'off'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.family_room_roku
+        source: 'Home'
+    - delay: '00:00:03'
+    - service: media_player.turn_off
+      entity_id: media_player.family_room_tv
+
+- alias: Family Room TV On
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: input_boolean.family_room_tv
+      to: 'on'
+  action:
+    - service: media_player.turn_on
+      entity_id: media_player.family_room_tv
+
+
 - alias: Set Input Boolean Living Room TV
   hide_entity: true
   trigger:
@@ -53,3 +79,17 @@
          input_boolean.turn_off
        {% endif %}
       entity_id: input_boolean.bedroom_tv
+
+- alias: Set Input Boolean Family Room TV
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: media_player.family_room_tv
+  action:
+    - service_template: >
+       {% if states.media_player.family_room_tv == 'off'  %}
+         input_boolean.turn_off
+       {% else %}
+         input_boolean.turn_on
+       {% endif %}
+      entity_id: input_boolean.family_room_tv

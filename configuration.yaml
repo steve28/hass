@@ -117,6 +117,9 @@ input_boolean:
   living_room_tv:
     name: Living Room TV
     icon: mdi:television
+  family_room_tv:
+    name: Family Room TV
+    icon: mdi:television
   bedroom_tv:
     name: Bedroom TV
     icon: mdi:television

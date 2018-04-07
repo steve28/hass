@@ -11,6 +11,7 @@ family_room:
   entities:
     - light.family_room_lights
     - switch.family_room_fan
+    - input_boolean.family_room_tv
     - media_player.family_room_tv
     - media_player.family_room_roku
     - switch.laundry_light

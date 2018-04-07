@@ -4,7 +4,6 @@ filter:
     - switch.office_light_switch
     - light.living_room_lights
     - light.family_room_lights
-    - media_player.family_room_tv
     - light.bedroom_lights
     - switch.kitchen_lights
     - switch.bathroom_vanity
@@ -17,6 +16,7 @@ filter:
     - switch.utility_room_light
     - input_boolean.living_room_tv
     - input_boolean.bedroom_tv
+    - input_boolean.family_room_tv
     - switch.family_room_fan
     - switch.bedroom_fan
     - switch.dining_room_light
@@ -32,7 +32,7 @@ entity_config:
   light.family_room_lights:
     name: Family Room Lights
     display_categories: LIGHT
-  media_player.family_room_tv:
+  input_boolean.family_room_tv:
     name: Family Room TV
     display_categories: TV
   light.living_room_lights:
@@ -86,4 +86,3 @@ entity_config:
   switch.back_door_light:
     name: Back Door Light
     display_categories: LIGHT
-
