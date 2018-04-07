@@ -1,4 +1,5 @@
 - alias: Dog Lights
+  initial_state: off
   trigger:
     - platform: state
       entity_id: binary_sensor.back_door
@@ -17,9 +18,9 @@
         delay: '00:05:00'
         # pass a list of lights, rulling out the ones that are already on
         lights: >
-          {{ [states.switch.garage_outside_light, 
-                            states.switch.back_door_light, 
-                            states.switch.patio_lights] 
+          {{ [states.switch.garage_outside_light,
+                            states.switch.back_door_light,
+                            states.switch.patio_lights]
           | rejectattr('state','equalto','on')
-          | map(attribute='entity_id' ) 
+          | map(attribute='entity_id' )
           | join(', ') }}

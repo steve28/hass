@@ -1,4 +1,5 @@
 - alias: Landscape Lights
+  initial_state: off
   trigger:
     - platform: sun
       event: sunset

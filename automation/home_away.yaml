@@ -1,5 +1,6 @@
 - alias: Away Actions
   hide_entity: false
+  initial_state: off
   trigger:
     - platform: state
       entity_id: group.all_devices
@@ -17,6 +18,7 @@
 
 - alias: Arrive Actions
   hide_entity: false
+  initial_state: off
   trigger:
     - platform: state
       entity_id: group.all_devices

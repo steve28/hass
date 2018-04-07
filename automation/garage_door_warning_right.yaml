@@ -1,4 +1,5 @@
 - alias: Garage Door Warning Right
+  initial_state: off
   trigger:
     - platform: state
       entity_id: cover.right_garage_door
@@ -9,4 +10,3 @@
     - service: notify.ios_steves_iphone_x
       data:
         message: "Right garage door is open"
-

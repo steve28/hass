@@ -12,7 +12,7 @@
        {% endif %}
       entity_id: remote.family_room
 
-- alias: Bedrrom TV
+- alias: Bedroom TV
   hide_entity: true
   trigger:
     - platform: state
@@ -25,7 +25,7 @@
          remote.turn_off
        {% endif %}
       entity_id: remote.bedroom_hub
-      
+
 - alias: Set Input Boolean Living Room TV
   hide_entity: true
   trigger:

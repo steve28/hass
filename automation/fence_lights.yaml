@@ -1,4 +1,5 @@
 - alias: Fence Lights
+  initial_state: off
   trigger:
     - platform: sun
       event: sunset
@@ -12,4 +13,3 @@
           switch.turn_off
         {% endif %}
       entity_id: switch.fence_lights
-
