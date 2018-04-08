@@ -257,6 +257,7 @@ media_player:
       service: wake_on_lan.send_magic_packet
       data:
         mac: 38:8C:50:DC:DE:A4
+        broadcast_address: 192.168.1.255
     customize:
       sources:
         - HDMI1

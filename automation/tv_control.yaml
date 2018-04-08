@@ -87,7 +87,7 @@
       entity_id: media_player.family_room_tv
   action:
     - service_template: >
-       {% if states.media_player.family_room_tv == 'off'  %}
+       {% if states.media_player.family_room_tv.state == 'off'  %}
          input_boolean.turn_off
        {% else %}
          input_boolean.turn_on
