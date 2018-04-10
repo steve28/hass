@@ -21,3 +21,4 @@ zwscene.xml
 .DS_Store
 *.db-wal
 *.db-shm
+.homekit.state

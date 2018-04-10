@@ -106,6 +106,13 @@ ios:
 # Wake On Lan Support
 wake_on_lan:
 
+# HomeKit
+homekit:
+  filter:
+    include_entities:
+      - input_boolean.steve_homekit
+      - input_boolean.airie_homekit
+
 # Some input booeleans as flags for some automations
 input_boolean:
   left_garage_auto_open:
@@ -139,6 +146,13 @@ input_boolean:
     name: Device Tracker
     icon: mdi:bug
     initial: off
+  steve_homekit:
+    name: Steve HK
+    icon: mdi:account
+  airie_homekit:
+    name: Airie HK
+    icon: mdi:account
+
 
 # Sensors
 sensor:
@@ -295,10 +309,10 @@ zwave:
       refresh_value: true
       delay: 2
     light.family_room_lights:
-      refresh_value: 2
+      refresh_value: true
       delay: 2
     light.bedroom_lights:
-      refresh_value: 2
+      refresh_value: true
       delay: 2
 
 #zigbee

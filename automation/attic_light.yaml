@@ -3,6 +3,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.attic_door
+      from: 'on'
       to: 'off'
       for:
         minutes: 5
@@ -11,6 +12,7 @@
       entity_id: light.attic_light
 
 - alias: Attic Lights Auto-On
+  initial_state: off
   trigger:
     - platform: state
       entity_id: binary_sensor.attic_door

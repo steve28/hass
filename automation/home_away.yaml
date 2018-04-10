@@ -31,3 +31,43 @@
     - service: notify.ios_steves_iphone_x
       data:
         message: "Home"
+    - condition: or  # 'when dark' condition: either after sunset or before sunrise
+      conditions:
+        - condition: sun
+          after: sunset
+        - condition: sun
+          before: sunrise
+    - service: light.turn_on
+      data:
+        entity_id: light.family_room_lights
+        brightness: 128
+
+- alias: HomeKit Steve
+  hide_entity: false
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id: device_tracker.steves_iphone_x
+  action:
+    - service_template: >
+       {% if states.device_tracker.steves_iphone_x.state == 'home'  %}
+         input_boolean.turn_on
+       {% else %}
+         input_boolean.turn_off
+       {% endif %}
+      entity_id: input_boolean.steve_homekit
+
+- alias: HomeKit Airie
+  hide_entity: false
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id: device_tracker.airies_iphone_se
+  action:
+    - service_template: >
+       {% if states.device_tracker.airies_iphone_se.state == 'home'  %}
+         input_boolean.turn_on
+       {% else %}
+         input_boolean.turn_off
+       {% endif %}
+      entity_id: input_boolean.airie_homekit

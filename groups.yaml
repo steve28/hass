@@ -87,6 +87,8 @@ family:
   entities:
     - device_tracker.steves_iphone_x
     - device_tracker.airies_iphone_se
+    - input_boolean.steve_homekit
+    - input_boolean.airie_homekit
 
 doors:
   name: Doors

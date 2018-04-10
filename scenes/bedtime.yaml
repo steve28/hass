@@ -28,4 +28,4 @@
     switch.utility_room_light: off
     light.attic_light: off
     remote.family_room: off
-    media_player.family_room_tv: off
+    input_boolean.family_room_tv: off
