@@ -318,7 +318,7 @@ ffmpeg:
 
 # Camera Support
 camera:
-  - platform: ring
+#  - platform: ring
   - platform: ffmpeg
     name: Front Door
     input: !secret front_door_cam_url

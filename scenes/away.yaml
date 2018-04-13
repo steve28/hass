@@ -1,4 +1,4 @@
-- name: Bedtime
+- name: Away
   entities:
     light.bedroom_lights: off
     light.living_room_lights: off
@@ -30,4 +30,3 @@
     remote.family_room: off
     input_boolean.family_room_tv: off
     remote.bedroom_hub: off
-    
