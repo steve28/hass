@@ -113,6 +113,12 @@ homekit:
       - input_boolean.steve_homekit
       - input_boolean.airie_homekit
 
+switch:
+  - platform: wake_on_lan
+    mac_address: "1C-1B-0D-9D-09-EC"
+    name: "Raptor"
+    host: 192.168.1.3
+
 # Some input booeleans as flags for some automations
 input_boolean:
   left_garage_auto_open:

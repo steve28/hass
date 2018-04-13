@@ -85,6 +85,10 @@
   trigger:
     - platform: state
       entity_id: media_player.family_room_tv
+      from: 'off'
+    - platform: state
+      entity_id: media_player.family_room_tv
+      to: 'off'
   action:
     - service_template: >
        {% if states.media_player.family_room_tv.state == 'off'  %}

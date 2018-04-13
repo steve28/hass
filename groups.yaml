@@ -147,6 +147,7 @@ server:
   entities:
     - sensor.ssl_cert_expires
     - sensor.homeassistant_v2db
+    - switch.raptor
 
 zwave_device_status:
   name: Z-Wave Device Status
