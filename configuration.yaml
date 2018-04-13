@@ -19,6 +19,9 @@ homeassistant:
 
 logger:
   default: warn
+  # logs:
+  #   homeassistant.components.camera: debug
+  #   homeassistant.components.ffmpeg: debug
 
 zone:
   name: Home
@@ -106,12 +109,24 @@ ios:
 # Wake On Lan Support
 wake_on_lan:
 
+# downloader
+downloader:
+  download_dir: downloads
+
 # HomeKit
 homekit:
   filter:
     include_entities:
       - input_boolean.steve_homekit
       - input_boolean.airie_homekit
+
+# Ring Doorbell
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+binary_sensor:
+  - platform: ring
 
 switch:
   - platform: wake_on_lan
@@ -298,13 +313,17 @@ remote:
     name: Bedroom Hub
     activity: Watch Bedroom TV
 
-# Camera Supprt
+# Enable FFMPEG component (needed for camera)
+ffmpeg:
+
+# Camera Support
 camera:
-  - platform: foscam
-    ip: 192.168.1.22
-    username: steve
-    password: !secret foscam_password
+  - platform: ring
+  - platform: ffmpeg
     name: Front Door
+    input: !secret front_door_cam_url
+    extra_arguments: -vf "transpose=1"
+
 
 # Set up Z-Wave
 zwave:

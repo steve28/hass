@@ -22,3 +22,4 @@ zwscene.xml
 *.db-wal
 *.db-shm
 .homekit.state
+deps/

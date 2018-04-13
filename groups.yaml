@@ -110,6 +110,7 @@ motion:
     - binary_sensor.living_room_motion
     - binary_sensor.office_motion
     - binary_sensor.kitchen_motion
+    - binary_sensor.ring_front_door_motion
 
 garage:
   name: Garage
