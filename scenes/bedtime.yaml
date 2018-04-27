@@ -8,7 +8,6 @@
     switch.backyard_flood_lights: off
     switch.bathroom_fan: off
     switch.bathroom_vanity: off
-    switch.bedroom_fan: off
     switch.desk_lamp_switch: off
     switch.dining_room_light: off
     switch.family_room_fan: off
@@ -28,3 +27,4 @@
     switch.utility_room_light: off
     light.attic_light: off
     input_boolean.family_room_tv: off
+    remote.family_room: off
