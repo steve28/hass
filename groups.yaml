@@ -50,7 +50,7 @@ office:
     - switch.desk_lamp_switch
     - switch.utility_room_light
     - switch.outlet_plug_switch
-    - switch.home_audio_system
+
 
 dining_room:
   name: Dining Room
@@ -149,6 +149,24 @@ server:
     - sensor.ssl_cert_expires
     - sensor.homeassistant_v2db
     - switch.raptor
+
+home_audio:
+  name: Home Audio System
+  control: hidden
+  entities:
+    - switch.home_audio_system
+    - input_boolean.home_audio_zone_1
+    - input_number.slider1
+    - input_boolean.home_audio_zone_2
+    - input_number.slider2
+    - input_boolean.home_audio_zone_3
+    - input_number.slider3
+    - input_boolean.home_audio_zone_4
+    - input_number.slider4
+    - input_boolean.home_audio_zone_5
+    - input_number.slider5
+    - input_boolean.home_audio_zone_6
+    - input_number.slider6
 
 zwave_device_status:
   name: Z-Wave Device Status

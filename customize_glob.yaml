@@ -46,3 +46,5 @@
   hidden: true
 "sensor.home_audio_system*":
   hidden: true
+"switch.*_speakers":
+  icon: mdi:speaker

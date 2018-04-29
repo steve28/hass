@@ -1,0 +1,51 @@
+- alias: Volume Control
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id:
+        - input_number.slider1
+        - input_number.slider2
+        - input_number.slider3
+        - input_number.slider4
+        - input_number.slider5
+        - input_number.slider6
+  action:
+    - service: rest_command.set_home_audo_vol
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"
+
+- alias: Zone Power Control
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.home_audio_zone_1
+        - input_boolean.home_audio_zone_2
+        - input_boolean.home_audio_zone_3
+        - input_boolean.home_audio_zone_4
+        - input_boolean.home_audio_zone_5
+        - input_boolean.home_audio_zone_6
+  action:
+    - service: rest_command.pwr_home_audio_zone
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"
+        state: "{{ trigger.to_state.state }}"
+
+- alias: Set Zones off when power off
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: switch.home_audio_system
+      to: 'off'
+  action:
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.home_audio_zone_1
+          - input_boolean.home_audio_zone_2
+          - input_boolean.home_audio_zone_3
+          - input_boolean.home_audio_zone_4
+          - input_boolean.home_audio_zone_5
+          - input_boolean.home_audio_zone_6
+
+    
