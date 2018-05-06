@@ -225,21 +225,13 @@ input_boolean:
   home_audio_zone_6:
     name: Patio Speakers
     icon: mdi:speaker
+  home_audio_master_power:
+    name: System Power
+    icon: mdi:power
 
-
-
-rest_command:
-  set_home_audo_vol:
-    url: 'http://192.168.1.17:8080/mca66'
-    method: post
-    payload: "zone={{entity_id[-1]}}&command=setvol&value={{ states(entity_id)|int }}"
-    content_type: application/x-www-form-urlencoded
-  pwr_home_audio_zone:
-    url: 'http://192.168.1.17:8080/mca66'
-    method: post
-    payload: "zone={{entity_id[-1]}}&command=pwr&value={{ 0 if states(entity_id)=='off' else 1 }}"
-    content_type: application/x-www-form-urlencoded
-
+    
+shell_command:
+  home_audio_control: "python3 /config/command_line_scripts/home_audio_control.py -c {{command}} -z {{zone}} -v {{value}}"
 
 # Sensors
 sensor:

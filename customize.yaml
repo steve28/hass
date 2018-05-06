@@ -154,6 +154,7 @@ switch.garage_outside_light:
 light.siren_level:
   friendly_name: Siren
 switch.home_audio_system:
+  hidden: true
   friendly_name: System Power
   icon: mdi:power
 

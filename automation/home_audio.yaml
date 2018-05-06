@@ -1,4 +1,4 @@
-- alias: Volume Control
+- alias: Zone Volume Control
   hide_entity: true
   trigger:
     - platform: state
@@ -9,10 +9,15 @@
         - input_number.slider4
         - input_number.slider5
         - input_number.slider6
+  condition:
+    condition: template
+    value_template: '{{ states("input_boolean.home_audio_zone_"+trigger.entity_id[-1])=="on" }}'
   action:
-    - service: rest_command.set_home_audo_vol
+    - service: shell_command.home_audio_control
       data_template:
-        entity_id: "{{ trigger.entity_id }}"
+        command: "setvol"
+        zone: "{{ trigger.entity_id[-1] }}"
+        value: "{{ states(trigger.entity_id)|int }}"
 
 - alias: Zone Power Control
   hide_entity: true
@@ -25,17 +30,22 @@
         - input_boolean.home_audio_zone_4
         - input_boolean.home_audio_zone_5
         - input_boolean.home_audio_zone_6
+  condition:
+    condition: state
+    entity_id: switch.home_audio_system
+    state: "on"
   action:
-    - service: rest_command.pwr_home_audio_zone
+    - service: shell_command.home_audio_control
       data_template:
-        entity_id: "{{ trigger.entity_id }}"
-        state: "{{ trigger.to_state.state }}"
+        command: "pwr"
+        zone: "{{ trigger.entity_id[-1] }}"
+        value: "{{ 0 if states(trigger.entity_id)=='off' else 1 }}"
 
-- alias: Set Zones off when power off
+- alias: Zones off when power off
   hide_entity: true
   trigger:
     - platform: state
-      entity_id: switch.home_audio_system
+      entity_id: input_boolean.home_audio_master_power
       to: 'off'
   action:
     - service: input_boolean.turn_off
@@ -47,5 +57,37 @@
           - input_boolean.home_audio_zone_4
           - input_boolean.home_audio_zone_5
           - input_boolean.home_audio_zone_6
+    - service: input_number.set_value
+      data:
+        entity_id:
+          - input_number.slider1
+          - input_number.slider2
+          - input_number.slider3
+          - input_number.slider4
+          - input_number.slider5
+          - input_number.slider6
+        value: 0
+
+- alias: Home Audio Master Power On
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: input_boolean.home_audio_master_power
+      to: "on"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.home_audio_system
+
+- alias: Home Audio Master Power Off
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: input_boolean.home_audio_master_power
+      to: "off"
+  action:
+    - delay:
+        seconds: 3 
+    - service: switch.turn_off
+      entity_id: switch.home_audio_system
 
     

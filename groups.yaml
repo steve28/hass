@@ -154,7 +154,7 @@ home_audio:
   name: Home Audio System
   control: hidden
   entities:
-    - switch.home_audio_system
+    - input_boolean.home_audio_master_power
     - input_boolean.home_audio_zone_1
     - input_number.slider1
     - input_boolean.home_audio_zone_2
