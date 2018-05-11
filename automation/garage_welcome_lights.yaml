@@ -1,5 +1,4 @@
 - alias: Garage Welcome Lights
-  initial_state: off
   trigger:
     - platform: state
       entity_id: binary_sensor.garage_side_door
@@ -15,8 +14,8 @@
           - condition: sun
             before: sunrise
       - condition: template # One of us got home in the last 10 minutes
-        value_template: "{{ ((as_timestamp(now())-as_timestamp(states.device_tracker.airies_iphone_se.last_changed)) < 600) or
-                           ((as_timestamp(now())-as_timestamp(states.device_tracker.steves_iphone_x.last_changed)) < 600)   }}"
+        value_template: "{{ ((as_timestamp(now())-as_timestamp(states.input_boolean.steve_homekit.last_changed)) < 600) or
+                           ((as_timestamp(now())-as_timestamp(states.input_booleab.airie_homekit.last_changed)) < 600)   }}"
   action:
       service: script.timed_lights
       data_template:

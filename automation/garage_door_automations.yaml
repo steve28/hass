@@ -1,12 +1,11 @@
 ### Steve's Garage Control
 
 - alias: Right Auto Open Detect
-  initial_state: off
   hide_entity: false
   trigger:
     - platform: state
-      entity_id: device_tracker.steves_iphone_x
-      to: 'not_home'
+      entity_id: input_boolean.steve_homekit
+      to: 'off'
   condition:
     - condition: template
       value_template: "{{ (as_timestamp(now())-as_timestamp(states.cover.right_garage_door.last_changed)) < 600 }}"
@@ -18,12 +17,11 @@
         message: "steve garage set"
 
 - alias: Right Auto Open
-  initial_state: off
   hide_entity: false
   trigger:
     - platform: state
-      entity_id: device_tracker.steves_iphone_x
-      to: 'home'
+      entity_id: input_boolean.steve_homekit
+      to: 'on'
   condition:
     - condition: state
       entity_id: input_boolean.right_garage_auto_open
@@ -42,11 +40,10 @@
 
 - alias: Left Auto Open Detect
   hide_entity: false
-  initial_state: off
   trigger:
     - platform: state
-      entity_id: device_tracker.airies_iphone_se
-      to: 'not_home'
+      entity_id: input_boolean.airie_homekit
+      to: 'off'
   condition:
     - condition: template
       value_template: "{{ (as_timestamp(now())-as_timestamp(states.cover.left_garage_door.last_changed)) < 600 }}"
@@ -59,11 +56,10 @@
 
 - alias: Left Auto Open
   hide_entity: false
-  initial_state: off
   trigger:
     - platform: state
-      entity_id: device_tracker.airies_iphone_se
-      to: 'home'
+      entity_id: input_boolean.airie_homkit
+      to: 'on'
   condition:
     - condition: state
       entity_id: input_boolean.left_garage_auto_open
@@ -76,3 +72,28 @@
     - service: notify.ios_steves_iphone_x
       data:
         message: "airie garage open"
+
+### Door left open warnings
+- alias: Garage Door Warning Left
+  trigger:
+    - platform: state
+      entity_id: cover.left_garage_door
+      to: 'open'
+      for:
+        minutes: 15
+  action:
+    - service: notify.ios_steves_iphone_x
+      data:
+        message: "Left garage door is open"
+
+- alias: Garage Door Warning Right
+  trigger:
+    - platform: state
+      entity_id: cover.right_garage_door
+      to: 'open'
+      for:
+        minutes: 15
+  action:
+    - service: notify.ios_steves_iphone_x
+      data:
+        message: "Right garage door is open"

@@ -1,6 +1,5 @@
 - id: gentle_wake
   alias: Gentle Wake
-  initial_state: off
   trigger:
     - platform: time
       at: "06:40:00"

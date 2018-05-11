@@ -1,5 +1,4 @@
 - alias: Fence Lights
-  initial_state: off
   trigger:
     - platform: sun
       event: sunset

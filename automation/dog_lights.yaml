@@ -1,17 +1,30 @@
 - alias: Dog Lights
-  initial_state: off
   trigger:
     - platform: state
       entity_id: binary_sensor.back_door
       from: 'off'
       to: 'on'
   condition:
-    condition: or  # 'when dark' condition: either after sunset or before sunrise
-    conditions:
-      - condition: sun
-        after: sunset
-      - condition: sun
-        before: sunrise
+    - condition: or  # 'when dark' condition: either after sunset or before sunrise
+      conditions:
+        - condition: sun
+          after: sunset
+        - condition: sun
+          before: sunrise
+    - condition: state  # Check if the script is already running
+      entity_id: script.timed_lights
+      state: 'off'
+    - condition: or  # Check to make sure at least one switch is off
+      conditions:
+        - condition: state
+          entity_id: switch.garage_outside_light
+          state: 'off'
+        - condition: state
+          entity_id: switch.back_door_light
+          state: 'off'
+        - condition: state
+          entity_id: switch.patio_lights
+          state: 'off'
   action:
       service: script.timed_lights
       data_template:

@@ -1,28 +1,26 @@
 - alias: Away Actions
   hide_entity: false
-  initial_state: off
   trigger:
     - platform: state
-      entity_id: group.all_devices
-      to: 'not_home'
+      entity_id: group.family
+      to: 'off'
   action:
     - service: climate.set_away_mode
       entity_id: climate.family_room
       data:
         away_mode: true
     - service: scene.turn_on
-      entity_id: scene.bedtime
+      entity_id: scene.away
     - service: notify.ios_steves_iphone_x
       data:
         message: "Away"
 
 - alias: Arrive Actions
   hide_entity: false
-  initial_state: off
   trigger:
     - platform: state
-      entity_id: group.all_devices
-      to: 'home'
+      entity_id: group.family
+      to: 'on'
   action:
     - service: climate.set_away_mode
       entity_id: climate.family_room

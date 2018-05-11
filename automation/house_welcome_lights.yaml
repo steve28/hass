@@ -1,5 +1,4 @@
 - alias: House Welcome Lights
-  initial_state: off
   trigger:
     - platform: state
       entity_id: binary_sensor.garage_side_door
