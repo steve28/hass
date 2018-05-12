@@ -85,6 +85,11 @@
     - service: notify.ios_steves_iphone_x
       data:
         message: "Left garage door is open"
+        data:
+          push:
+            category: "garagedoor"
+          action_data:
+            entity_id: cover.left_garage_door
 
 - alias: Garage Door Warning Right
   trigger:
@@ -97,3 +102,21 @@
     - service: notify.ios_steves_iphone_x
       data:
         message: "Right garage door is open"
+        data:
+          push:
+            category: "garagedoor"
+          action_data:
+            entity_id: cover.right_garage_door
+
+### Catches the "Action Button" of the push notification to close the door
+- alias: Close the Garage Door
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: CLOSE_GARAGE_DOOR
+  action:
+    - service: cover.close_cover
+      data_template: 
+        entity_id: "{{ trigger.event.data['action_data']['entity_id'] }}"
+

@@ -105,6 +105,15 @@ device_tracker:
 
 # iOS Support
 ios:
+  push:
+    categories:
+      - name: Garage Door Open
+        identifier: 'garagedoor'
+        actions:
+          - identifier: 'CLOSE_GARAGE_DOOR'
+            title: 'Close Door'
+            activationMode: 'background'
+
 
 # Wake On Lan Support
 wake_on_lan:
