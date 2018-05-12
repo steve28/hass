@@ -1,36 +1,27 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret lat
   longitude: !secret lon
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: !secret ele
-  # metric for Metric, imperial for Imperial
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
-  # Customization file
+  
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
 
   whitelist_external_dirs:
     - /config/
 
+  packages: !include_dir_named packages
+
 logger:
   default: warn
-  # logs:
-  #   homeassistant.components.camera: debug
-  #   homeassistant.components.ffmpeg: debug
 
 zone:
   name: Home
   latitude: !secret lat
   longitude: !secret lon
   radius: 100
-
-# Show links to resources in log and frontend
-#introduction:
 
 # Enables the frontend
 frontend:
@@ -41,25 +32,13 @@ config:
 # Set up security
 http:
   api_password: !secret http_password
-  #ssl_certificate: !secret cert_path
-  #ssl_key: !secret key_path
   base_url: !secret url
   use_x_forwarded_for: true
 
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   include_used_components: true
 
-# Discover some devices automatically
-# discovery:
-#   ignore:
-#    - apple_tv
-#    - samsung_tv
-#    - roku
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-# conversation:
 
 # Enable the recorder
 recorder:
@@ -73,6 +52,7 @@ history:
 # View all events in a logbook
 logbook:
 
+# Enagble the Python Script component
 python_script:
 
 # Enables a map showing the location of tracked devices
@@ -81,15 +61,10 @@ map:
 # Track the sun
 sun:
 
-
+# MQTT support 
 mqtt:
   broker: 192.168.1.8
   client_id: homeassistant
-
-
-# Text to speech
-tts:
-  - platform: google
 
 #nest
 nest:
@@ -122,20 +97,7 @@ wake_on_lan:
 downloader:
   download_dir: downloads
 
-# HomeKit
-homekit:
-  filter:
-    include_entities:
-      - input_boolean.steve_homekit
-      - input_boolean.airie_homekit
 
-# Ring Doorbell
-ring:
-  username: !secret ring_username
-  password: !secret ring_password
-
-binary_sensor:
-  - platform: ring
 
 switch:
   - platform: wake_on_lan
@@ -143,48 +105,9 @@ switch:
     name: "Raptor"
     host: 192.168.1.3
 
-input_number:
-  slider1:
-    name: Vol
-    min: 0
-    max: 60
-    step: 1
-  slider2:
-    name: Vol
-    min: 0
-    max: 60
-    step: 1
-  slider3:
-    name: Vol
-    min: 0
-    max: 60
-    step: 1
-  slider4:
-    name: Vol
-    min: 0
-    max: 60
-    step: 1
-  slider5:
-    name: Vol
-    min: 0
-    max: 60
-    step: 1
-  slider6:
-    name: Vol
-    min: 0
-    max: 60
-    step: 1
-  
-
 
 # Some input booeleans as flags for some automations
 input_boolean:
-  left_garage_auto_open:
-    name: Left Garage Auto-Open
-    icon: mdi:home-automation
-  right_garage_auto_open:
-    name: Right Garage Auto-Open
-    icon: mdi:home-automation
   living_room_tv:
     name: Living Room TV
     icon: mdi:television
@@ -210,37 +133,7 @@ input_boolean:
     name: Device Tracker
     icon: mdi:bug
     initial: off
-  steve_homekit:
-    name: Steve HK
-    icon: mdi:account
-  airie_homekit:
-    name: Airie HK
-    icon: mdi:account
-  home_audio_zone_1:
-    name: Family Room Speakers
-    icon: mdi:speaker
-  home_audio_zone_2:
-    name: Kitchen Speakers
-    icon: mdi:speaker
-  home_audio_zone_3:
-    name: Living Room Speakers
-    icon: mdi:speaker
-  home_audio_zone_4:
-    name: Office Speakers
-    icon: mdi:speaker
-  home_audio_zone_5:
-    name: Bedroom Speakers
-    icon: mdi:speaker
-  home_audio_zone_6:
-    name: Patio Speakers
-    icon: mdi:speaker
-  home_audio_master_power:
-    name: System Power
-    icon: mdi:power
 
-    
-shell_command:
-  home_audio_control: "python3 /config/command_line_scripts/home_audio_control.py -c {{command}} -z {{zone}} -v {{value}}"
 
 # Sensors
 sensor:
@@ -250,16 +143,6 @@ sensor:
     monitored_conditions:
       - temp_f
       - weather_1d
-  - platform: mqtt
-    name: "Garage Temperature"
-    state_topic: "garage/temperature"
-    unit_of_measurement: '°F'
-    value_template: "{{ value|round(1)}}"
-  - platform: mqtt
-    name: "Garage Humidity"
-    state_topic: "garage/humidity"
-    unit_of_measurement: '%'
-    value_template: "{{ value|round(1) }}"
   - platform: filesize
     file_paths:
       - /config/home-assistant_v2.db
@@ -296,52 +179,6 @@ sensor:
         friendly_name: "Office Temperature"
         unit_of_measurement: '°F'
         value_template: "{{ states.sensor.office_motion_temperature.state|int('-') }}"
-      laundry_smoke_co_alarm:
-        friendly_name: "Laundry Smoke Detector"
-        value_template: >-
-            {%- if is_state("sensor.alarm_type", "13") %}
-                Idle
-            {%- elif is_state("sensor.alarm_type", "1") %}
-                Smoke Detected
-            {%- elif is_state("sensor.alarm_type", "2") %}
-                Carbon Monoxide Detected
-            {%- elif is_state("sensor.alarm_type", "12") %}
-                Alarm Testing
-            {% else %}
-                Unknown
-            {%- endif %}
-      bedroom_smoke_alarm:
-        friendly_name: "Bedroom Smoke Detector"
-        value_template: >-
-            {%- if is_state("sensor.alarm_type_2", "13") %}
-                Idle
-            {%- elif is_state("sensor.alarm_type_2", "1") %}
-                Smoke Detected
-            {%- elif is_state("sensor.alarm_type_2", "2") %}
-                Carbon Monoxide Detected
-            {%- elif is_state("sensor.alarm_type_2", "12") %}
-                Alarm Testing
-            {% else %}
-                Unknown
-            {%- endif %}
-      laundry_laundry_smoke_co_alarm_battery:
-        value_template: >
-          {% if states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector.state %}
-            {{states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector.attributes.battery_level}}
-          {% else %}
-            n/a
-          {% endif %}
-        friendly_name: 'Laundry Smoke/CO Alarm Battery'
-        unit_of_measurement: '%'
-      bedroom_smoke_alarm_battery:
-        value_template: >
-          {% if states.zwave.first_alert_unknown_type0001_id0001.state %}
-            {{states.zwave.first_alert_unknown_type0001_id0001.attributes.battery_level}}
-          {% else %}
-            n/a
-          {% endif %}
-        friendly_name: 'Bedroom Smoke Alarm Battery'
-        unit_of_measurement: '%'
 
 # Media Player Definitions
 media_player:
@@ -406,31 +243,6 @@ zwave:
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /config/zigbee.db
-
-# Set up the garage doors from SmartThings MQTT bridge
-cover:
-  - platform: mqtt
-    name: "Right Garage Door"
-    state_topic: "garage/rightDoor"
-    command_topic: "garage/rightDoor/cmd"
-    state_open: 'open'
-    state_closed: 'closed'
-    payload_open: 'open'
-    payload_close: 'close'
-    retain: false
-    optimistic: true
-    qos: 1
-  - platform: mqtt
-    name: "Left Garage Door"
-    state_topic: "garage/leftDoor"
-    command_topic: "garage/leftDoor/cmd"
-    state_open: 'open'
-    state_closed: 'closed'
-    payload_open: 'open'
-    payload_close: 'close'
-    retain: false
-    optimistic: true
-    qos: 1
 
 
 # My Split out configuration

@@ -82,13 +82,6 @@ smoke:
     - sensor.bedroom_smoke_alarm
     - sensor.bedroom_smoke_alarm_battery
 
-family:
-  name: Family
-  entities:
-    - device_tracker.steves_iphone_x
-    - device_tracker.airies_iphone_se
-    - input_boolean.steve_homekit
-    - input_boolean.airie_homekit
 
 doors:
   name: Doors
@@ -150,23 +143,6 @@ server:
     - sensor.homeassistant_v2db
     - switch.raptor
 
-home_audio:
-  name: Home Audio System
-  control: hidden
-  entities:
-    - input_boolean.home_audio_master_power
-    - input_boolean.home_audio_zone_1
-    - input_number.slider1
-    - input_boolean.home_audio_zone_2
-    - input_number.slider2
-    - input_boolean.home_audio_zone_3
-    - input_number.slider3
-    - input_boolean.home_audio_zone_4
-    - input_number.slider4
-    - input_boolean.home_audio_zone_5
-    - input_number.slider5
-    - input_boolean.home_audio_zone_6
-    - input_number.slider6
 
 zwave_device_status:
   name: Z-Wave Device Status

@@ -1,0 +1,8 @@
+# Ring Doorbell
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+
+binary_sensor:
+  - platform: ring

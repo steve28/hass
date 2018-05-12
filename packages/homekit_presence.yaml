@@ -1,0 +1,22 @@
+homekit:
+  filter:
+    include_entities:
+      - input_boolean.steve_homekit
+      - input_boolean.airie_homekit
+
+input_boolean:
+  steve_homekit:
+    name: Steve HK
+    icon: mdi:account
+  airie_homekit:
+    name: Airie HK
+    icon: mdi:account
+
+group:
+  family:
+    name: Family
+    entities:
+      - device_tracker.steves_iphone_x
+      - device_tracker.airies_iphone_se
+      - input_boolean.steve_homekit
+      - input_boolean.airie_homekit

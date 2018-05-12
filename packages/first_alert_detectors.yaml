@@ -1,0 +1,60 @@
+sensor:
+  - platform: template
+    sensors:
+      laundry_smoke_co_alarm:
+        friendly_name: "Laundry Smoke Detector"
+        value_template: >-
+            {%- if is_state("sensor.alarm_type", "13") %}
+                Idle
+            {%- elif is_state("sensor.alarm_type", "1") %}
+                Smoke Detected
+            {%- elif is_state("sensor.alarm_type", "2") %}
+                Carbon Monoxide Detected
+            {%- elif is_state("sensor.alarm_type", "12") %}
+                Alarm Testing
+            {% else %}
+                Unknown
+            {%- endif %}
+      bedroom_smoke_alarm:
+        friendly_name: "Bedroom Smoke Detector"
+        value_template: >-
+            {%- if is_state("sensor.alarm_type_2", "13") %}
+                Idle
+            {%- elif is_state("sensor.alarm_type_2", "1") %}
+                Smoke Detected
+            {%- elif is_state("sensor.alarm_type_2", "2") %}
+                Carbon Monoxide Detected
+            {%- elif is_state("sensor.alarm_type_2", "12") %}
+                Alarm Testing
+            {% else %}
+                Unknown
+            {%- endif %}
+      laundry_laundry_smoke_co_alarm_battery:
+        value_template: >
+          {% if states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector.state %}
+            {{states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector.attributes.battery_level}}
+          {% else %}
+            n/a
+          {% endif %}
+        friendly_name: 'Laundry Smoke/CO Alarm Battery'
+        unit_of_measurement: '%'
+      bedroom_smoke_alarm_battery:
+        value_template: >
+          {% if states.zwave.first_alert_unknown_type0001_id0001.state %}
+            {{states.zwave.first_alert_unknown_type0001_id0001.attributes.battery_level}}
+          {% else %}
+            n/a
+          {% endif %}
+        friendly_name: 'Bedroom Smoke Alarm Battery'
+        unit_of_measurement: '%'
+
+homeassistant:
+  customize:
+    sensor.laundry_smoke_co_alarm:
+      icon: mdi:alarm-bell
+    sensor.laundry_laundry_smoke_co_alarm_battery:
+      icon: mdi:battery-outline
+    sensor.bedroom_smoke_alarm:
+      icon: mdi:alarm-bell
+    sensor.bedroom_smoke_alarm_battery:
+      icon: mdi:battery-outline

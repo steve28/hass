@@ -56,10 +56,6 @@ binary_sensor.living_room_motion:
   device_class: motion
 binary_sensor.apartment_motion:
   device_class: motion
-cover.left_garage_door:
-  device_class: garage
-cover.right_garage_door:
-  device_class: garage
 group.all_automations:
   hidden: false
 group.all_scripts:
@@ -91,14 +87,6 @@ sensor.alarm_level:
   hidden: true
 sensor.alarm_level_2:
   hidden: true
-sensor.laundry_smoke_co_alarm:
-  icon: mdi:alarm-bell
-sensor.laundry_laundry_smoke_co_alarm_battery:
-  icon: mdi:battery-outline
-sensor.bedroom_smoke_alarm:
-  icon: mdi:alarm-bell
-sensor.bedroom_smoke_alarm_battery:
-  icon: mdi:battery-outline
 switch.office_light_switch:
   friendly_name: Office Light
 switch.attic_stairs_light:
@@ -153,8 +141,5 @@ switch.garage_outside_light:
   friendly_name: Garage Outside Light
 light.siren_level:
   friendly_name: Siren
-switch.home_audio_system:
-  hidden: true
-  friendly_name: System Power
-  icon: mdi:power
+
 
