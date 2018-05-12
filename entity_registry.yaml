@@ -614,3 +614,187 @@ sensor.garage_side_door_carbon_dioxide:
   name:
   platform: zwave
   unique_id: 28-72057594513735777
+sensor.pws_weather_1d:
+  name:
+  platform: wunderground
+  unique_id: KCASTUDI18,weather_1d
+sensor.pws_temp_f:
+  name:
+  platform: wunderground
+  unique_id: KCASTUDI18,temp_f
+zwave.sigma_designs_uzb_zwave_usb_adapter:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.outlet_plug:
+  name:
+  platform: zwave
+  unique_id: node-2
+zwave.siren:
+  name:
+  platform: zwave
+  unique_id: node-3
+zwave.desk_lamp:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.office_light:
+  name:
+  platform: zwave
+  unique_id: node-5
+zwave.family_room_lights:
+  name:
+  platform: zwave
+  unique_id: node-6
+zwave.energy_meter:
+  name:
+  platform: zwave
+  unique_id: node-7
+zwave.guest_bathroom_light:
+  name:
+  platform: zwave
+  unique_id: node-8
+zwave.utility_room:
+  name:
+  platform: zwave
+  unique_id: node-9
+zwave.attic_stairs_light:
+  name:
+  platform: zwave
+  unique_id: node-10
+zwave.upstairs_room_light:
+  name:
+  platform: zwave
+  unique_id: node-11
+zwave.kitchen_lights:
+  name:
+  platform: zwave
+  unique_id: node-12
+zwave.kitchen_door_inside_light:
+  name:
+  platform: zwave
+  unique_id: node-13
+zwave.kitchen_door_outside_light:
+  name:
+  platform: zwave
+  unique_id: node-14
+zwave.ginas_room_light:
+  name:
+  platform: zwave
+  unique_id: node-15
+zwave.ginas_bathroom_light:
+  name:
+  platform: zwave
+  unique_id: node-16
+zwave.dining_room_light:
+  name:
+  platform: zwave
+  unique_id: node-17
+zwave.apartment_motion:
+  name:
+  platform: zwave
+  unique_id: node-18
+zwave.apartment_door:
+  name:
+  platform: zwave
+  unique_id: node-19
+zwave.back_door_light:
+  name:
+  platform: zwave
+  unique_id: node-20
+zwave.bedroom_fan:
+  name:
+  platform: zwave
+  unique_id: node-21
+zwave.bedroom_lights:
+  name:
+  platform: zwave
+  unique_id: node-22
+zwave.bathroom_fan:
+  name:
+  platform: zwave
+  unique_id: node-23
+zwave.bathroom_vanity:
+  name:
+  platform: zwave
+  unique_id: node-24
+zwave.patio_lights:
+  name:
+  platform: zwave
+  unique_id: node-25
+zwave.garage_outside_light:
+  name:
+  platform: zwave
+  unique_id: node-26
+zwave.backyard_flood_lights:
+  name:
+  platform: zwave
+  unique_id: node-27
+zwave.garage_side_door:
+  name:
+  platform: zwave
+  unique_id: node-28
+zwave.back_door:
+  name:
+  platform: zwave
+  unique_id: node-30
+zwave.kitchen_door:
+  name:
+  platform: zwave
+  unique_id: node-31
+zwave.front_door:
+  name:
+  platform: zwave
+  unique_id: node-32
+zwave.living_room_lights:
+  name:
+  platform: zwave
+  unique_id: node-33
+zwave.front_door_lights:
+  name:
+  platform: zwave
+  unique_id: node-34
+zwave.laundry_light:
+  name:
+  platform: zwave
+  unique_id: node-35
+zwave.family_room_motion:
+  name:
+  platform: zwave
+  unique_id: node-36
+zwave.bedroom_motion:
+  name:
+  platform: zwave
+  unique_id: node-37
+zwave.living_room_motion:
+  name:
+  platform: zwave
+  unique_id: node-38
+zwave.fence_lights:
+  name:
+  platform: zwave
+  unique_id: node-39
+zwave.landscape_lighting:
+  name:
+  platform: zwave
+  unique_id: node-40
+zwave.family_room_fan:
+  name:
+  platform: zwave
+  unique_id: node-41
+zwave.attic_door:
+  name:
+  platform: zwave
+  unique_id: node-42
+zwave.home_audio_system:
+  name:
+  platform: zwave
+  unique_id: node-43
+zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector:
+  name:
+  platform: zwave
+  unique_id: node-44
+zwave.first_alert_unknown_type0001_id0001:
+  name:
+  platform: zwave
+  unique_id: node-45
