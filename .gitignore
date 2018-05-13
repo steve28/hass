@@ -24,3 +24,4 @@ zwscene.xml
 .homekit.state
 deps/
 credentials.py
+.vscode
