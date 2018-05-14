@@ -18,5 +18,48 @@ group:
     entities:
       - device_tracker.steves_iphone_x
       - device_tracker.airies_iphone_se
-      - input_boolean.steve_homekit
-      - input_boolean.airie_homekit
+
+# Automations to keep the input_boolean switches in sync with homekit and vice-versa
+
+automation:
+  - alias: HA Update HomeKit # Update the input_boolean if HA iOS App trips first
+    hide_entity: false
+    initial_state: on
+    trigger:
+      - platform: state
+        entity_id: 
+          - device_tracker.steves_iphone_x
+          - device_tracker.airies_iphone_se
+    action:
+      - service_template: >
+          {% if trigger.to_state.state == 'home'  %}
+            input_boolean.turn_on
+          {% else %}
+            input_boolean.turn_off
+          {% endif %}
+        data_template:
+          entity_id: >
+            {% if trigger.entity_id == 'device_tracker.steves_iphone_x' %}
+              {{ 'input_boolean.steve_homekit' }}
+            {% else %}
+              {{ 'input_nboolean.airie_homekit' }}
+            {% endif %}
+
+  - alias: HomeKit Update HA  # if HomeKit triggers the input_booleans, tell HA we "see" the device
+    hide_entity: false
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.steve_homekit
+          - input_boolean.airie_homekit
+    action:
+      - service: device_tracker.see
+        data_template:
+          dev_id: >
+            {% if trigger.entity_id == 'input_boolean.steve_homekit' %}
+              {{ 'steves_iphone_x' }}
+            {% else %}
+              {{ 'airies_iphone_se' }}
+            {% endif %}
+          location_name: "{{ 'home' if states(trigger.entity_id)=='on' else 'not_home' }}"
+

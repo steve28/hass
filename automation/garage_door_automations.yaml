@@ -4,8 +4,8 @@
   hide_entity: false
   trigger:
     - platform: state
-      entity_id: input_boolean.steve_homekit
-      to: 'off'
+      entity_id: device_tracker.steves_iphone_x
+      to: 'not_home'
   condition:
     - condition: template
       value_template: "{{ (as_timestamp(now())-as_timestamp(states.cover.right_garage_door.last_changed)) < 600 }}"
@@ -20,8 +20,8 @@
   hide_entity: false
   trigger:
     - platform: state
-      entity_id: input_boolean.steve_homekit
-      to: 'on'
+      entity_id: device_tracker.steves_iphone_x
+      to: 'home'
   condition:
     - condition: state
       entity_id: input_boolean.right_garage_auto_open
@@ -42,8 +42,8 @@
   hide_entity: false
   trigger:
     - platform: state
-      entity_id: input_boolean.airie_homekit
-      to: 'off'
+      entity_id: device_tracker.airies_iphone_se
+      to: 'not_home'
   condition:
     - condition: template
       value_template: "{{ (as_timestamp(now())-as_timestamp(states.cover.left_garage_door.last_changed)) < 600 }}"
@@ -58,8 +58,8 @@
   hide_entity: false
   trigger:
     - platform: state
-      entity_id: input_boolean.airie_homkit
-      to: 'on'
+      entity_id: device_tracker.airies_iphone_se
+      to: 'home'
   condition:
     - condition: state
       entity_id: input_boolean.left_garage_auto_open

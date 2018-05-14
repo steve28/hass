@@ -1,9 +1,10 @@
+# What to do when everyone is away
 - alias: Away Actions
   hide_entity: false
   trigger:
     - platform: state
       entity_id: group.family
-      to: 'off'
+      to: 'not_home'
   action:
     - service: climate.set_away_mode
       entity_id: climate.family_room
@@ -13,14 +14,15 @@
       entity_id: scene.away
     - service: notify.ios_steves_iphone_x
       data:
-        message: "Away"
+        message: "Switching to Away"
 
+# What to do when the first person gets home
 - alias: Arrive Actions
   hide_entity: false
   trigger:
     - platform: state
       entity_id: group.family
-      to: 'on'
+      to: 'home'
   action:
     - service: climate.set_away_mode
       entity_id: climate.family_room
@@ -28,7 +30,7 @@
         away_mode: false
     - service: notify.ios_steves_iphone_x
       data:
-        message: "Home"
+        message: "Switching to Home"
     - condition: or  # 'when dark' condition: either after sunset or before sunrise
       conditions:
         - condition: sun
@@ -40,32 +42,3 @@
         entity_id: light.family_room_lights
         brightness: 128
 
-- alias: HomeKit Steve
-  hide_entity: false
-  initial_state: on
-  trigger:
-    - platform: state
-      entity_id: device_tracker.steves_iphone_x
-  action:
-    - service_template: >
-       {% if states.device_tracker.steves_iphone_x.state == 'home'  %}
-         input_boolean.turn_on
-       {% else %}
-         input_boolean.turn_off
-       {% endif %}
-      entity_id: input_boolean.steve_homekit
-
-- alias: HomeKit Airie
-  hide_entity: false
-  initial_state: on
-  trigger:
-    - platform: state
-      entity_id: device_tracker.airies_iphone_se
-  action:
-    - service_template: >
-       {% if states.device_tracker.airies_iphone_se.state == 'home'  %}
-         input_boolean.turn_on
-       {% else %}
-         input_boolean.turn_off
-       {% endif %}
-      entity_id: input_boolean.airie_homekit
