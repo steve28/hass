@@ -25,3 +25,4 @@ zwscene.xml
 deps/
 credentials.py
 .vscode
+*.bak

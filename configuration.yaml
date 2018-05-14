@@ -108,15 +108,6 @@ switch:
 
 # Some input booeleans as flags for some automations
 input_boolean:
-  living_room_tv:
-    name: Living Room TV
-    icon: mdi:television
-  family_room_tv:
-    name: Family Room TV
-    icon: mdi:television
-  bedroom_tv:
-    name: Bedroom TV
-    icon: mdi:television
   automation_debug:
     name: Automation
     icon: mdi:bug
@@ -180,37 +171,6 @@ sensor:
         unit_of_measurement: '°F'
         value_template: "{{ states.sensor.office_motion_temperature.state|int('-') }}"
 
-# Media Player Definitions
-media_player:
-  - platform: webostv
-    host: 192.168.1.12
-    name: Family Room TV
-    timeout: 5
-    filename: webostv.conf
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: 38:8C:50:DC:DE:A4
-        broadcast_address: 192.168.1.255
-    customize:
-      sources:
-        - HDMI1
-        - HDMI2
-  - platform: roku
-    host: 192.168.1.13
-    name: Family Room Roku
-
-
-# Set up the Harmony Remotes
-remote:
-  - platform: harmony
-    host: 192.168.1.15
-    name: Family Room
-    activity: AppleTV
-  - platform: harmony
-    host: 192.168.1.14
-    name: Bedroom Hub
-    activity: Watch Bedroom TV
 
 # Enable FFMPEG component (needed for camera)
 ffmpeg:

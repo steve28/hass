@@ -53,3 +53,127 @@ homeassistant:
       device_class: garage
     cover.right_garage_door:
       device_class: garage
+
+automation:
+  ### Steve's Garage Control
+
+  - alias: Right Auto Open Detect
+    hide_entity: false
+    trigger:
+      - platform: state
+        entity_id: device_tracker.steves_iphone_x
+        to: 'not_home'
+    condition:
+      - condition: template
+        value_template: "{{ (as_timestamp(now())-as_timestamp(states.cover.right_garage_door.last_changed)) < 600 }}"
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.right_garage_auto_open
+      - service: notify.ios_steves_iphone_x
+        data:
+          message: "steve garage set"
+
+  - alias: Right Auto Open
+    hide_entity: false
+    trigger:
+      - platform: state
+        entity_id: device_tracker.steves_iphone_x
+        to: 'home'
+    condition:
+      - condition: state
+        entity_id: input_boolean.right_garage_auto_open
+        state: 'on'
+    action:
+      - service: cover.open_cover
+        entity_id: cover.right_garage_door
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.right_garage_auto_open
+      - service: notify.ios_steves_iphone_x
+        data:
+          message: "steve garage open"
+
+
+  ### Airie's Garage Control
+
+  - alias: Left Auto Open Detect
+    hide_entity: false
+    trigger:
+      - platform: state
+        entity_id: device_tracker.airies_iphone_se
+        to: 'not_home'
+    condition:
+      - condition: template
+        value_template: "{{ (as_timestamp(now())-as_timestamp(states.cover.left_garage_door.last_changed)) < 600 }}"
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.left_garage_auto_open
+      - service: notify.ios_steves_iphone_x
+        data:
+          message: "airie garage set"
+
+  - alias: Left Auto Open
+    hide_entity: false
+    trigger:
+      - platform: state
+        entity_id: device_tracker.airies_iphone_se
+        to: 'home'
+    condition:
+      - condition: state
+        entity_id: input_boolean.left_garage_auto_open
+        state: 'on'
+    action:
+      - service: cover.open_cover
+        entity_id: cover.left_garage_door
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.left_garage_auto_open
+      - service: notify.ios_steves_iphone_x
+        data:
+          message: "airie garage open"
+
+  ### Door left open warnings
+  - alias: Garage Door Warning Left
+    trigger:
+      - platform: state
+        entity_id: cover.left_garage_door
+        to: 'open'
+        for:
+          minutes: 15
+    action:
+      - service: notify.ios_steves_iphone_x
+        data:
+          message: "Left garage door is open"
+          data:
+            push:
+              category: "garagedoor"
+            action_data:
+              entity_id: cover.left_garage_door
+
+  - alias: Garage Door Warning Right
+    trigger:
+      - platform: state
+        entity_id: cover.right_garage_door
+        to: 'open'
+        for:
+          minutes: 15
+    action:
+      - service: notify.ios_steves_iphone_x
+        data:
+          message: "Right garage door is open"
+          data:
+            push:
+              category: "garagedoor"
+            action_data:
+              entity_id: cover.right_garage_door
+
+  ### Catches the "Action Button" of the push notification to close the door
+  - alias: Close the Garage Door
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: CLOSE_GARAGE_DOOR
+    action:
+      - service: cover.close_cover
+        data_template: 
+          entity_id: "{{ trigger.event.data['action_data']['entity_id'] }}"
+
