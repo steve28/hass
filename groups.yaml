@@ -137,9 +137,10 @@ logging_control:
     - input_boolean.device_tracker_debug
 
 server:
-  name: Server
+  name: Server and Network
   entities:
-    - sensor.ssl_cert_expires
+    - sensor.server_cert_expires
+    - sensor.router_cert_expires
     - sensor.homeassistant_v2db
     - switch.raptor
 
