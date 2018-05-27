@@ -1,0 +1,13 @@
+apcupsd:
+
+sensor:
+  - platform: apcupsd
+    resources:
+      - status
+      - bcharge
+      - linev
+      - loadpct
+      - timeleft
+      - tonbatt
+      - cumonbatt
+      - numxfers

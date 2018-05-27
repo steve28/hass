@@ -619,7 +619,7 @@ sensor.pws_weather_1d:
   platform: wunderground
   unique_id: KCASTUDI18,weather_1d
 sensor.pws_temp_f:
-  name:
+  name: Outside Temperature
   platform: wunderground
   unique_id: KCASTUDI18,temp_f
 zwave.sigma_designs_uzb_zwave_usb_adapter:
