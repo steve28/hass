@@ -53,3 +53,17 @@
         {% else %}
           warn
         {% endif %}
+
+- alias: Zigbee Debug Switch
+  trigger:
+    platform: state
+    entity_id: input_boolean.zigbee_debug
+  action:
+    service: logger.set_level
+    data_template:
+      homeassistant.components.zha: >
+        {% if trigger.to_state.state == 'on' %}
+          debug
+        {% else %}
+          warn
+        {% endif %}

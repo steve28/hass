@@ -157,6 +157,7 @@ logging_control:
     - input_boolean.mqtt_debug
     - input_boolean.python_script_debug
     - input_boolean.device_tracker_debug
+    - input_boolean.zigbee_debug
 
 server:
   name: Server and Network

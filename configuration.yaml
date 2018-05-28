@@ -142,6 +142,10 @@ input_boolean:
     name: Device Tracker
     icon: mdi:bug
     initial: off
+  zigbee_debug:
+    name: ZigBee
+    icon: mdi:bug
+    initial: off
 
 
 # Sensors

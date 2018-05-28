@@ -798,3 +798,7 @@ zwave.first_alert_unknown_type0001_id0001:
   name:
   platform: zwave
   unique_id: node-45
+media_player.family_room_roku:
+  name:
+  platform: roku
+  unique_id: YP008M223933
