@@ -86,6 +86,8 @@ climate:
     - climate.family_room
     - sensor.family_room_thermostat_humidity
     - sensor.family_room_thermostat_hvac_state
+    - sensor.home_eta
+    - binary_sensor.home_away
     - binary_sensor.family_room_thermostat_online
 
 smoke:
