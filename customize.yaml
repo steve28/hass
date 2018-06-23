@@ -141,5 +141,5 @@ switch.garage_outside_light:
   friendly_name: Garage Outside Light
 light.siren_level:
   friendly_name: Siren
-
-
+sensor.home_security_state:
+  hidden: true

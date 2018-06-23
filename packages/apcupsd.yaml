@@ -11,3 +11,14 @@ sensor:
       - tonbatt
       - cumonbatt
       - numxfers
+
+automation:
+  - alias: UPS Status Change notification
+    hide_entity: false
+    trigger:
+      - platform: state
+        entity_id: sensor.ups_status
+    action:
+      - service: notify.ios_steves_iphone_x
+        data_template:
+          message: '{{ "House power: " + states.sensor.ups_status.state }}'
