@@ -16,6 +16,9 @@ homeassistant:
 
 logger:
   default: warn
+  logs:
+    homeassistant.components.zha: debug
+    bellows.zigbee.application: debug
 
 zone:
   name: Home
@@ -146,6 +149,10 @@ input_boolean:
     name: ZigBee
     icon: mdi:bug
     initial: off
+  vacation_mode:
+    name: Vacation Mode
+    icon: mdi:beach
+    
 
 
 # Sensors
