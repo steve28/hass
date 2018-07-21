@@ -19,6 +19,8 @@ logger:
   logs:
     homeassistant.components.zha: debug
     bellows.zigbee.application: debug
+    bellows: debug
+    zigpy: debug
 
 zone:
   name: Home

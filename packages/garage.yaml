@@ -19,7 +19,7 @@ cover:
     payload_open: 'open'
     payload_close: 'close'
     retain: false
-    optimistic: true
+    optimistic: false
     qos: 1
   - platform: mqtt
     name: "Left Garage Door"
@@ -30,7 +30,7 @@ cover:
     payload_open: 'open'
     payload_close: 'close'
     retain: false
-    optimistic: true
+    optimistic: false
     qos: 1
 
 # define the MQTT channels for the temp and humidity sensors
@@ -173,6 +173,9 @@ automation:
       event_data:
         actionName: CLOSE_GARAGE_DOOR
     action:
+      - service: notify.ios_steves_iphone_x
+        data:
+          message: "I got the action"
       - service: cover.close_cover
         data_template: 
           entity_id: "{{ trigger.event.data['action_data']['entity_id'] }}"

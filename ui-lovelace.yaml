@@ -1,0 +1,64 @@
+title: Airie and Steve's House
+# Exclude entites from "Unused entities" view
+excluded_entities:
+  - weblink.router
+views:
+    # View tab title.
+  - title: Climate
+    # Optional unique id for direct access /lovelace/${id}
+    id: climate
+
+    # The cards to show on this view.
+    cards:
+        # The filter card will filter entities for their state
+      - type: weather-forecast
+        entity: weather.yweather
+      
+      - type: history-graph
+        title: 'House Temperature'
+        entities:
+          - sensor.pws_temp_f
+          - climate.family_room
+
+      - type: history-graph
+        title: 'Garage Conditions'
+        entities:
+          - sensor.garage_temperature
+          - sensor.garage_humidity
+      - type: history-graph
+        title: 'Apartment Conditions'
+        entities:
+          - sensor.apartment_temperature
+
+
+
+        # The picture entity card will represent an entity with a picture
+      - type: picture-entity
+        image: https://www.home-assistant.io/images/default-social.png
+        entity: light.family_room_lights
+
+    # Specify a tab icon if you want the view tab to be an icon.
+  - icon: mdi:home-assistant
+    # Title of the view. Will be used as the tooltip for tab icon
+    title: Main
+    cards:
+        # Entities card will take list of entities and show their state.
+      - type: picture-glance
+        title: Office
+        image: https://www.home-assistant.io/images/default-social.png
+        entities:
+          - binary_sensor.office_motion
+          - switch.office_light_switch
+          - switch.desk_lamp_switch
+          # - entity: binary_sensor.office_motion
+          #   name: Motion
+          # - entity: switch.office_light_switch
+          #   name: Light
+          # - entity: switch.desk_lamp_switch
+          #   name: Desk Lamp
+
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
