@@ -1,5 +1,5 @@
 climate.family_room:
-  config_entry_id:
+  config_entry_id: f8f8525457884f2689665b32dfe45e14
   name:
   platform: nest
   unique_id: lqBlnFy-SqzMwTKqWwXBwtWxV87Kud1g
@@ -718,16 +718,6 @@ binary_sensor.kitchen_motion:
   name:
   platform: zha
   unique_id: 00:0d:6f:00:04:05:56:7d-1-1280
-sensor.office_motion_temperature:
-  config_entry_id:
-  name:
-  platform: zha
-  unique_id: 00:0d:6f:00:0e:f4:fa:a4-1-1026
-binary_sensor.office_motion:
-  config_entry_id:
-  name:
-  platform: zha
-  unique_id: 00:0d:6f:00:0e:f4:fa:a4-1-1280
 sensor.bedroom_outside_door_temperature:
   config_entry_id:
   name:
@@ -1008,3 +998,63 @@ sensor.desk_lamp_previous_reading_2:
   name:
   platform: zwave
   unique_id: 4-72057594110050450
+sensor.centralite_3326l_0ef4faa4_1_1026:
+  config_entry_id:
+  name:
+  platform: zha
+  unique_id: 00:0d:6f:00:0e:f4:fa:a4-1-1026
+binary_sensor.centralite_3326l_0ef4faa4_1_1280:
+  config_entry_id:
+  name:
+  platform: zha
+  unique_id: 00:0d:6f:00:0e:f4:fa:a4-1-1280
+sensor.vision_zp3102_pir_motion_sensor_sourcenodeid:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725601
+sensor.vision_zp3102_pir_motion_sensor_burglar:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725729
+sensor.vision_zp3102_pir_motion_sensor_power_management:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725745
+sensor.vision_zp3102_pir_motion_sensor_system:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725761
+sensor.vision_zp3102_pir_motion_sensor_homehealth:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725825
+sensor.vision_zp3102_pir_motion_sensor_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725569
+sensor.vision_zp3102_pir_motion_sensor_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 46-72057594815725585
+zwave.office_motion:
+  config_entry_id:
+  name: Office Motion
+  platform: zwave
+  unique_id: node-46
+binary_sensor.office_motion:
+  config_entry_id:
+  name: Office Motion
+  platform: zwave
+  unique_id: 46-72057594814660608
+sensor.office_motion_temperature:
+  config_entry_id:
+  name: Office Temperature
+  platform: zwave
+  unique_id: 46-72057594814677010

@@ -16,11 +16,11 @@ homeassistant:
 
 logger:
   default: warn
-  logs:
-    homeassistant.components.zha: debug
-    bellows.zigbee.application: debug
-    bellows: debug
-    zigpy: debug
+  # logs:
+  #   homeassistant.components.zha: debug
+  #   bellows.zigbee.application: debug
+  #   bellows: debug
+  #   zigpy: debug
 
 zone:
   name: Home
@@ -195,14 +195,14 @@ sensor:
           {% else %}
             -
           {% endif %}
-      kitchen_temperature:
-        friendly_name: "Kitchen Temperature"
-        unit_of_measurement: '°F'
-        value_template: "{{ states.sensor.kitchen_motion_temperature.state|int('-') }}"
-      office_temperature:
-        friendly_name: "Office Temperature"
-        unit_of_measurement: '°F'
-        value_template: "{{ states.sensor.office_motion_temperature.state|int('-') }}"
+      # kitchen_temperature:
+      #   friendly_name: "Kitchen Temperature"
+      #   unit_of_measurement: '°F'
+      #   value_template: "{{ states.sensor.kitchen_motion_temperature.state|int('-') }}"
+      # office_temperature:
+      #   friendly_name: "Office Temperature"
+      #   unit_of_measurement: '°F'
+      #   value_template: "{{ states.sensor.office_motion_temperature.state|int('-') }}"
 
 
 # Enable FFMPEG component (needed for camera)
@@ -234,9 +234,9 @@ zwave:
       delay: 2
 
 #zigbee
-zha:
-  usb_path: /dev/ttyUSB1
-  database_path: /config/zigbee.db
+# zha:
+#   usb_path: /dev/ttyUSB1
+#   database_path: /config/zigbee.db
 
 
 # My Split out configuration
