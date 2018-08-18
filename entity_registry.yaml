@@ -703,31 +703,6 @@ sensor.airies_iphone_se_battery_state:
   name:
   platform: ios
   unique_id: state_airies_iphone_se
-light.attic_light:
-  config_entry_id:
-  name:
-  platform: zha
-  unique_id: 7c:e5:24:00:00:0b:df:b3-1
-sensor.kitchen_motion_temperature:
-  config_entry_id:
-  name:
-  platform: zha
-  unique_id: 00:0d:6f:00:04:05:56:7d-1-1026
-binary_sensor.kitchen_motion:
-  config_entry_id:
-  name:
-  platform: zha
-  unique_id: 00:0d:6f:00:04:05:56:7d-1-1280
-sensor.bedroom_outside_door_temperature:
-  config_entry_id:
-  name:
-  platform: zha
-  unique_id: 00:0d:6f:00:03:29:48:1b-1-1026
-binary_sensor.bedroom_outside_door:
-  config_entry_id:
-  name:
-  platform: zha
-  unique_id: 00:0d:6f:00:03:29:48:1b-1-1280
 sensor.alarm_type:
   config_entry_id:
   name: Laundry Smoke Alarm Type
@@ -1008,53 +983,153 @@ binary_sensor.centralite_3326l_0ef4faa4_1_1280:
   name:
   platform: zha
   unique_id: 00:0d:6f:00:0e:f4:fa:a4-1-1280
-sensor.vision_zp3102_pir_motion_sensor_sourcenodeid:
+binary_sensor.office_motion_sensor_sensor:
   config_entry_id:
   name:
   platform: zwave
-  unique_id: 46-72057594815725601
-sensor.vision_zp3102_pir_motion_sensor_burglar:
+  unique_id: 47-72057594831437824
+sensor.office_motion_sensor_sourcenodeid:
   config_entry_id:
   name:
   platform: zwave
-  unique_id: 46-72057594815725729
-sensor.vision_zp3102_pir_motion_sensor_power_management:
+  unique_id: 47-72057594832502817
+sensor.office_motion_sensor_burglar:
   config_entry_id:
   name:
   platform: zwave
-  unique_id: 46-72057594815725745
-sensor.vision_zp3102_pir_motion_sensor_system:
+  unique_id: 47-72057594832502945
+sensor.office_motion_sensor_system:
   config_entry_id:
   name:
   platform: zwave
-  unique_id: 46-72057594815725761
-sensor.vision_zp3102_pir_motion_sensor_homehealth:
+  unique_id: 47-72057594832502977
+sensor.office_motion_sensor_homehealth:
   config_entry_id:
   name:
   platform: zwave
-  unique_id: 46-72057594815725825
-sensor.vision_zp3102_pir_motion_sensor_alarm_type:
+  unique_id: 47-72057594832503041
+sensor.office_motion_sensor_alarm_type:
   config_entry_id:
   name:
   platform: zwave
-  unique_id: 46-72057594815725569
-sensor.vision_zp3102_pir_motion_sensor_alarm_level:
+  unique_id: 47-72057594832502785
+zwave.office_motion_sensor:
   config_entry_id:
   name:
   platform: zwave
-  unique_id: 46-72057594815725585
-zwave.office_motion:
+  unique_id: node-47
+sensor.office_motion_sensor_alarm_level:
   config_entry_id:
-  name: Office Motion
+  name:
   platform: zwave
-  unique_id: node-46
-binary_sensor.office_motion:
+  unique_id: 47-72057594832502801
+sensor.office_motion_sensor_temperature:
   config_entry_id:
-  name: Office Motion
+  name:
   platform: zwave
-  unique_id: 46-72057594814660608
-sensor.office_motion_temperature:
+  unique_id: 47-72057594831454226
+binary_sensor.kitchen_motion_sensor_sensor:
   config_entry_id:
-  name: Office Temperature
+  name:
   platform: zwave
-  unique_id: 46-72057594814677010
+  unique_id: 48-72057594848215040
+zwave.kitchen_motion_sensor:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-48
+sensor.kitchen_motion_sensor_temperature:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594848231442
+sensor.kitchen_motion_sensor_sourcenodeid:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280033
+sensor.kitchen_motion_sensor_burglar:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280161
+sensor.kitchen_motion_sensor_power_management:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280177
+sensor.kitchen_motion_sensor_emergency:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280209
+sensor.kitchen_motion_sensor_clock:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280225
+sensor.kitchen_motion_sensor_appliance:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280241
+sensor.kitchen_motion_sensor_homehealth:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280257
+sensor.kitchen_motion_sensor_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280001
+sensor.kitchen_motion_sensor_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 48-72057594849280017
+zwave.hank_hkzwdws01_doorwindow_sensor:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-49
+binary_sensor.hank_hkzwdws01_doorwindow_sensor_sensor:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 49-72057594864992256
+sensor.hank_hkzwdws01_doorwindow_sensor_sourcenodeid:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 49-72057594866057249
+sensor.hank_hkzwdws01_doorwindow_sensor_access_control:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 49-72057594866057361
+sensor.hank_hkzwdws01_doorwindow_sensor_burglar:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 49-72057594866057377
+sensor.hank_hkzwdws01_doorwindow_sensor_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 49-72057594866057217
+sensor.hank_hkzwdws01_doorwindow_sensor_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 49-72057594866057233
+zwave.hank_hkzwrgb01_rgb_bulb:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-50
+light.attic_light:
+  config_entry_id:
+  name: Attic Light
+  platform: zwave
+  unique_id: 50-72057594881605633

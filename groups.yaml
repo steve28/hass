@@ -32,6 +32,7 @@ kitchen:
   name: Kitchen
   control: hidden
   entities:
+    - sensor.kitchen_motion_sensor_temperature
     - switch.kitchen_lights
     - switch.kitchen_door_inside_light
 
@@ -57,7 +58,7 @@ office:
   name: Office and Utility
   control: hidden
   entities:
-    - sensor.office_motion_temerature
+    - sensor.office_motion_sensor_temperature
     - switch.office_light_switch
     - switch.desk_lamp_switch
     - switch.utility_room_light
@@ -76,6 +77,7 @@ attic:
   entities:
     - switch.attic_stairs_light
     - switch.upstairs_room_light
+    - light.attic_light
 
 climate:
   name: HVAC
@@ -110,6 +112,7 @@ doors:
 motion:
   name: Motion
   entities:
+    - binary_sensor.kitchen_motion
     - binary_sensor.office_motion
     - binary_sensor.bedroom_motion
     - binary_sensor.family_room_motion

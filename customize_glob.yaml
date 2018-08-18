@@ -46,4 +46,15 @@
   hidden: true
 "sensor.home_audio_system*":
   hidden: true
-  
+"sensor.kitchen_motion_sensor*":
+  hidden: true
+"binary_sensor.kitchen_motion_sensor*":
+  hidden: true
+"sensor.office_motion_sensor*":
+  hidden: true
+"binary_sensor.office_motion_sensor*":
+  hidden: true
+"sensor.hank_hkzwdws01_doorwindow_sensor_*":
+  hidden: true
+"binary_sensor.hank_hkzwdws01_doorwindow_sensor_*":
+  hidden: true

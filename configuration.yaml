@@ -203,6 +203,24 @@ sensor:
       #   friendly_name: "Office Temperature"
       #   unit_of_measurement: '°F'
       #   value_template: "{{ states.sensor.office_motion_temperature.state|int('-') }}"
+binary_sensor:
+  - platform: template
+    sensors:
+      office_motion:
+        friendly_name: Office Motion
+        entity_id: sensor.office_motion_sensor_alarm_level
+        value_template: "{{ is_state('sensor.office_motion_sensor_alarm_level', '255') }}"
+        device_class: motion
+      kitchen_motion:
+        friendly_name: Kitchen Motion
+        entity_id: sensor.kitchen_motion_sensor_alarm_level
+        value_template: "{{ is_state('sensor.kitchen_motion_sensor_alarm_level', '255') }}"
+        device_class: motion
+      bedroom_outside_door:
+        friendly_name: Bedroom Outside Door Sensor
+        entity_id: sensor.hank_hkzwdws01_doorwindow_sensor_access_control
+        value_template: "{{ is_state('sensor.hank_hkzwdws01_doorwindow_sensor_access_control','22') }}"
+        device_class: door
 
 
 # Enable FFMPEG component (needed for camera)
