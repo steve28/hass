@@ -39,6 +39,7 @@ http:
   api_password: !secret http_password
   base_url: !secret url
   use_x_forwarded_for: true
+  trusted_proxies: 192.168.1.8
 
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
