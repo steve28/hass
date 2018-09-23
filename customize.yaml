@@ -136,3 +136,5 @@ sensor.office_motion_sensor_temperature:
   hidden: false
 sensor.kitchen_motion_sensor_temperature:
   hidden: false
+sensor.guest_room_motion_sensor_temperature:
+  hidden: false

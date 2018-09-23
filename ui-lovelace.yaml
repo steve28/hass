@@ -1,16 +1,38 @@
 title: Airie and Steve's House
 # Exclude entites from "Unused entities" view
 excluded_entities:
-  - weblink.router
-views:
-    # View tab title.
-  - title: Climate
-    # Optional unique id for direct access /lovelace/${id}
-    id: climate
 
-    # The cards to show on this view.
+
+views:
+  # Main tab that will open first
+  - icon: mdi:home-assistant
+    title: Main
     cards:
-        # The filter card will filter entities for their state
+      - type: picture-glance
+        title: Office
+        image: https://cdn.decoist.com/wp-content/uploads/2012/07/natural-walnut-home-office-furniture.jpg
+        entities:
+          - sensor.office_motion_sensor_temperature
+          - binary_sensor.office_motion
+          - entity: switch.office_light_switch
+            icon: mdi:lightbulb
+          - entity: switch.desk_lamp_switch
+            icon: mdi:desk-lamp
+
+  # Tab for all things climate control
+  - title: Climate
+    icon: mdi:weather-sunny
+    id: climate
+    cards:
+      - type: entities
+        title: Thermostat
+        entities:
+          - climate.family_room
+          - sensor.family_room_thermostat_humidity
+          - sensor.family_room_thermostat_hvac_state
+          - binary_sensor.home_away
+          - binary_sensor.family_room_thermostat_online
+
       - type: weather-forecast
         entity: weather.yweather
       
@@ -25,40 +47,8 @@ views:
         entities:
           - sensor.garage_temperature
           - sensor.garage_humidity
+
       - type: history-graph
         title: 'Apartment Conditions'
         entities:
           - sensor.apartment_temperature
-
-
-
-        # The picture entity card will represent an entity with a picture
-      - type: picture-entity
-        image: https://www.home-assistant.io/images/default-social.png
-        entity: light.family_room_lights
-
-    # Specify a tab icon if you want the view tab to be an icon.
-  - icon: mdi:home-assistant
-    # Title of the view. Will be used as the tooltip for tab icon
-    title: Main
-    cards:
-        # Entities card will take list of entities and show their state.
-      - type: picture-glance
-        title: Office
-        image: https://www.home-assistant.io/images/default-social.png
-        entities:
-          - binary_sensor.office_motion
-          - switch.office_light_switch
-          - switch.desk_lamp_switch
-          # - entity: binary_sensor.office_motion
-          #   name: Motion
-          # - entity: switch.office_light_switch
-          #   name: Light
-          # - entity: switch.desk_lamp_switch
-          #   name: Desk Lamp
-
-        # The markdown card will render markdown text.
-      - type: markdown
-        title: Lovelace
-        content: >
-          Welcome to your **Lovelace UI**.

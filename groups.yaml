@@ -53,6 +53,7 @@ ginas_room:
   entities:
     - switch.ginas_room_light
     - switch.ginas_bathroom_light
+    - sensor.guest_room_motion_sensor_temperature
 
 office:
   name: Office and Utility
@@ -118,6 +119,7 @@ motion:
     - binary_sensor.family_room_motion
     - binary_sensor.living_room_motion
     - binary_sensor.ring_front_door_motion
+    - binary_sensor.guest_motion
 
 garage:
   name: Garage

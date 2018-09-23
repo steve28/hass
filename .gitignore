@@ -27,3 +27,4 @@ credentials.py
 .vscode
 *.bak
 .storage
+__pycache__/

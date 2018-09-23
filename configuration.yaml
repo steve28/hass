@@ -222,7 +222,11 @@ binary_sensor:
         entity_id: sensor.hank_hkzwdws01_doorwindow_sensor_access_control
         value_template: "{{ is_state('sensor.hank_hkzwdws01_doorwindow_sensor_access_control','22') }}"
         device_class: door
-
+      guest_motion:
+        friendly_name: Guest Motion
+        entity_id: sensor.guest_room_motion_sensor_alarm_level
+        value_template: "{{ is_state('sensor.guest_room_motion_sensor_alarm_level', '255') }}"
+        device_class: motion
 
 # Enable FFMPEG component (needed for camera)
 ffmpeg:

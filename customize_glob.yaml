@@ -58,3 +58,7 @@
   hidden: true
 "binary_sensor.hank_hkzwdws01_doorwindow_sensor_*":
   hidden: true
+"sensor.guest_room_motion_sensor*":
+  hidden: true
+"binary_sensor.guest_room_motion_sensor*":
+  hidden: true
