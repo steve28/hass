@@ -1,9 +1,3 @@
-homekit:
-  filter:
-    include_entities:
-      - input_boolean.steve_homekit
-      - input_boolean.airie_homekit
-
 input_boolean:
   steve_homekit:
     name: Steve HK
@@ -63,3 +57,4 @@ automation:
             {% endif %}
           location_name: "{{ 'home' if states(trigger.entity_id)=='on' else 'not_home' }}"
 
+  

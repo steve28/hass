@@ -1,0 +1,89 @@
+homekit:
+  auto_start: false
+  filter:
+    include_entities:
+      - input_boolean.steve_homekit
+      - input_boolean.airie_homekit
+      - switch.office_light_switch
+      - switch.desk_lamp_switch
+      - light.bedroom_lights
+      - light.family_room_lights
+      - light.living_room_lights
+      - switch.kitchen_lights
+      - switch.laundry_light
+      - switch.utility_room_light
+      - switch.bathroom_fan
+      - switch.bathroom_vanity
+      - switch.bedroom_fan
+      - switch.dining_room_light
+      - switch.family_room_fan
+      - switch.dining_room_light
+      - switch.ginas_room_light
+      - switch.ginas_bathroom_light
+      - switch.kitchen_door_inside_light
+      - switch.upstairs_room_light
+      - light.attic_light
+      - switch.attic_stairs_light
+
+      # Outside
+      - switch.patio_lights
+      - switch.back_door_light
+      - switch.backyard_flood_lights
+      - switch.fence_lights
+      - switch.front_door_lights
+      - switch.kitchen_door_outside_light
+      - switch.landscape_lighting
+      - switch.garage_outside_light
+
+      # Doors
+      - binary_sensor.back_door
+      - binary_sensor.front_door
+      - binary_sensor.garage_side_door
+      - binary_sensor.apartment_door
+      - binary_sensor.attic_door
+      - binary_sensor.bedroom_outside_door
+      - binary_sensor.kitchen_door
+
+      # Motion Sesnors
+      - binary_sensor.family_room_motion
+      - binary_sensor.bedroom_motion
+      - binary_sensor.living_room_motion
+      - binary_sensor.kitchen_motion
+      - binary_sensor.guest_motion
+      - binary_sensor.apartment_motion
+      - binary_sensor.office_motion
+
+      # Thermostat
+      - climate.family_room
+
+      # Garage Doors
+      - cover.left_garage_door
+      - cover.right_garage_door
+
+      # Home Audio
+      - input_boolean.home_audio_master_power
+      - input_boolean.home_audio_zone_1
+      - input_boolean.home_audio_zone_2
+      - input_boolean.home_audio_zone_3
+      - input_boolean.home_audio_zone_4
+      - input_boolean.home_audio_zone_5
+      - input_boolean.home_audio_zone_6
+
+      # Temperature Sensors
+      - sensor.apartment_temperature
+      - sensor.garage_temperature
+      - sensor.guest_room_motion_sensor_temperature
+      - sensor.kitchen_motion_sensor_temperature
+      - sensor.office_motion_sensor_temperature
+      - sensor.pws_temp_f
+
+automation:
+  # Have to wait for the Z-Wave netwrork to be ready before starting HK
+  - alias: 'Start HomeKit'
+    trigger:
+      - platform: event
+        event_type: zwave.network_ready
+      - platform: event
+        event_type: zwave.network_complete
+    action:
+      - service: homekit.start
