@@ -8,6 +8,20 @@ views:
   - icon: mdi:home-assistant
     title: Main
     cards:
+      # Master Bedroom
+      - type: picture-glance
+        title: Bedroom
+        image: https://www.home-assistant.io/images/default-social.png
+        entities:
+          - binary_sensor.bedroom_outside_door
+          - binary_sensor.bedroom_motion
+          - entity: light.bedroom_lights
+            icon: mdi:ceiling-light
+          - entity: switch.bathroom_fan
+            icon: mdi:fan
+          - entity: input_boolean.bedroom_tv
+            icon: mdi:television
+      # Office
       - type: picture-glance
         title: Office
         image: https://cdn.decoist.com/wp-content/uploads/2012/07/natural-walnut-home-office-furniture.jpg
@@ -15,7 +29,7 @@ views:
           - sensor.office_motion_sensor_temperature
           - binary_sensor.office_motion
           - entity: switch.office_light_switch
-            icon: mdi:lightbulb
+            icon: mdi:ceiling-light
           - entity: switch.desk_lamp_switch
             icon: mdi:desk-lamp
 

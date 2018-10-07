@@ -77,6 +77,11 @@ homekit:
       - sensor.office_motion_sensor_temperature
       - sensor.pws_temp_f
 
+      # TVs
+      - input_boolean.living_room_tv
+      - input_boolean.family_room_tv
+      - input_boolean.bedroom_tv
+
 automation:
   # Have to wait for the Z-Wave netwrork to be ready before starting HK
   - alias: 'Start HomeKit'
