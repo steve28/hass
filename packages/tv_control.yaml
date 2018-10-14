@@ -1,15 +1,4 @@
-input_boolean:
-  living_room_tv:
-    name: Living Room TV
-    icon: mdi:television
-  family_room_tv:
-    name: Family Room TV
-    icon: mdi:television
-  bedroom_tv:
-    name: Bedroom TV
-    icon: mdi:television
- 
- # Media Player Definitions
+# Media Player Definitions
 media_player:
   - platform: webostv
     host: 192.168.1.12
@@ -34,7 +23,7 @@ media_player:
 remote:
   - platform: harmony
     host: 192.168.1.15
-    name: Family Room
+    name: Living Room
     activity: AppleTV
   - platform: harmony
     host: 192.168.1.14
@@ -42,103 +31,43 @@ remote:
     activity: Watch Bedroom TV
 
 
-automation:
-  - alias: Living Room TV
-    hide_entity: true
-    trigger:
-      - platform: state
-        entity_id: input_boolean.living_room_tv
-    action:
-      - service_template: >
-          {% if states.input_boolean.living_room_tv.state == 'on'  %}
-            remote.turn_on
-          {% else %}
-            remote.turn_off
-          {% endif %}
-        entity_id: remote.family_room
-
-  - alias: Bedroom TV
-    hide_entity: true
-    trigger:
-      - platform: state
-        entity_id: input_boolean.bedroom_tv
-    action:
-      - service_template: >
-          {% if states.input_boolean.bedroom_tv.state == 'on'  %}
-            remote.turn_on
-          {% else %}
-            remote.turn_off
-          {% endif %}
-        entity_id: remote.bedroom_hub
-
-  - alias: Family Room TV Off
-    hide_entity: true
-    trigger:
-      - platform: state
-        entity_id: input_boolean.family_room_tv
-        to: 'off'
-    action:
-      - service: media_player.select_source
-        data:
-          entity_id: media_player.family_room_roku
-          source: 'Home'
-      - delay: '00:00:10'
-      - service: media_player.turn_off
-        entity_id: media_player.family_room_tv
-
-  - alias: Family Room TV On
-    hide_entity: true
-    trigger:
-      - platform: state
-        entity_id: input_boolean.family_room_tv
-        to: 'on'
-    action:
-      - service: media_player.turn_on
-        entity_id: media_player.family_room_tv
-
-
-  - alias: Set Input Boolean Living Room TV
-    hide_entity: true
-    trigger:
-      - platform: state
-        entity_id: remote.family_room
-    action:
-      - service_template: >
-          {% if states.remote.family_room.state == 'on'  %}
-            input_boolean.turn_on
-          {% else %}
-            input_boolean.turn_off
-          {% endif %}
-        entity_id: input_boolean.living_room_tv
-
-  - alias: Set Input Boolean Bedroom TV
-    hide_entity: true
-    trigger:
-      - platform: state
-        entity_id: remote.bedroom_hub
-    action:
-      - service_template: >
-          {% if states.remote.bedroom_hub.state == 'on'  %}
-            input_boolean.turn_on
-          {% else %}
-            input_boolean.turn_off
-          {% endif %}
-        entity_id: input_boolean.bedroom_tv
-
-  - alias: Set Input Boolean Family Room TV
-    hide_entity: true
-    trigger:
-      - platform: state
-        entity_id: media_player.family_room_tv
-        from: 'off'
-      - platform: state
-        entity_id: media_player.family_room_tv
-        to: 'off'
-    action:
-      - service_template: >
-          {% if states.media_player.family_room_tv.state == 'off'  %}
-            input_boolean.turn_off
-          {% else %}
-            input_boolean.turn_on
-          {% endif %}
-        entity_id: input_boolean.family_room_tv
+# Switches to represent the Televisions
+switch:
+  - platform: template
+    switches:
+      family_room_tv:
+        friendly_name: Family Room TV
+        value_template: "{{ not is_state('media_player.family_room_tv', 'off') }}"
+        turn_on:
+            service: media_player.turn_on
+            data:
+              entity_id: media_player.family_room_tv
+        turn_off:
+            service: media_player.turn_off
+            data:
+              entity_id: media_player.family_room_tv
+        icon_template: mdi:television
+      bedroom_tv:
+        friendly_name: Bedoom TV
+        value_template: "{{ is_state('remote.bedroom_hub', 'on') }}"
+        turn_on:
+            service: remote.turn_on
+            data:
+              entity_id: remote.bedroom_hub
+        turn_off:
+            service: remote.turn_off
+            data:
+              entity_id: remote.bedroom_hub
+        icon_template: mdi:television
+      living_room_tv:
+        friendly_name: Living Room TV
+        value_template: "{{ is_state('remote.living_room', 'on') }}"
+        turn_on:
+            service: remote.turn_on
+            data:
+              entity_id: remote.living_room
+        turn_off:
+            service: remote.turn_off
+            data:
+              entity_id: remote.living_room
+        icon_template: mdi:television

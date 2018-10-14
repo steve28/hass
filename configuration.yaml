@@ -233,12 +233,20 @@ ffmpeg:
 
 # Camera Support
 camera:
-#  - platform: ring
+  - platform: ring
   - platform: ffmpeg
     name: Front Door
     input: !secret front_door_cam_url
     extra_arguments: -vf "transpose=1"
 
+#custom_updater
+custom_updater:
+  show_installable: false
+  hide_sensor: true
+  track:
+    - components
+    - cards
+    - python_scripts
 
 # Set up Z-Wave
 zwave:

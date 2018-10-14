@@ -1,4 +1,14 @@
 title: Airie and Steve's House
+
+# resources
+resources:
+  - url: /local/tracker-card.js?v=0.1.5
+    type: js
+  - url: /local/folding-group-entity-row.js?v=98faea
+    type: js
+  - url: /local/monster-card.js?v=0.2.3
+    type: js
+
 # Exclude entites from "Unused entities" view
 excluded_entities:
 
@@ -8,30 +18,229 @@ views:
   - icon: mdi:home-assistant
     title: Main
     cards:
-      # Master Bedroom
-      - type: picture-glance
-        title: Bedroom
-        image: https://www.home-assistant.io/images/default-social.png
+      # Steve & Airie Presence
+      - type: entities
         entities:
-          - binary_sensor.bedroom_outside_door
-          - binary_sensor.bedroom_motion
-          - entity: light.bedroom_lights
-            icon: mdi:ceiling-light
-          - entity: switch.bathroom_fan
-            icon: mdi:fan
-          - entity: input_boolean.bedroom_tv
-            icon: mdi:television
+          - entity: device_tracker.airies_iphone_se
+            # secondary_info: last-changed
+          - entity: device_tracker.steves_iphone_x
+            # secondary_info: last-changed
+
+      # Garage
+      - type: glance
+        title: Garage
+        entities:
+          - entity: cover.left_garage_door
+            name: Left
+            tap_action: toggle
+          - entity: cover.right_garage_door
+            name: Right
+            tap_action: toggle
+          - entity: sensor.garage_temperature
+            name: Temp
+          - entity: sensor.garage_humidity
+            name: Humid
+            icon: mdi:water-percent
+          - entity: binary_sensor.garage_side_door
+            name: Side Door
+
       # Office
-      - type: picture-glance
+      - type: glance
         title: Office
-        image: https://cdn.decoist.com/wp-content/uploads/2012/07/natural-walnut-home-office-furniture.jpg
         entities:
-          - sensor.office_motion_sensor_temperature
-          - binary_sensor.office_motion
           - entity: switch.office_light_switch
             icon: mdi:ceiling-light
+            tap_action: toggle
+            name: Light
           - entity: switch.desk_lamp_switch
             icon: mdi:desk-lamp
+            tap_action: toggle
+          - entity: sensor.office_motion_sensor_temperature
+            name: Temp
+          - entity: binary_sensor.office_motion
+            name: Motion
+
+      # Master Bedroom
+      - type: glance
+        title: Bedroom
+        entities:
+          - entity: light.bedroom_lights
+            icon: mdi:ceiling-light
+            name: Light
+            tap_action: toggle
+          - entity: switch.bedroom_fan
+            icon: mdi:fan
+            tap_action: toggle
+            name: Fan
+          - entity: switch.bedroom_tv
+            icon: mdi:television
+            name: TV
+            tap_action: toggle
+          - entity: binary_sensor.bedroom_outside_door
+            name: French Door
+          - entity: binary_sensor.bedroom_motion
+            name: Motion
+          - entity: switch.bathroom_vanity
+            name: Bathroom
+            icon: mdi:toilet
+            tap_action: toggle
+          - entity: switch.bathroom_fan
+            name: Vent Fan
+            icon: mdi:shower-head
+            tap_action: toggle
+
+      
+      # Family Room
+      - type: glance
+        title: Family Room
+        entities:
+          - entity: light.family_room_lights
+            name: Light
+            icon: mdi:ceiling-light
+            tap_action: toggle
+          - entity: switch.family_room_tv
+            name: TV
+            tap_action: toggle
+          - entity: switch.family_room_fan
+            name: Fan
+            tap_action: toggle
+            icon: mdi:fan
+          - entity: binary_sensor.family_room_motion
+            name: Motion
+          - entity: binary_sensor.back_door
+
+      # Living Room
+      - type: glance
+        title: Living Room
+        entities:
+          - entity: light.living_room_lights
+            name: Light
+            icon: mdi:ceiling-light
+            tap_action: toggle
+          - entity: switch.living_room_tv
+            name: TV
+            tap_action: toggle
+          - entity: binary_sensor.living_room_motion
+            name: Motion
+          - entity: switch.front_door_lights
+            name: Door Lights
+            tap_action: toggle
+            icon: mdi:wall-sconce
+          - entity: binary_sensor.front_door
+
+      # Kitchen
+      - type: vertical-stack
+        cards:
+        - type: glance
+          title: Kitchen
+          entities:
+            - entity: switch.kitchen_lights
+              name: Light
+              icon: mdi:ceiling-light
+              tap_action: toggle
+            - entity: binary_sensor.kitchen_motion
+              name: Motion
+            - entity: sensor.kitchen_motion_sensor_temperature
+              name: Temp
+        - type: glance
+          title: Kitchen Entry
+          entities:
+            - entity: binary_sensor.kitchen_door
+              name: Door
+            - entity: switch.kitchen_door_inside_light
+              name: Inside
+              icon: mdi:lightbulb
+              tap_action: toggle
+            - entity: switch.kitchen_door_outside_light
+              name: Outside
+              icon: mdi:wall-sconce
+              tap_action: toggle
+    
+
+      # Gina's Room
+      - type: glance
+        title: "Gina's Room"
+        entities:
+          - entity: switch.ginas_room_light
+            name: Light
+            icon: mdi:ceiling-light
+            tap_action: toggle
+          - entity: switch.ginas_bathroom_light
+            name: Bathroom
+            icon: mdi:toilet
+            tap_action: toggle
+          - entity: binary_sensor.guest_motion
+            name: Motion
+          - entity: sensor.guest_room_motion_sensor_temperature
+            name: Temp
+
+      # Dining Room
+      - type: glance
+        title: Dining Room
+        entities:
+          - entity: switch.dining_room_light
+            name: Light
+            icon: mdi:ceiling-light
+            tap_action: toggle
+
+      # Outside Lights
+      - type: glance
+        title: Outside Lights
+        entities:
+          - entity: switch.patio_lights
+            tap_action: toggle
+            name: Patio
+          - entity: switch.back_door_light
+            name: Back Door
+            icon: mdi:ceiling-light
+            tap_action: toggle
+          - entity: switch.garage_outside_light
+            tap_action: toggle
+            icon: mdi:wall-sconce
+            name: Garage
+          - entity: switch.backyard_flood_lights
+            icon: mdi:spotlight-beam
+            tap_action: toggle
+            name: Flood
+          - entity: switch.landscape_lighting
+            icon: mdi:tree
+            name: Landscape
+            tap_action: toggle
+
+      # Laundry Area:
+      - type: glance
+        title: Laundry Area
+        entities:
+          - entity: switch.laundry_light
+            name: Laundry
+            icon: mdi:washing-machine
+            tap_action: toggle
+          - entity: switch.guest_bathroom_light_switch
+            name: Bathroom
+            icon: mdi:toilet
+            tap_action: toggle
+          - entity: switch.utility_room_light
+            icon: mdi:ceiling-light
+            name: Utility
+            tap_action: toggle
+      # Attic
+      - type: glance
+        title: Attic
+        entities:
+          - entity: switch.attic_stairs_light
+            name: Stairs
+            icon: mdi:stairs
+            tap_action: toggle
+          - entity: switch.upstairs_room_light
+            name: Upstairs
+            icon: mdi:ceiling-light
+            tap_action: toggle
+          - entity: light.attic_light
+            name: Attic
+            icon: mdi:lightbulb
+            tap_action: toggle
+          - entity: binary_sensor.attic_door
+            name: Door
 
   # Tab for all things climate control
   - title: Climate
@@ -66,3 +275,91 @@ views:
         title: 'Apartment Conditions'
         entities:
           - sensor.apartment_temperature
+
+  - title: Security
+    icon: mdi:security-home
+    id: security
+    cards:
+      - type: entities
+        title: Motion Detectors
+        entities:
+          - binary_sensor.family_room_motion
+          - binary_sensor.living_room_motion
+          - binary_sensor.kitchen_motion
+          - binary_sensor.office_motion
+          - binary_sensor.bedroom_motion
+          - binary_sensor.guest_motion
+          - binary_sensor.apartment_motion
+
+      - type: entities
+        title: Doors
+        entities:
+          - binary_sensor.front_door
+          - binary_sensor.back_door
+          - binary_sensor.kitchen_door
+          - binary_sensor.bedroom_outside_door
+          - binary_sensor.apartment_door
+      
+      - type: entities
+        title: Server and Network
+        show_header_toggle: false
+        entities:
+          - sensor.server_cert_expires
+          - sensor.router_cert_expires
+          - sensor.homeassistant_v2db
+          - entity: switch.raptor
+            icon: mdi:desktop-mac
+
+      - type: entities
+        title: Smoke & CO2
+        entities:
+          - sensor.laundry_smoke_co_alarm
+          - sensor.laundry_laundry_smoke_co_alarm_battery
+          - sensor.bedroom_smoke_alarm
+          - sensor.bedroom_smoke_alarm_battery
+
+      - type: entities
+        title: UPS Status
+        entities:
+          - sensor.ups_status
+          - sensor.ups_battery
+          - sensor.ups_input_voltage
+          - sensor.ups_load
+          - sensor.ups_time_left
+          - sensor.ups_time_on_battery
+          - sensor.ups_total_time_on_battery
+          - sensor.ups_transfer_count
+  
+  - title: Cameras
+    id: cameras
+    icon: mdi:cctv
+    cards:
+      - type: picture-entity
+        title: Front Door
+        entity: camera.front_door
+      - type: picture-entity
+        title: Front Door Ring
+        entity: camera.front_door_2
+
+  - title: Automations
+    id: automations
+    icon: mdi:home-automation
+    cards:
+      - type: custom:tracker-card
+        title: 
+        trackers:
+          - sensor.custom_card_tracker
+          - sensor.custom_component_tracker
+      - type: entities
+        title: Automations
+        entities:
+          - automation.apartment_alarms
+          - automation.away_actions
+          - automation.dog_lights
+          - automation.gentle_wake
+          - automation.garage_welcome_lights
+          - automation.landscape_lights
+          - automation.fence_lights
+          - type: divider
+          - entity: group.all_automations
+            type: custom:folding-group-entity-row

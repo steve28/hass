@@ -14,9 +14,9 @@ filter:
     - switch.patio_lights
     - switch.front_door_lights
     - switch.utility_room_light
-    - input_boolean.living_room_tv
-    - input_boolean.bedroom_tv
-    - input_boolean.family_room_tv
+    - switch.living_room_tv
+    - switch.bedroom_tv
+    - switch.family_room_tv
     - switch.family_room_fan
     - switch.bedroom_fan
     - switch.dining_room_light
@@ -32,7 +32,7 @@ entity_config:
   light.family_room_lights:
     name: Family Room Lights
     display_categories: LIGHT
-  input_boolean.family_room_tv:
+  switch.family_room_tv:
     name: Family Room TV
     display_categories: TV
   light.living_room_lights:
@@ -68,10 +68,10 @@ entity_config:
   switch.utility_room_light:
     name: Utility Room Lights
     display_categories: LIGHT
-  input_boolean.living_room_tv:
+  switch.living_room_tv:
     name: Living Room TV
     display_categories: TV
-  input_boolean.bedroom_tv:
+  switch.bedroom_tv:
     name: Bedroom TV
     display_categories: TV
   switch.family_room_fan:

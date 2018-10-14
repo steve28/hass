@@ -78,9 +78,9 @@ homekit:
       - sensor.pws_temp_f
 
       # TVs
-      - input_boolean.living_room_tv
-      - input_boolean.family_room_tv
-      - input_boolean.bedroom_tv
+      - switch.living_room_tv
+      - switch.family_room_tv
+      - switch.bedroom_tv
 
 automation:
   # Have to wait for the Z-Wave netwrork to be ready before starting HK
