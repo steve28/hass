@@ -7,6 +7,35 @@ input_boolean:
     name: Right Garage Auto-Open
     icon: mdi:home-automation
 
+# Make some switches to use in the UI
+switch:
+  - platform: template
+    switches:
+      left_garage_auto_open:
+        friendly_name: Left Garage Auto Open
+        value_template: "{{ is_state('input_boolean.left_garage_auto_open', 'on') }}"
+        turn_on:
+            service: input_boolean.turn_on
+            data:
+              entity_id: input_boolean.left_garage_auto_open
+        turn_off:
+            service: input_boolean.turn_off
+            data:
+              entity_id: input_boolean.left_garage_auto_open
+        icon_template: mdi:auto-upload
+      right_garage_auto_open:
+        friendly_name: Right Garage Auto Open
+        value_template: "{{ is_state('input_boolean.right_garage_auto_open', 'on') }}"
+        turn_on:
+            service: input_boolean.turn_on
+            data:
+              entity_id: input_boolean.right_garage_auto_open
+        turn_off:
+            service: input_boolean.turn_off
+            data:
+              entity_id: input_boolean.right_garage_auto_open
+        icon_template: mdi:auto-upload
+
 
 # Set up the garage doors in MQTT
 cover:

@@ -43,6 +43,12 @@ views:
             icon: mdi:water-percent
           - entity: binary_sensor.garage_side_door
             name: Side Door
+          - entity: switch.left_garage_auto_open
+            name: Auto
+            tap_action: toggle
+          - entity: switch.right_garage_auto_open
+            name: Auto
+            tap_action: toggle
 
       # Office
       - type: glance
