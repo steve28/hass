@@ -82,8 +82,8 @@ nest:
   client_secret: !secret nest_client_secret
 
 # Cloud
-cloud:
-  alexa: !include alexa_config.yaml
+# cloud:
+#  alexa: !include alexa_config.yaml
 
 # track phones
 device_tracker:

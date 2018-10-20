@@ -27,6 +27,6 @@
     switch.upstairs_room_light: off
     switch.utility_room_light: off
     light.attic_light: off
-    remote.family_room: off
-    input_boolean.family_room_tv: off
-    remote.bedroom_hub: off
+    switch.living_room_tv: off
+    switch.family_room_tv: off
+    switch.bedroom_tv: off

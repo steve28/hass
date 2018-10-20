@@ -22,9 +22,32 @@ views:
       - type: entities
         entities:
           - entity: device_tracker.airies_iphone_se
-            # secondary_info: last-changed
+            #secondary_info: last-changed
           - entity: device_tracker.steves_iphone_x
-            # secondary_info: last-changed
+            #secondary_info: last-changed
+      
+      # Scenes
+      - type: glance
+        # title: Scenes
+        show_state: false
+        entities:
+          - entity: scene.bedtime
+            name: Bedtime
+            tap_action: call-service
+            service: scene.turn_on
+          - entity: scene.tv_time
+            name: TV Time
+            tap_action: call-service
+            service: scene.turn_on
+          - entity: scene.gina_bedtime
+            name: Gina Bedtime
+            tap_action: call-service
+            service: scene.turn_on
+          - entity: scene.away
+            name: Away
+            tap_action: call-service
+            service: scene.turn_on
+          
 
       # Garage
       - type: glance
@@ -286,6 +309,9 @@ views:
     icon: mdi:security-home
     id: security
     cards:
+      - type: entities
+        entities:
+          - input_boolean.vacation_mode
       - type: entities
         title: Motion Detectors
         entities:

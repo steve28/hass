@@ -82,6 +82,22 @@ homekit:
       - switch.family_room_tv
       - switch.bedroom_tv
 
+      # Scenes
+      - input_boolean.bedtime
+      - input_boolean.gina_bedtime
+      - input_boolean.tv_time
+
+
+# Input Booleans to expose the scenes in homekit (name must match scene name)
+input_boolean:
+  bedtime:
+    name: Bedtime Scene
+  gina_bedtime:
+    name: Gina Bedtime Scene
+  tv_time:
+    name: TV Time Scene
+  
+
 automation:
   # Have to wait for the Z-Wave netwrork to be ready before starting HK
   - alias: 'Start HomeKit'
@@ -92,3 +108,24 @@ automation:
         event_type: zwave.network_complete
     action:
       - service: homekit.start
+
+  # Activates the Scene with the same name as the input boolean
+  - alias: 'Scenes for Homekit'
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.bedtime
+          - input_boolean.gina_bedtime
+          - input_boolean.tv_time
+        to: 'on'
+    action:
+      - service: logbook.log
+        data_template:
+          name: "Activating Scene from Homekit: "
+          message: "{{ 'scene.' + trigger.entity_id.split('.')[1] }}"
+      - service: scene.turn_on
+        data_template:
+          entity_id: "{{ 'scene.' + trigger.entity_id.split('.')[1] }}"
+      - service: input_boolean.turn_off
+        data_template:
+          entity_id: "{{trigger.entity_id}}"
